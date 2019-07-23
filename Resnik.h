@@ -15,7 +15,8 @@
 #include "DS3231_Logger.h"
 // #include "MCP3421.h"
 #include <Adafruit_ADS1015.h> //Include ADC interface
-#include <Adafruit_MCP4725.h> //Include DAC interface 
+// #include <Adafruit_MCP4725.h> //Include DAC interface 
+#include <MCP4725.h>  //Include custom DAC library
 #include <MCP23018.h>
 #include "SdFat.h"
 #include "BME.h"
@@ -84,7 +85,8 @@ class Resnik
 		void LED_Color(unsigned long Val);
 		void Run(String (*f)(void), unsigned long LogInterval);
 		float GetVoltage(uint8_t Pin); //Read ADC
-		void SetVoltage(uint16_t Val); //Set DAC 
+		void SetVoltageRaw(uint16_t Val); //Set DAC 
+		uint8_t SetVoltage(float Val); //Set DAC to nearest interpolated value
 		void AddDataPoint(String (*Update)(void));
 		String GetOnBoardVals();
 		void InitLogFile();
@@ -181,7 +183,7 @@ class Resnik
 		DS3231_Logger RTC;
 		// MCP3421 adc;
 		BME EnviroSense; 
-		Adafruit_MCP4725 DAC; //Instatiate DAC
+		MCP4725 DAC; //Instatiate DAC
 		Adafruit_ADS1115 ADC_OB; //Initialize on board (power moitoring) ADC
 		Adafruit_ADS1115 ADC_Ext;  //Initialize external (sensor) ADC
 		MCP23018 IO;

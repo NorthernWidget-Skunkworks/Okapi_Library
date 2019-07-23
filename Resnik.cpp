@@ -103,6 +103,7 @@ int Resnik::begin(uint8_t *Vals, uint8_t NumVals, String Header_)
 	ADC_OB.begin();
 	ADC_Ext.begin();
 	DAC.begin(0x62);
+	DAC.SetRef(UNBUFFEREF_VREF); //Set buffer configuration //FIX! Make variable if need to set greater than 4.096v? 
 	// adc.Begin(I2C_ADR_OB[1]); //Initalize external ADC
 	// adc.SetResolution(18);
 	EnviroSense.begin(0x77); //Initalize onboard temp/pressure/RH sensor (BME280)
@@ -627,9 +628,10 @@ void Resnik::Blink()
   }
 }
 
-void Resnik::SetVoltage(uint16_t Val) 
+void Resnik::SetVoltageRaw(uint16_t Val) 
 {
-	DAC.setVoltage(Val, false); //Do not allow to set value to memory 
+	DAC.SetGain(GAIN_1X); //Set 2x gain 
+	DAC.setVoltage(Val); //Do not allow to set value to memory 
 }
 
 uint8_t Resnik::SetVoltage(float Val)  //Interpolated nearest value from float 
@@ -638,9 +640,13 @@ uint8_t Resnik::SetVoltage(float Val)  //Interpolated nearest value from float
 	if(Val > 4.096 || Val < 0.0) return 2; //Return out of range error
 	else if(Val > 2.048) {
 		BitValue = floor(Val*1000.0); //Set for 2x single multiple
+		DAC.SetGain(GAIN_2X); //Set 2x gain 
+		DAC.setVoltage(BitValue); 
 	}
 	else {
 		BitValue = floor(Val*2000.0); //Set for single multiple
+		DAC.SetGain(GAIN_1X); //Set unity gain
+		DAC.setVoltage(BitValue);
 	}
 }
 

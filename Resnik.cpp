@@ -289,8 +289,8 @@ void Resnik::SDTest()
 
 	pinMode(SD_CD, INPUT);
 	bool CardPressent = digitalRead(SD_CD);
-	IO.PinMode(6, OUTPUT, A); //DEBUG!
-	IO.DigitalWrite(6, LOW, A); //DEBUG!
+	// IO.PinMode(6, OUTPUT, A); //DEBUG!
+	// IO.DigitalWrite(6, LOW, A); //DEBUG!
 	Serial.print("SD: ");
 	delay(5); //DEBUG!
 	if(CardPressent) {
@@ -346,8 +346,8 @@ void Resnik::SDTest()
 
 		keep_SPCR=SPCR; 
 	}
-  	IO.PinMode(6, OUTPUT, A); //DEBUG!
-	IO.DigitalWrite(6, HIGH, A); //DEBUG!
+  	// IO.PinMode(6, OUTPUT, A); //DEBUG!
+	// IO.DigitalWrite(6, HIGH, A); //DEBUG!
 	if(SDError && !CardPressent) Serial.println("FAIL");  //If card is inserted and still does not connect propperly, throw error
   	else if(!SDError && !CardPressent) Serial.println("PASS");  //If card is inserted AND connectects propely return success 
 }
@@ -436,8 +436,8 @@ void Resnik::EnviroStats()
 
 void Resnik::InitLogFile()
 {
-	IO.PinMode(6, OUTPUT, A); //DEBUG!
-	IO.DigitalWrite(6, LOW, A); //DEBUG!
+	// IO.PinMode(6, OUTPUT, A); //DEBUG!
+	// IO.DigitalWrite(6, LOW, A); //DEBUG!
 	// SD.chdir("/"); //Return to root to define starting state 
 	SD.chdir("/NW");  //Move into northern widget folder from root
 	SD.chdir(SN);  //Move into specific numbered sub folder
@@ -460,8 +460,8 @@ void Resnik::InitLogFile()
     // if(Model < Model_2v0) LogStr("Time [UTC], Temp OB [C], Temp RTC [C], Bat [V], " + Header); //Log concatonated header (for old loggers)
     LogStr("Time [UTC], PresOB [mBar], RH_OB [%], TempOB [C], Temp RTC [C], VBeta [mV], VPrime [mV], ISolar [mA], IBeta [mA]," + Header); //Log concatonated header (for new loggers)
     // LogStr("Time [UTC], PresOB [mBar], RH_OB [%], TempOB [C], Temp RTC [C], Bat [V], " + Header); //Log concatonated header (for new loggers)
-    IO.PinMode(6, OUTPUT, A); //DEBUG!
-	IO.DigitalWrite(6, HIGH, A); //DEBUG!
+    // IO.PinMode(6, OUTPUT, A); //DEBUG!
+	// IO.DigitalWrite(6, HIGH, A); //DEBUG!
 }
 
 int Resnik::LogStr(String Val) 
@@ -469,8 +469,8 @@ int Resnik::LogStr(String Val)
 	Serial.println(Val); //Echo to serial monitor 
 	// SD.begin(SD_CS); //DEBUG!
 	// SD.chdir("/"); //Return to root to define starting state 
-	IO.PinMode(6, OUTPUT, A); //DEBUG!
-	IO.DigitalWrite(6, LOW, A); //DEBUG!
+	// IO.PinMode(6, OUTPUT, A); //DEBUG!
+	// IO.DigitalWrite(6, LOW, A); //DEBUG!
 	SD.chdir("/NW");  //Move into northern widget folder from root
 	SD.chdir(SN);  //Move into specific numbered sub folder
 	SD.chdir("Logs"); //Move into the logs sub-folder
@@ -488,8 +488,8 @@ int Resnik::LogStr(String Val)
 
 	DataFile.close();
 
-	IO.PinMode(6, OUTPUT, A); //DEBUG!
-	IO.DigitalWrite(6, HIGH, A); //DEBUG!
+	// IO.PinMode(6, OUTPUT, A); //DEBUG!
+	// IO.DigitalWrite(6, HIGH, A); //DEBUG!
 }
 
 void Resnik::LED_Color(unsigned long Val) //Set color of onboard led
@@ -580,18 +580,23 @@ String Resnik::GetOnBoardVals()
 
 	// Temp[3] = Clock.getTemperature(); //Get tempreture from RTC //FIX!
 	PowerAuto(); //Turn on power
-	// pinMode(ADC_Sense_SW, OUTPUT); //DEBUG!!!!!!!!!!!!!!!!!!
-	// digitalWrite(ADC_Sense_SW, HIGH); //Enable reading of battery lines
-	float VBeta = 0;
-	float ISolar = 0;  //FIX! Adjust after changing gain of amp??
-	float VPrime = 0;
-	float IBeta = 0;
+	pinMode(ADC_Sense_SW, OUTPUT); //DEBUG!!!!!!!!!!!!!!!!!!
+	digitalWrite(ADC_Sense_SW, HIGH); //Enable reading of battery lines  //FIX! Shorten to reduce current draw!
+	// float VBeta = 0;
+	// float ISolar = 0;  //FIX! Adjust after changing gain of amp??
+	// float VPrime = 0;
+	// float IBeta = 0;
 
-	// float VBeta = ADC_OB.readADC_SingleEnded(0)*0.1875;
-	// float ISolar = ADC_OB.readADC_SingleEnded(1)*1.875;  //FIX! Adjust after changing gain of amp??
-	// float VPrime = ADC_OB.readADC_SingleEnded(2)*0.1875;
-	// float IBeta = (ADC_OB.readADC_SingleEnded(3)*0.1875 - 2500)*1.5;
-	// digitalWrite(ADC_Sense_SW, LOW); //Enable reading of battery lines
+	float VBeta = ADC_OB.readADC_SingleEnded(0);
+	float VPrime = ADC_OB.readADC_SingleEnded(2);
+	digitalWrite(ADC_Sense_SW, LOW); //Enable reading of battery lines
+	VBeta = VBeta*0.1875;
+	VPrime = VPrime*0.1875;
+
+
+	float ISolar = ADC_OB.readADC_SingleEnded(1)*0.01875;  //FIX! Adjust after changing gain of amp??
+	float IBeta = (ADC_OB.readADC_SingleEnded(3)*0.1875 - 2500)/1.5;
+
 	float RTCTemp = RTC.GetTemp();  //Get Temp from RTC
 	GetTime(); //FIX!
 	// if(Model< Model_2v0) return LogTimeDate + "," + String(RTCTemp) + "," + String(VBeta) + ",";
@@ -620,6 +625,23 @@ void Resnik::Blink()
     digitalWrite(BlueLED, HIGH);
     delay(500);
   }
+}
+
+void Resnik::SetVoltage(uint16_t Val) 
+{
+	DAC.setVoltage(Val, false); //Do not allow to set value to memory 
+}
+
+uint8_t Resnik::SetVoltage(float Val)  //Interpolated nearest value from float 
+{
+	uint16_t BitValue = 0; //used to calculate the bit value to set the DAC to 
+	if(Val > 4.096 || Val < 0.0) return 2; //Return out of range error
+	else if(Val > 2.048) {
+		BitValue = floor(Val*1000.0); //Set for 2x single multiple
+	}
+	else {
+		BitValue = floor(Val*2000.0); //Set for single multiple
+	}
 }
 
 float Resnik::GetVoltage(uint8_t Pin)  //Get voltage external ADC from specified pin
@@ -694,7 +716,7 @@ void Resnik::AddDataPoint(String (*Update)(void)) //Reads new data and writes da
 	I2CState(EXTERNAL);
 	Data = (*Update)(); //Run external update function
 	// Serial.println("Request OB Vals"); //DEBUG!
-	I2CState(INTERNAL);
+	I2CState(INTERNAL);  //DEBUG!
 	Data = GetOnBoardVals() + Data; //Append on board readings
 	// Serial.println("Got OB Vals");  //DEBUG!
 	LogStr(Data);
@@ -720,8 +742,12 @@ uint8_t Resnik::PowerAuto()
 	uint8_t DDR_Prev = DDRC; //Read port state to be able to return
 	DDRC = DDR_Prev | 0x0C; //Set C1 and C0 as output
 	DDRC = DDR_Prev & 0x7F; //Make PC7 (EN_BUS_PRIME) and input
-	PORTC = PORTC & 0xF3; //Clear C0 and C1
-	PORTC = PORTC | 0x08; //Set C1 HIGH, C0 LOW (Vbeta)
+	uint8_t PortState = PORTC; //Do manipulation locally, then push to port 
+	PortState = PortState & 0xF3; //Clear C0 and C1 
+	PortState = PortState | 0x08; //Set C1 HIGH, C0 LOW (Vbeta)
+	// PORTC = PORTC & 0xF3; //Clear C0 and C1
+	// PORTC = PORTC | 0x08; //Set C1 HIGH, C0 LOW (Vbeta)
+	PORTC = PortState; //Write values to port 
 	// digitalWrite(C1, HIGH); //Set for Vbeta initally 
 	// digitalWrite(C0, LOW); 
 	delay(2); //Cx rising edge to EN_BUS_PRIME rising (90%, ~3.0v) measured at 1.4ms, added ~50% margin of safety for robustness
@@ -750,6 +776,10 @@ void Resnik::PowerAux(uint8_t State)  //UPDATE! 0 or 3 = OFF, 1 = V_Prime, 2 = V
 void Resnik::I2CState(bool State) 
 {
 	digitalWrite(I2C_SW, State);
+	// uint8_t PortVal = PORTC; //Read status  //FIX??
+	// PortVal = PortVal & 0xDF; //Clear C5
+	// PortVal = PortVal | (State << 5); //Set C5 with appropriate value 
+	// PORTC = PortVal; //Set port
 }
 // void Resnik::PowerOB(bool State)
 // {
@@ -852,6 +882,8 @@ void Resnik::turnOffSDcard()
 	// DDRB &= ~((1<<DDB5) | (1<<DDB7) | (1<<DDB6) | (1<<DDB4));   // set All SPI pins to INPUT
 	// pinMode(SD_CD, INPUT);
 	// DDRC &= ~((1<<DDC0) | (1<<DDC1));
+	pinMode(31, OUTPUT); //DEBUG!
+	digitalWrite(31, LOW); //DEBUG!
 	pinMode(16, INPUT);
 	pinMode(17, INPUT);
 	// digitalWrite(8, LOW);
@@ -870,6 +902,7 @@ void Resnik::turnOffSDcard()
 	// digitalWrite(BatSwitch, LOW); //Turn off battery connection to sense divider 
 	// PowerAux(OFF); //turn off external 3v3 rail
 	// PowerOB(OFF); //Turn off battery connection to sense divider 
+	digitalWrite(31, HIGH); //DEBUG! 
 	PowerAux(OFF); //Turn off power
 	// digitalWrite(BatRailCtrl, HIGH);
 	delay(1);

@@ -86,6 +86,7 @@ class Resnik
 		float GetVoltage(uint8_t Pin); //Read ADC
 		void SetVoltage(uint16_t Val); //Set DAC 
 		void AddDataPoint(String (*Update)(void));
+		String GetOnBoardVals();
 		void InitLogFile();
 
 		// void GetEnviro(); //Get/update enviromental values from BME280 and RTC
@@ -169,7 +170,6 @@ class Resnik
 		void turnOffSDcard();
 		void turnOnSDcard();
 		void GetTime();
-		String GetOnBoardVals();
 		void I2CTest();
 		void SDTest();
 		void ClockTest();

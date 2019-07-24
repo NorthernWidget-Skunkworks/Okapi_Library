@@ -85,7 +85,7 @@ class Resnik
 		void LED_Color(unsigned long Val);
 		void Run(String (*f)(void), unsigned long LogInterval);
 		float GetVoltage(uint8_t Pin); //Read ADC
-		void SetVoltageRaw(uint16_t Val); //Set DAC 
+		uint8_t SetVoltageRaw(uint16_t Val, bool Gain = GAIN_1X); //Set DAC with raw input, default to 1x gain
 		uint8_t SetVoltage(float Val); //Set DAC to nearest interpolated value
 		void AddDataPoint(String (*Update)(void));
 		String GetOnBoardVals();

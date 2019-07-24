@@ -103,7 +103,7 @@ int Resnik::begin(uint8_t *Vals, uint8_t NumVals, String Header_)
 	ADC_OB.begin();
 	ADC_Ext.begin();
 	DAC.begin(0x62);
-	DAC.SetRef(UNBUFFEREF_VREF); //Set buffer configuration //FIX! Make variable if need to set greater than 4.096v? 
+	DAC.SetRef(BUFFERED_VREF); //Set buffer configuration //FIX! Make variable if need to set greater than 4.096v? 
 	// adc.Begin(I2C_ADR_OB[1]); //Initalize external ADC
 	// adc.SetResolution(18);
 	EnviroSense.begin(0x77); //Initalize onboard temp/pressure/RH sensor (BME280)
@@ -628,25 +628,40 @@ void Resnik::Blink()
   }
 }
 
-void Resnik::SetVoltageRaw(uint16_t Val) 
+uint8_t Resnik::SetVoltageRaw(uint16_t Val, bool Gain) 
 {
-	DAC.SetGain(GAIN_1X); //Set 2x gain 
-	DAC.setVoltage(Val); //Do not allow to set value to memory 
+	if(Val > 4095 || Val < 0) {
+		Serial.println("BANG!");
+		DAC.Sleep(ON); //Make device output open to avoid issues //FIX??
+		return 5; //Return out of range error
+	}
+	else {
+	// DAC.Sleep(OFF); //Make device is set to output
+	DAC.SetGain(Gain); //Set appropriate gain (default to 1x)
+	return DAC.setVoltage(Val); //Do not allow to set value to memory, return I2C status
+	}
 }
 
 uint8_t Resnik::SetVoltage(float Val)  //Interpolated nearest value from float 
 {
 	uint16_t BitValue = 0; //used to calculate the bit value to set the DAC to 
-	if(Val > 4.096 || Val < 0.0) return 2; //Return out of range error
-	else if(Val > 2.048) {
-		BitValue = floor(Val*1000.0); //Set for 2x single multiple
+	if(Val > 5.0 || Val < 0.0) {
+		DAC.Sleep(ON); //Make device output open to avoid issues //FIX??
+		return 5; //Return out of range error
+	}
+	else if(Val >= 2.5) {
+		DAC.Sleep(OFF); //Make device is set to output
+		BitValue = floor(Val*819.2); //Set for 2x single multiple
+		if(BitValue > 4095) BitValue = 4095; //FIX?? Prevent wrap around error due to float rounding
 		DAC.SetGain(GAIN_2X); //Set 2x gain 
-		DAC.setVoltage(BitValue); 
+		return DAC.setVoltage(BitValue); //Return I2C status
 	}
 	else {
-		BitValue = floor(Val*2000.0); //Set for single multiple
+		DAC.Sleep(OFF); //Make device is set to output
+		BitValue = floor(Val*1638.4); //Set for single multiple
+		if(BitValue > 4095) BitValue = 4095; //FIX?? Prevent wrap around error due to float rounding 
 		DAC.SetGain(GAIN_1X); //Set unity gain
-		DAC.setVoltage(BitValue);
+		return DAC.setVoltage(BitValue); //Return I2C status
 	}
 }
 

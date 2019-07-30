@@ -83,6 +83,7 @@ int Resnik::begin(uint8_t *Vals, uint8_t NumVals, String Header_)
 	pinMode(I2C_SW, OUTPUT);
 
 	PowerAuto(); //Get main power running
+	IO.PinMode(FeatherEN, OUTPUT, B); //Setup IO to control FeatherEN
 
 	pinMode(BuiltInLED, OUTPUT);
 	digitalWrite(BuiltInLED, LOW); //Turn built in LED on
@@ -182,6 +183,7 @@ int Resnik::begin(uint8_t *Vals, uint8_t NumVals, String Header_)
 	SDTest();
 	// BatTest();
 	EnviroStats();  //Only print out enviromental variables if BME is on board 
+	//FIX! Add Feather test??
 	
 
   	
@@ -486,6 +488,37 @@ int Resnik::LogStr(String Val)
 	else {
 	   // return -1;
 	}
+	SDIndex = DataFile.position();
+	DataFile.close();
+	// IO.PinMode(6, OUTPUT, A); //DEBUG!
+	// IO.DigitalWrite(6, HIGH, A); //DEBUG!
+}
+
+String Resnik::ReadStr(uint8_t LineIndex, uint32_t DataIndex)  //Pass index (working backwards from most recent log) 
+{
+	// Serial.println(Val); //Echo to serial monitor 
+	// SD.begin(SD_CS); //DEBUG!
+	// SD.chdir("/"); //Return to root to define starting state 
+	// IO.PinMode(6, OUTPUT, A); //DEBUG!
+	// IO.DigitalWrite(6, LOW, A); //DEBUG!
+	SD.chdir("/NW");  //Move into northern widget folder from root
+	SD.chdir(SN);  //Move into specific numbered sub folder
+	SD.chdir("Logs"); //Move into the logs sub-folder
+	File DataFile = SD.open(FileNameC, FILE_READ);
+
+	// if the file is available, write to it:
+	if (DataFile) {
+		DataFile.seek(DataIndex); //Run to starting location
+		for(int i = 0; i < LineIndex; i++) {
+			DataFile.readStringUntil('\n'); //Read out previous lines
+		}
+		return DataFile.readStringUntil('\n'); //Return desired line
+	   // return 0;
+	}
+	// if the file isn't open, pop up an error:
+	else {
+	   // return -1;
+	}
 
 	DataFile.close();
 
@@ -675,6 +708,7 @@ void Resnik::Run(String (*Update)(void), unsigned long LogInterval) //Pass in fu
 {
 	// Serial.println("BANG!"); //DEBUG!
 	// Serial.println(millis()); //DEBUG!
+	// IO.digitalWrite(FeatherEN, HIGH, B); //Turn on Feather power //FIX! Needed??
 	if(NewLog) {
 		// Serial.println("Log Started!"); //DEBUG
 		// LogEvent = true;
@@ -690,9 +724,22 @@ void Resnik::Run(String (*Update)(void), unsigned long LogInterval) //Pass in fu
 	}
 
 	if(LogEvent) {
+		//TEST WHICH TIMER TRIGGERED LOG
 		// Serial.println("Log!"); //DEBUG!
 		// RTC.SetAlarm(LogInterval);  //Set/reset alarm //DEBUG!
 		AddDataPoint(Update); //Write values to SD
+		if(LogCount >= LogCountPush) {  //REPLACE WITH TIMER TEST!
+			Serial.println("START BACKHAUL"); //DEBUG!
+			for(int i = 0; i < LogCountPush; i++) { //Print out SD values 
+				Serial.println(ReadStr(i, LastSDIndex));
+			}
+			LastSDIndex = SDIndex; //copy new value over
+			LogCount = 0; 
+			Serial.println("END BACKHAUL"); //DEBUG!
+			pinMode(FeatherGPIO, INPUT);
+			unsigned long Timeout = millis();
+			while(digitalRead(FeatherGPIO) && (millis() - Timeout) < 60000); //Wait for completerion or for timeout (60 seconds)
+		}
 		LogEvent = false; //Clear log flag
 		// Serial.println("BANG!"); //DEBUG!
 		RTC.SetAlarm(LogInterval);  //Set/reset alarm
@@ -741,6 +788,7 @@ void Resnik::AddDataPoint(String (*Update)(void)) //Reads new data and writes da
 	Data = GetOnBoardVals() + Data; //Append on board readings
 	// Serial.println("Got OB Vals");  //DEBUG!
 	LogStr(Data);
+	LogCount++; //FIX??
 	// Serial.println("Loged Data"); //DEBUG!
 }
 //ISRs

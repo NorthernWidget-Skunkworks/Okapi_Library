@@ -82,6 +82,7 @@ class Resnik
 		int begin(String Header_ = "");
 
 		int LogStr(String Val);
+		String ReadStr(uint8_t LineIndex, uint32_t DataIndex);
 		void LED_Color(unsigned long Val);
 		void Run(String (*f)(void), unsigned long LogInterval);
 		float GetVoltage(uint8_t Pin); //Read ADC
@@ -137,6 +138,7 @@ class Resnik
 		uint8_t Sw_Bus_Sec = 22;
 
 		uint8_t PG_3v3_Core = 1; //IO Exp PORT B
+		uint8_t FeatherEN = 7; //IO Exp PORT B
 
 		uint8_t D0 = 12;  
 		uint8_t D1 = 25;
@@ -151,6 +153,8 @@ class Resnik
 		uint8_t CS_Ext = 24;
 
 		uint8_t GlobalInt = 28;
+
+
 
 
 		const String LibVersion = "0.0.0";
@@ -232,6 +236,12 @@ class Resnik
 		SdFat SD;
 		byte  keep_SPCR;
 		byte keep_ADCSRA;
+
+		uint16_t LogCountPush = 5; //Number of logs to take before sending data off
+		uint16_t LogCount = 0; //Number of logs since last data write
+		uint16_t Index = 0; //Index of data entry USE???? FIX!
+		uint32_t SDIndex = 0; //Index of data point in SD card file
+		uint32_t LastSDIndex = 0; //Index as last data dump
 };
 
 #endif

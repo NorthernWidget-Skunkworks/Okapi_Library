@@ -82,11 +82,20 @@ int Resnik::begin(uint8_t *Vals, uint8_t NumVals, String Header_)
 	pinMode(C1, OUTPUT);
 	pinMode(I2C_SW, OUTPUT);
 
+	// pinMode(22, OUTPUT); //DEBUG!
+	// pinMode(23, OUTPUT); //DEBUG!
+	// digitalWrite(22, LOW); //DEBUG!
+	// digitalWrite(23, LOW); //DEBUG!
+
 	PowerAuto(); //Get main power running
 	IO.PinMode(FeatherEN, OUTPUT, B); //Setup IO to control FeatherEN
+	IO.DigitalWrite(FeatherEN, HIGH, B); //Turn off battery to feather by default
 
 	pinMode(BuiltInLED, OUTPUT);
 	digitalWrite(BuiltInLED, LOW); //Turn built in LED on
+
+	// digitalWrite(22, HIGH); //DEBUG!
+	// digitalWrite(23, HIGH); //DEBUG!
 	// pinMode(Sw_Bus_Prime, OUTPUT);
 	// pinMode(Sw_Bus_Sec, OUTPUT);
 
@@ -779,6 +788,7 @@ void Resnik::Run(String (*Update)(void), unsigned long LogInterval) //Pass in fu
 void Resnik::AddDataPoint(String (*Update)(void)) //Reads new data and writes data to SD
 {
 	String Data = "";
+	I2CState(INTERNAL);  //DEBUG!
 	EnviroSense.begin(0x77); //Re-initialize BME280
 	// Serial.println("Called Update"); //DEBUG!
 	I2CState(EXTERNAL);
@@ -939,6 +949,7 @@ void Resnik::sleepNow()         // here we put the arduino to sleep
 	//     SPI.begin();
 	turnOnSDcard();
 	ADCSRA = 135; //DEBUG!
+	Serial.begin(38400);
 	// digitalWrite(VSwitch_Pin, HIGH);  //DEBUG!
 	// pinMode(SD_CS, OUTPUT); //Disconnect SD chip slect pin
 }
@@ -951,12 +962,13 @@ void Resnik::turnOffSDcard()
 	// DDRB &= ~((1<<DDB5) | (1<<DDB7) | (1<<DDB6) | (1<<DDB4));   // set All SPI pins to INPUT
 	// pinMode(SD_CD, INPUT);
 	// DDRC &= ~((1<<DDC0) | (1<<DDC1));
-	pinMode(31, OUTPUT); //DEBUG!
-	digitalWrite(31, LOW); //DEBUG!
+	// pinMode(31, OUTPUT); //DEBUG!
+	// digitalWrite(31, LOW); //DEBUG!
 	pinMode(16, INPUT);
 	pinMode(17, INPUT);
 	// digitalWrite(8, LOW);
 	// digitalWrite(9, LOW);
+	Serial.end();
 	pinMode(8, INPUT);
 	pinMode(9, INPUT);
 	// digitalWrite(16, HIGH);
@@ -971,7 +983,7 @@ void Resnik::turnOffSDcard()
 	// digitalWrite(BatSwitch, LOW); //Turn off battery connection to sense divider 
 	// PowerAux(OFF); //turn off external 3v3 rail
 	// PowerOB(OFF); //Turn off battery connection to sense divider 
-	digitalWrite(31, HIGH); //DEBUG! 
+	// digitalWrite(31, HIGH); //DEBUG! 
 	PowerAux(OFF); //Turn off power
 	// digitalWrite(BatRailCtrl, HIGH);
 	delay(1);

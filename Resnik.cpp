@@ -86,14 +86,20 @@ int Resnik::begin(uint8_t *Vals, uint8_t NumVals, String Header_)
 	// pinMode(23, OUTPUT); //DEBUG!
 	// digitalWrite(22, LOW); //DEBUG!
 	// digitalWrite(23, LOW); //DEBUG!
-
+	pinMode(Sw_Bus_Prime, OUTPUT);
+	pinMode(Sw_Bus_Sec, OUTPUT);
+	digitalWrite(Sw_Bus_Prime, LOW);
+	digitalWrite(Sw_Bus_Sec, LOW);
 	PowerAuto(); //Get main power running
-	IO.PinMode(FeatherEN, OUTPUT, B); //Setup IO to control FeatherEN
-	IO.DigitalWrite(FeatherEN, HIGH, B); //Turn off battery to feather by default
+	// IO.PinMode(FeatherEN, OUTPUT, B); //Setup IO to control FeatherEN
+	// IO.DigitalWrite(FeatherEN, HIGH, B); //Turn off battery to feather by default
 
 	pinMode(BuiltInLED, OUTPUT);
 	digitalWrite(BuiltInLED, LOW); //Turn built in LED on
-
+	delay(25);
+	digitalWrite(Sw_Bus_Prime, HIGH);
+	digitalWrite(Sw_Bus_Sec, HIGH);
+	delay(500);
 	// digitalWrite(22, HIGH); //DEBUG!
 	// digitalWrite(23, HIGH); //DEBUG!
 	// pinMode(Sw_Bus_Prime, OUTPUT);
@@ -622,7 +628,7 @@ String Resnik::GetOnBoardVals()
 	// float BatVoltage = GetBatVoltage(); //Get battery voltage, Include voltage divider in math
 
 	// Temp[3] = Clock.getTemperature(); //Get tempreture from RTC //FIX!
-	PowerAuto(); //Turn on power
+	// PowerAuto(); //Turn on power  //FIX??
 	pinMode(ADC_Sense_SW, OUTPUT); //DEBUG!!!!!!!!!!!!!!!!!!
 	digitalWrite(ADC_Sense_SW, HIGH); //Enable reading of battery lines  //FIX! Shorten to reduce current draw!
 	// float VBeta = 0;
@@ -738,6 +744,10 @@ void Resnik::Run(String (*Update)(void), unsigned long LogInterval) //Pass in fu
 		// RTC.SetAlarm(LogInterval);  //Set/reset alarm //DEBUG!
 		AddDataPoint(Update); //Write values to SD
 		if(LogCount >= LogCountPush) {  //REPLACE WITH TIMER TEST!
+			// for(int i = 0; i < 10; i++) {  //DEBUG!
+			// 	Serial.println("START BACKHAUL"); //DEBUG!
+			// 	delay(100);
+			// }
 			Serial.println("START BACKHAUL"); //DEBUG!
 			for(int i = 0; i < LogCountPush; i++) { //Print out SD values 
 				Serial.println(ReadStr(i, LastSDIndex));
@@ -747,7 +757,8 @@ void Resnik::Run(String (*Update)(void), unsigned long LogInterval) //Pass in fu
 			Serial.println("END BACKHAUL"); //DEBUG!
 			pinMode(FeatherGPIO, INPUT);
 			unsigned long Timeout = millis();
-			while(digitalRead(FeatherGPIO) && (millis() - Timeout) < 60000); //Wait for completerion or for timeout (60 seconds)
+			// while(digitalRead(FeatherGPIO) && (millis() - Timeout) < 60000); //Wait for completerion or for timeout (60 seconds)
+			while((millis() - Timeout) < 60000); //DEBUG!
 		}
 		LogEvent = false; //Clear log flag
 		// Serial.println("BANG!"); //DEBUG!
@@ -822,6 +833,9 @@ uint8_t Resnik::PowerAuto()
 	DDRC = DDR_Prev | 0x0C; //Set C1 and C0 as output
 	DDRC = DDR_Prev & 0x7F; //Make PC7 (EN_BUS_PRIME) and input
 	uint8_t PortState = PORTC; //Do manipulation locally, then push to port 
+	PortState = PortState & 0xF3; //Clear C0 and C1 
+	PORTC = PortState; //Turn rail off to ensure valid measurment //FIX??
+	delay(2); //Cx rising edge to EN_BUS_PRIME rising (90%, ~3.0v) measured at 1.4ms, added ~50% margin of safety for robustness 
 	PortState = PortState & 0xF3; //Clear C0 and C1 
 	PortState = PortState | 0x08; //Set C1 HIGH, C0 LOW (Vbeta)
 	// PORTC = PORTC & 0xF3; //Clear C0 and C1
@@ -964,6 +978,8 @@ void Resnik::turnOffSDcard()
 	// DDRC &= ~((1<<DDC0) | (1<<DDC1));
 	// pinMode(31, OUTPUT); //DEBUG!
 	// digitalWrite(31, LOW); //DEBUG!
+	pinMode(Sw_Bus_Prime, INPUT);
+	pinMode(Sw_Bus_Sec, INPUT);
 	pinMode(16, INPUT);
 	pinMode(17, INPUT);
 	// digitalWrite(8, LOW);

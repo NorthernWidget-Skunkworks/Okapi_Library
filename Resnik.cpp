@@ -22,36 +22,12 @@ Resnik* Resnik::selfPointer;
 
 Resnik::Resnik(board Model_, build Specs_) : ADC_OB(0x48), ADC_Ext(0x49), IO(0x20)
 {	
-	SD_CS = 4;
-	BuiltInLED = 20;
-	RedLED = 13;
-	GreenLED = 15;
-	BlueLED = 14;
-
 	// VSwitch_Pin = 3;
 	// VSwitch_Pin = 12; //DEBUG!??
-	SD_CD = 1;
 
-	Sw_Bus_Prime = 23;
-	Sw_Bus_Sec = 22;
-
-	I2C_SW = 21;
-	PG_3v3_Core = 1; //IO EXP Port B
-	TX = 11;
-	RX = 10; 
-	D0 = 12;
-	D1 = 25;
-	D2 = 3;
-	D3 = 26;
-
-	C1 = 19;
-	C0 = 18;
-
-	ADC_Sense_SW = 0;
-
+  // THESE ARE DIFFERENT NUMBERS THAN IN THE HEADER FILE!!!!!
 	RTCInt = 2;
 	LogInt = 27; 
-	GlobalInt = 28;
 
 	FeatherRTS = 31;
 	FeatherCTS = 30;

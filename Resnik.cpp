@@ -521,7 +521,7 @@ String Resnik::ReadStr(uint8_t LineIndex, uint32_t DataIndex)  //Pass index (wor
 	SD.chdir("Logs"); //Move into the logs sub-folder
 	File DataFile = SD.open(FileNameC, FILE_READ);
 
-	// if the file is available, write to it:
+	// if the file is available, read from it:
 	if (DataFile) {
 		DataFile.seek(DataIndex); //Run to starting location
 		for(int i = 0; i < LineIndex; i++) {

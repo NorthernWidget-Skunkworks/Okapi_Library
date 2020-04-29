@@ -1,8 +1,6 @@
-
-
-
 #ifndef Resnik_h
 #define Resnik_h
+
 
 #include <Arduino.h>
 #include <Wire.h>
@@ -15,7 +13,7 @@
 #include "DS3231_Logger.h"
 // #include "MCP3421.h"
 #include <Adafruit_ADS1015.h> //Include ADC interface
-// #include <Adafruit_MCP4725.h> //Include DAC interface 
+// #include <Adafruit_MCP4725.h> //Include DAC interface
 #include <MCP4725.h>  //Include custom DAC library
 #include <MCP23018.h>
 #include "SdFat.h"
@@ -39,10 +37,10 @@
 #define VBETA 2
 
 
-#define INTERNAL 0 
+#define INTERNAL 0
 #define EXTERNAL 1
 
-#define MODEL_1v0 
+#define MODEL_1v0
 #define MODEL_0v0
 
 //Define CBI macro
@@ -57,7 +55,7 @@ enum board
     Model_2v0 = 2
 };
 
-enum build 
+enum build
 {
 	Build_A = 0,
 	Build_B = 1,
@@ -72,24 +70,117 @@ enum temp_val
 
 ////////////////////////////PIN DEFINITIONS///////////////////////
 
+/**
+ * @class Resnik
+ * @brief Resnik data-logger class
+ * @details Data-logger management.
+ * Basic operations, power management, on-board sensing,
+ * and links to external devices.
+ * \author Bobby Schulz
+ * \copyright GNU GPL v3
+ */
 class Resnik
 {
 
 	public:
+    /**
+     * @brief
+     * Instantiate the Resnik data-logger class
+     *
+     * @param[in] Model_: Not currently used for Resnik
+     *
+     * @param[in] Specs_: Defines the number of on-board I2C device addresses.
+     *                      **Build_A**: **DEFAULT** 6 on-board I2C devices.
+     *                      **Build_B**: 0 on-board I2C devices.
+     *
+    */
 		Resnik(board Model_ = Model_0v0, build Specs_ = Build_A); //Use Build_A by default
-		// Resnik();
+    // Resnik();
+
+    /**
+     * @brief Begin with a list of attached I2C devices
+     *
+     * @param[in] *Vals: List of I2C addresses for external sensors
+     * @param[in] NumVals: The length of the *Vals list
+     * @param[in] Header_: A header string for the data file
+     */
 		int begin(uint8_t *Vals, uint8_t NumVals, String Header_);
+    /**
+     * @brief Begin by passing a header string; default empty
+     *
+     * @param[in] Header_: A header string for the data file
+     */
 		int begin(String Header_ = "");
 
+    /**
+     * Write a string to the log file.
+     *
+     * @param[in] Val: The string to be written
+     */
 		int LogStr(String Val);
+
+    /**
+     * @brief BSCHULZ1701: WHAT EXACTLY DOES THIS FUNCTION DO?
+     *
+     * @param[in] LineIndex: The desired line number
+     * @param[in] DataIndex: The desired byte at which to start in the file
+     */
 		String ReadStr(uint8_t LineIndex, uint32_t DataIndex);
+
+    /**
+     * @brief Set the color of the LED
+     *
+     * @param[in] Val: 4-byte (R, G, B, alpha) color
+     */
 		void LED_Color(unsigned long Val);
-		void Run(String (*f)(void), unsigned long LogInterval);
+
+    /**
+     * @brief Main function that loops infinititely during runtime
+     * BSCHULZ1701: I changed *f to *Update to match the CPP. Hope that does
+     * not break anything!
+     *
+     * @param[in] *Update: Pointer to a function in the Arduino sketch (ino);
+     *                     this retrieves new sensor data as a String object
+     * @param[in] LogInterval: Number of seconds between log events
+     */
+		void Run(String (*Update)(void), unsigned long LogInterval);
+
+    /**
+     * @brief Read voltage from the external 16-bit ADC
+     * @param[in] Pin (range 0-3) -- which pin to read?
+     */
 		float GetVoltage(uint8_t Pin); //Read ADC
+
+    /**
+     * @brief Set voltage on the 12-bit digital-to-analog converter
+     * @param[in] Val: 0 to 4095, which scales from 0 to Vbus
+     * @param[in] Gain: WHAT? WHY BOOL?
+     *
+     * BSCHULZ1701: WHY IS THE GAIN A BOOLEAN? AND IS THIS FROM 0 TO VBUS?
+     * AND SHOULD THIS BE A PRIVATE UTILITY FUNCTION?
+     */
 		uint8_t SetVoltageRaw(uint16_t Val, bool Gain = GAIN_1X); //Set DAC with raw input, default to 1x gain
+
+    /**
+     * @brief Set voltage on the 12-bit digital-to-analog converter
+     * @param[in] Val: Desired voltage value, in volts.
+     */
 		uint8_t SetVoltage(float Val); //Set DAC to nearest interpolated value
+
+    /**
+     * @brief Writes date/time, on-board sensors, and external string to SD
+     * @param *Update: External update function from Arduino sketch
+     */
 		void AddDataPoint(String (*Update)(void));
+
+    /**
+     * @brief Obtain date/time, P/T/RH, temperatures, and voltages from board
+     */
 		String GetOnBoardVals();
+
+    /**
+     * @brief Create a new log file, following serial numbering
+     */
 		void InitLogFile();
 
 		// void GetEnviro(); //Get/update enviromental values from BME280 and RTC
@@ -98,14 +189,31 @@ class Resnik
 		// void GetPowerStats(); //Get all voltage and current values, converter/solar states, etc //ADD!!!!!!!!
 
 		// void ResetWD();
-		// void PowerOB(bool State); 
-		uint8_t PowerAuto(); //Determine which input has power and setup based on that
-		void PowerAux(uint8_t State); //Power from Main, backup, or off
+		// void PowerOB(bool State);
+
+    /**
+     * @brief Determine which input has power and set up power path from that
+     */
+		uint8_t PowerAuto();
+
+    /**
+     * @brief Power from Main, backup, or off
+     * BSCHULZ1701: I am not sure what this does!
+     * @param[in] State:
+     */
+		void PowerAux(uint8_t State);
+
 		// void PowerFeather(bool State); //Turn feather power on or off  //ADD!!!!!
 
+    /**
+     * @brief Set the I2C state
+     * @param State: True or False gives On or Off
+     */
 		void I2CState(bool State); //Use on board of external I2C
 
-		//Pin definitions
+    /////////////////////
+		// Pin definitions //
+    /////////////////////
 		int SD_CS = 4;
 		uint8_t BuiltInLED = 20;
 		uint8_t RedLED = 13;
@@ -124,11 +232,11 @@ class Resnik
 		// uint8_t PG = 18;
 		// uint8_t ExtInt = 11;
 		uint8_t RTCInt = 10;
-		uint8_t LogInt = 2; 
+		uint8_t LogInt = 2;
 		// uint8_t WDHold = 23; //ADD TO DOCUMENTATION!
 		// uint8_t BatSwitch = 22; //ADD TO DOCUMENTATION!
 		uint8_t TX = 11; //ADD TO DOCUMENTATION!
-		uint8_t RX = 10; //ADD TO DOCUMENTATION! 
+		uint8_t RX = 10; //ADD TO DOCUMENTATION!
 		// uint8_t D0 = 3; //ADD TO DOCUMENTATION!
 
 		uint8_t C0 = 18;
@@ -140,7 +248,7 @@ class Resnik
 		uint8_t PG_3v3_Core = 1; //IO Exp PORT B
 		uint8_t FeatherEN = 7; //IO Exp PORT B
 
-		uint8_t D0 = 12;  
+		uint8_t D0 = 12;
 		uint8_t D1 = 25;
 		uint8_t D2 = 3;
 		uint8_t D3 = 26;
@@ -156,7 +264,7 @@ class Resnik
 
 
 
-
+    /// Resnik data logger library version
 		const String LibVersion = "0.0.0";
 
 	protected:
@@ -186,7 +294,7 @@ class Resnik
 
 		DS3231_Logger RTC;
 		// MCP3421 adc;
-		BME EnviroSense; 
+		BME EnviroSense;
 		MCP4725 DAC; //Instatiate DAC
 		Adafruit_ADS1115 ADC_OB; //Initialize on board (power moitoring) ADC
 		Adafruit_ADS1115 ADC_Ext;  //Initialize external (sensor) ADC
@@ -202,13 +310,13 @@ class Resnik
 		bool SensorError = false;
 		bool TimeError = false;
 		bool SDError = false; //USE??
-		bool BatError = false; 
+		bool BatError = false;
 		bool BatWarning = false;
 		float BatVoltageError = 3.3; //Low battery alert will trigger if voltage drops below this value
 		float BatPercentageWarning = 50; //Percentage at which a warning will be indicated
 		String Header = "";
 		const char HexMap[16] = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'}; //used for conversion to HEX of string
-		char SN[20] = {0}; //Used to store device serial number, 19 chars + null terminator 
+		char SN[20] = {0}; //Used to store device serial number, 19 chars + null terminator
 		// String SN = "FFFF-FFFF-FFFF-FFFF";
 		uint8_t NumADR = 0;
 		uint8_t I2C_ADR[16] = {0}; //Change length??
@@ -245,4 +353,3 @@ class Resnik
 };
 
 #endif
-

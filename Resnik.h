@@ -72,12 +72,11 @@ enum temp_val
 
 /**
  * @class Resnik
- * @brief Resnik data-logger class
+ * @brief An Arduino-compatible library for utilizing the basic and logging
+ * features of the Resnik data logger
  * @details Data-logger management.
  * Basic operations, power management, on-board sensing,
  * and links to external devices.
- * \author Bobby Schulz
- * \copyright GNU GPL v3
  */
 class Resnik
 {
@@ -211,13 +210,23 @@ class Resnik
      */
 		void I2CState(bool State); //Use on board of external I2C
 
-    /////////////////////
-		// Pin definitions //
-    /////////////////////
+    //////////////////////////////
+		// Pin definitions - Public //
+    //////////////////////////////
+
+    /// SD card chip select **Pin 4**
 		int SD_CS = 4;
+
+    /// Pin controlling on/off state of RGB LED **Pin 20**
 		uint8_t BuiltInLED = 20;
+
+    /// Pin controlling red intensity of RGB LED **Pin 13**
 		uint8_t RedLED = 13;
+
+    /// Pin controlling green intensity of RGB LED **Pin 15**
 		uint8_t GreenLED = 15;
+
+    /// Pin controlling blue intensity of RGB LED **Pin 14**
 		uint8_t BlueLED = 14;
 
 		// uint8_t VRef_Pin = 2;
@@ -225,41 +234,71 @@ class Resnik
 		// uint8_t BatSense_Pin = 0;
 
 		// uint8_t VSwitch_Pin = 3;
+
+    /// Chip-detect pin for the SD card **Pin 1**
 		uint8_t SD_CD = 1;
 
 		// uint8_t Ext3v3Ctrl = 19;
+
+    /// Switch to enable/disable I2C **Pin 21**
 		uint8_t I2C_SW = 21;
+
 		// uint8_t PG = 18;
 		// uint8_t ExtInt = 11;
+
+    /// Interrupt from RTC **Pin 10** ***DIFFERENT IN CPP!!!!***
 		uint8_t RTCInt = 10;
+    /// Interrupt from Log button **Pin 2** ***DIFFERENT IN CPP!!!!***
 		uint8_t LogInt = 2;
+
 		// uint8_t WDHold = 23; //ADD TO DOCUMENTATION!
 		// uint8_t BatSwitch = 22; //ADD TO DOCUMENTATION!
+
+    /// USART Transmit
 		uint8_t TX = 11; //ADD TO DOCUMENTATION!
+
+    /// USART Receive
 		uint8_t RX = 10; //ADD TO DOCUMENTATION!
+
 		// uint8_t D0 = 3; //ADD TO DOCUMENTATION!
 
+    /// BSCHULZ1701: WHAT ARE THESE??
 		uint8_t C0 = 18;
+    /// BSCHULZ1701: WHAT ARE THESE??
 		uint8_t C1 = 19;
 
+    /// Primary bus switch pin (BSCHULZ1701: is this in addition to the physical switch?)
 		uint8_t Sw_Bus_Prime = 23;
+    /// Secondary bus switch pin (BSCHULZ1701: is this in addition to the physical switch?)
 		uint8_t Sw_Bus_Sec = 22;
 
-		uint8_t PG_3v3_Core = 1; //IO Exp PORT B
-		uint8_t FeatherEN = 7; //IO Exp PORT B
+    /// IO Exp PORT B (BSCHULZ1701: what is this in plain English / purpose?)
+		uint8_t PG_3v3_Core = 1;
+    /// IO Exp PORT B (BSCHULZ1701: turn Feather on if True, I guess?)
+		uint8_t FeatherEN = 7;
 
+    /// GPIO pin D0 **Arduino Pin 12**
 		uint8_t D0 = 12;
+    /// GPIO pin D1 **Arduino Pin 25**
 		uint8_t D1 = 25;
+    /// GPIO pin D2 **Arduino Pin 3**
 		uint8_t D2 = 3;
+    /// GPIO pin D3 **Arduino Pin 26**
 		uint8_t D3 = 26;
 
+    /// Switch the Analog-Digital Converter on (true) or off (false) **Pin 0**
 		uint8_t ADC_Sense_SW = 0;
 
+    /// Feather pin: should this be public or private?
 		uint8_t FeatherRTS = 31;
+    /// Feather pin: should this be public or private?
 		uint8_t FeatherCTS = 30;
+    /// Feather pin: should this be public or private?
 		uint8_t FeatherGPIO = 29;
+    /// Feather pin: should this be public or private?
 		uint8_t CS_Ext = 24;
 
+    /// WHAT IS THIS?
 		uint8_t GlobalInt = 28;
 
 

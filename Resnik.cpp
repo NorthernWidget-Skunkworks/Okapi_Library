@@ -743,8 +743,8 @@ void Resnik::Run(String (*Update)(void), unsigned long LogInterval) //Pass in fu
 			LogCount = 0; 
 			Serial.println("END BACKHAUL"); //DEBUG!
 			Timeout = millis();
-			// while(digitalRead(FeatherGPIO) && (millis() - Timeout) < 60000); //Wait for completerion or for timeout (60 seconds)
-			while((millis() - Timeout) < 59000); //DEBUG!
+			while(digitalRead(FeatherGPIO) && (millis() - Timeout) < 180000); //Wait for completerion or for timeout (180 seconds -- takes 2G/3G longer)
+			// while((millis() - Timeout) < 59000); //DEBUG!
 			// Give as much time as possible to complete the communications. Takes a while and can time out easily.
 			pinMode(FeatherGPIO, INPUT);
 		}

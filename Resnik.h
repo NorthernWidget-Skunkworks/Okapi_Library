@@ -77,6 +77,9 @@ enum temp_val
  * @details Data-logger management.
  * Basic operations, power management, on-board sensing,
  * and links to external devices.
+ *
+ * \verbatim [![DOI](https://zenodo.org/badge/197810426.svg)](https://zenodo.org/badge/latestdoi/197810426)
+\endverbatim
  */
 class Resnik
 {
@@ -384,7 +387,7 @@ class Resnik
 		byte  keep_SPCR;
 		byte keep_ADCSRA;
 
-		uint16_t LogCountPush = 5; //Number of logs to take before sending data off
+		uint16_t LogCountPush = 2; //Number of logs to take before sending data off
 		uint16_t LogCount = 0; //Number of logs since last data write
 		uint16_t Index = 0; //Index of data entry USE???? FIX!
 		uint32_t SDIndex = 0; //Index of data point in SD card file

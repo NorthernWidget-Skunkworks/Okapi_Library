@@ -1,5 +1,5 @@
-#ifndef Resnik_h
-#define Resnik_h
+#ifndef Okapi_h
+#define Okapi_h
 
 
 #include <Arduino.h>
@@ -71,9 +71,9 @@ enum temp_val
 ////////////////////////////PIN DEFINITIONS///////////////////////
 
 /**
- * @class Resnik
+ * @class Okapi
  * @brief An Arduino-compatible library for utilizing the basic and logging
- * features of the Resnik data logger
+ * features of the Okapi data logger
  * @details Data-logger management.
  * Basic operations, power management, on-board sensing,
  * and links to external devices.
@@ -81,23 +81,23 @@ enum temp_val
  * \verbatim [![DOI](https://zenodo.org/badge/197810426.svg)](https://zenodo.org/badge/latestdoi/197810426)
 \endverbatim
  */
-class Resnik
+class Okapi
 {
 
 	public:
     /**
      * @brief
-     * Instantiate the Resnik data-logger class
+     * Instantiate the Okapi data-logger class
      *
-     * @param[in] Model_: Not currently used for Resnik
+     * @param[in] Model_: Not currently used for Okapi
      *
      * @param[in] Specs_: Defines the number of on-board I2C device addresses.
      *                      **Build_A**: **DEFAULT** 6 on-board I2C devices.
      *                      **Build_B**: 0 on-board I2C devices.
      *
     */
-		Resnik(board Model_ = Model_0v0, build Specs_ = Build_A); //Use Build_A by default
-    // Resnik();
+		Okapi(board Model_ = Model_0v0, build Specs_ = Build_A); //Use Build_A by default
+    // Okapi();
 
     /**
      * @brief Begin with a list of attached I2C devices
@@ -306,7 +306,7 @@ class Resnik
 
 
 
-    /// Resnik data logger library version
+    /// Okapi data logger library version
 		const String LibVersion = "0.0.0";
 
 	protected:
@@ -318,7 +318,7 @@ class Resnik
 		void virtual ButtonLog();
 		static void isr0();
 		static void isr1();
-		static Resnik* selfPointer;
+		static Okapi* selfPointer;
 
 		static void DateTimeSD(uint16_t* date, uint16_t* time);
 		void DateTimeSD_Glob(uint16_t* date, uint16_t* time);

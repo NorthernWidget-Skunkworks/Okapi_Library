@@ -246,7 +246,7 @@ int Okapi::begin(uint8_t *Vals, uint8_t NumVals, String header_)
 	LED_Color(OFF);
 }
 
-ISR (PCINT0_vect) // handle pin change interrupt for D8 to D13 here
+ISR (PCINT0_vect) // handle pin change interrupt for D24-D31 (Port A) on ATmega1284p
 {
 	// boolean PinVal = (PINA & digitalPinToBitMask(28));
     // if(PinVal == LOW) ManualLog = true; //Set flag to manually record an additional data point; //Only fun the function if trigger criteria is true
@@ -742,7 +742,9 @@ void Okapi::Run(String (*Update)(void), unsigned long LogInterval) //Pass in fun
 		// RTC.setAlarm(LogInterval);  //Set/reset alarm //DEBUG!
 		AddDataPoint(Update); //Write values to SD
 		if(LogCount >= LogCountPush && PowerState == 0) {  //If enough logs have been recorded and main battery power is available - backhaul //REPLACE WITH TIMER TEST!
-			IO.digitalWrite(FeatherEN, HIGH, MCP23018::Ports::B); //Turn on Feather power 
+		  //// Update conventions in MCP23018 library
+			IO.DigitalWrite(FeatherEN, HIGH, MCP23018::Ports::B); //Turn on Feather power 
+			////IO.digitalWrite(FeatherEN, HIGH, MCP23018::Ports::B); //Turn on Feather power 
 			// for(int i = 0; i < 10; i++) {  //DEBUG!
 			// 	Serial.println("START BACKHAUL"); //DEBUG!
 			// 	delay(100);

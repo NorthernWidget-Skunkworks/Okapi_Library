@@ -1,12 +1,15 @@
 #######################################
-# Syntax Coloring Map Logger
+# Syntax Coloring Map Okapi_Library
 #######################################
 
 #######################################
 # Datatypes (KEYWORD1)
 #######################################
 
-Resnik	KEYWORD1
+Okapi	KEYWORD1
+board	KEYWORD1
+build	KEYWORD1
+temp_val	KEYWORD1
 
 #######################################
 # Methods and Functions (KEYWORD2)
@@ -14,21 +17,46 @@ Resnik	KEYWORD1
 
 begin			KEYWORD2
 LogStr			KEYWORD2
-LED_Color 		KEYWORD2
+ReadStr			KEYWORD2
+LED_Color		KEYWORD2
 Run				KEYWORD2
+GetVoltage		KEYWORD2
+SetVoltageRaw	KEYWORD2
+SetVoltage		KEYWORD2
+AddDataPoint	KEYWORD2
+GetOnBoardVals	KEYWORD2
+InitLogFile		KEYWORD2
+PowerAuto		KEYWORD2
+PowerAux		KEYWORD2
+I2CState		KEYWORD2
+setExtInt		KEYWORD2
+getExtIntCount	KEYWORD2
+resetExtIntCount	KEYWORD2
 
 #######################################
 # Constants (LITERAL1)
 #######################################
 
-RED		LITERAL1
-GREEN	LITSRAL1
-BLUE	LITSRAL1
-MAROON	LITSRAL1
-GOLD	LITSRAL1
-ORANGE	LITSRAL1
-PURPLE	LITSRAL1
-CYAN	LITSRAL1
-BLACK_ALERT LITSRAL1
-OFF		LITSRAL1
-
+RED			LITERAL1
+GREEN		LITERAL1
+BLUE		LITERAL1
+MAROON		LITERAL1
+GOLD		LITERAL1
+ORANGE		LITERAL1
+PURPLE		LITERAL1
+CYAN		LITERAL1
+BLACK_ALERT	LITERAL1
+OFF			LITERAL1
+ON			LITERAL1
+VPRIME		LITERAL1
+VBETA		LITERAL1
+INTERNAL	LITERAL1
+EXTERNAL	LITERAL1
+Model_0v0	LITERAL1
+Model_1v0	LITERAL1
+Model_2v0	LITERAL1
+Build_A		LITERAL1
+Build_B		LITERAL1
+Build_C		LITERAL1
+Therm_Val	LITERAL1
+RTC_Val		LITERAL1

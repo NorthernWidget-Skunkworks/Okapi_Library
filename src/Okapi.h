@@ -310,7 +310,7 @@ class Okapi
 
 
     /// Okapi data logger library version
-		const String LibVersion = "0.0.0";
+		const String LibVersion = "0.7.0";
 
 	protected:
 		// float TempConvert(float V, float Vcc, float R, float A, float B, float C, float D, float R25);

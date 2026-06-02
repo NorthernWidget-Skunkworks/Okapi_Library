@@ -106,13 +106,13 @@ class Okapi
      * @param[in] NumVals: The length of the *Vals list
      * @param[in] Header_: A header string for the data file
      */
-		int begin(uint8_t *Vals, uint8_t NumVals, String header_);
+		bool begin(uint8_t *Vals, uint8_t NumVals, String header_);
     /**
      * @brief Begin by passing a header string; default empty
      *
      * @param[in] Header_: A header string for the data file
      */
-		int begin(String Header_ = "");
+		bool begin(String Header_ = "");
 
     /**
      * Write a string to the log file.

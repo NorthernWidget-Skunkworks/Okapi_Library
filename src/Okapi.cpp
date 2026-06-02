@@ -57,7 +57,7 @@ Okapi::Okapi(board Model_, build Specs_) : ADC_OB(0x48), ADC_Ext(0x49), IO(0x20)
 	Specs = Specs_; //Store build info locally
 }
 
-int Okapi::begin(uint8_t *Vals, uint8_t NumVals, String header_)
+bool Okapi::begin(uint8_t *Vals, uint8_t NumVals, String header_)
 {
 	pinMode(C0, OUTPUT);  //Allow for high power control
 	pinMode(C1, OUTPUT);
@@ -244,6 +244,7 @@ int Okapi::begin(uint8_t *Vals, uint8_t NumVals, String header_)
 	// delay(2000);
 
 	LED_Color(OFF);
+	return !(OBError || SensorError || TimeError || SDError);
 }
 
 ISR (PCINT0_vect) // handle pin change interrupt for D24-D31 (Port A) on ATmega1284p
@@ -254,10 +255,10 @@ ISR (PCINT0_vect) // handle pin change interrupt for D24-D31 (Port A) on ATmega1
     ManualLog = true; //DEBUG!
 }
 
-int Okapi::begin(String Header_)
+bool Okapi::begin(String Header_)
 {
 	uint8_t Dummy[1] = {NULL};
-	begin(Dummy, 0, Header_); //Call generalized begin function
+	return begin(Dummy, 0, Header_);
 }
 
 void Okapi::I2CTest()

@@ -10,7 +10,7 @@ An Arduino-compatible library for utilizing the basic and logging features of th
 
 Data-logger management. Basic operations, power management, on-board sensing, and links to external devices.
 
-[![DOI](https://zenodo.org/badge/197810426.svg)](https://zenodo.org/badge/latestdoi/197810426)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3766504.svg)](https://doi.org/10.5281/zenodo.3766504)
 
 ## Summary
 

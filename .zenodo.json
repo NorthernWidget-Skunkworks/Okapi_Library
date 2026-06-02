@@ -1,0 +1,27 @@
+{
+  "title": "Okapi_Library",
+  "description": "Arduino library for the Okapi ATmega1284p-based data logger. Manages logging, power, telemetry, and on-board sensing, with support for solar charging, Particle Boron telemetry, external interrupt counting, RTC-driven sleep/wake cycles, and SD-card data logging.",
+  "upload_type": "software",
+  "license": {"id": "GPL-3.0-only"},
+  "creators": [
+    {
+      "name": "Schulz, Bobby",
+      "orcid": "0000-0002-9272-4756",
+      "affiliation": "Northern Widget LLC"
+    },
+    {
+      "name": "Wickert, Andrew D.",
+      "orcid": "0000-0002-9545-3365",
+      "affiliation": "University of Minnesota, Department of Earth & Environmental Sciences"
+    }
+  ],
+  "keywords": [
+    "Arduino",
+    "data logger",
+    "environmental monitoring",
+    "telemetry",
+    "ATmega1284p",
+    "open-source",
+    "Northern Widget"
+  ]
+}

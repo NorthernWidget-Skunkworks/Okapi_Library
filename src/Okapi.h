@@ -17,7 +17,7 @@
 #include <MCP4725.h>  //Include custom DAC library
 #include <MCP23018.h>
 #include "SdFat.h"
-#include "BME.h"
+#include <NW_BME280.h>
 
 
 #define RED 0xFFFF0000L

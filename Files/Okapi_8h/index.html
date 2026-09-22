@@ -1,0 +1,899 @@
+
+
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.28.1 by Michael Rose
+  Copyright 2013-2026 Michael Rose - mademistakes.com | @mmistakes
+  Copyright 2024-2026 iBug - ibugone.com | @iBug
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+
+<html lang="en" class="no-js" dir="ltr">
+  <head>
+    
+<meta charset="utf-8">
+
+
+<!-- begin _includes/seo.html --><title>src/Okapi.h - Okapi Library</title>
+<meta name="description" content="Library for the Okapi ATmega1284p data logger">
+
+
+  <meta name="author" content="Northern Widget">
+  
+
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Okapi Library">
+<meta property="og:title" content="src/Okapi.h">
+<meta property="og:url" content="https://docs.northernwidget.com/Okapi_Library/Files/Okapi_8h/">
+
+
+  <meta property="og:description" content="Library for the Okapi ATmega1284p data logger">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="canonical" href="https://docs.northernwidget.com/Okapi_Library/Files/Okapi_8h/">
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/Okapi_Library/feed.xml" type="application/atom+xml" rel="alternate" title="Okapi Library Feed">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+  
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/Okapi_Library/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    
+<nav class="skip-links" aria-label="Skip links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav" aria-label="Primary navigation">
+        
+        <a class="site-title" href="/Okapi_Library/">
+          Okapi Library
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a
+                href="https://mmistakes.github.io/minimal-mistakes/docs/quick-start-guide/"
+                
+                
+              >Quick-Start Guide</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+
+
+
+
+<div id="main" role="main">
+  
+
+  <div class="sidebar sticky">
+  
+  
+    
+      
+      
+      
+      
+    
+    
+      
+<nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle Menu</label>
+  <ul class="nav__items">
+    
+      
+      
+        <li>
+          
+            <a href="/Okapi_Library/"><span class="nav__sub-title">Overview</span></a>
+          
+
+          
+        </li>
+      
+        <li>
+          
+            <a href="/Okapi_Library/Classes/classOkapi/"><span class="nav__sub-title">Okapi Class</span></a>
+          
+
+          
+        </li>
+      
+        <li>
+          
+            <a href="/Okapi_Library/Classes/index_classes/"><span class="nav__sub-title">Classes</span></a>
+          
+
+          
+        </li>
+      
+        <li>
+          
+            <a href="/Okapi_Library/Files/index_files/"><span class="nav__sub-title">Files</span></a>
+          
+
+          
+        </li>
+      
+    
+  </ul>
+</nav>
+
+    
+  
+  
+  </div>
+
+
+
+  <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="src/Okapi.h">
+    
+    
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title p-name" itemprop="headline">
+            <a href="https://docs.northernwidget.com/Okapi_Library/Files/Okapi_8h/" itemprop="url">src/Okapi.h
+</a>
+          </h1>
+          
+
+
+
+        </header>
+      
+
+      <section class="page__content e-content" itemprop="text">
+        
+          <aside class="sidebar__right sticky">
+            <nav class="toc" aria-label="Table of contents">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
+              <ul class="toc__menu"><li><a href="#classes">Classes</a></li><li><a href="#types">Types</a></li><li><a href="#defines">Defines</a></li><li><a href="#types-documentation">Types Documentation</a><ul><li><a href="#enum-board">enum board</a></li><li><a href="#enum-build">enum build</a></li><li><a href="#enum-temp_val">enum temp_val</a></li></ul></li><li><a href="#macros-documentation">Macros Documentation</a><ul><li><a href="#define-red">define RED</a></li><li><a href="#define-green">define GREEN</a></li><li><a href="#define-blue">define BLUE</a></li><li><a href="#define-maroon">define MAROON</a></li><li><a href="#define-gold">define GOLD</a></li><li><a href="#define-orange">define ORANGE</a></li><li><a href="#define-purple">define PURPLE</a></li><li><a href="#define-cyan">define CYAN</a></li><li><a href="#define-black_alert">define BLACK_ALERT</a></li><li><a href="#define-on">define ON</a></li><li><a href="#define-off">define OFF</a></li><li><a href="#define-vprime">define VPRIME</a></li><li><a href="#define-vbeta">define VBETA</a></li><li><a href="#define-internal">define INTERNAL</a></li><li><a href="#define-external">define EXTERNAL</a></li><li><a href="#define-model_1v0">define MODEL_1v0</a></li><li><a href="#define-model_0v0">define MODEL_0v0</a></li><li><a href="#define-cbi">define cbi</a></li></ul></li><li><a href="#source-code">Source code</a></li></ul>
+            </nav>
+          </aside>
+        
+        <h2 id="classes">Classes</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th> </th>
+      <th>Name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>class</td>
+      <td><strong><a href="/Okapi_Library/Classes/classOkapi/">Okapi</a></strong> <br />An Arduino-compatible library for utilizing the basic and logging features of the <a href="">Okapi</a> data logger.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="types">Types</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th> </th>
+      <th>Name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>enum</td>
+      <td><strong><a href="/Okapi_Library/Files/Okapi_8h/#enum-board">board</a></strong> { Model_0v0 = 0, Model_1v0 = 1, Model_2v0 = 2}</td>
+    </tr>
+    <tr>
+      <td>enum</td>
+      <td><strong><a href="/Okapi_Library/Files/Okapi_8h/#enum-build">build</a></strong> { Build_A = 0, Build_B = 1, Build_C = 2}</td>
+    </tr>
+    <tr>
+      <td>enum</td>
+      <td><strong><a href="/Okapi_Library/Files/Okapi_8h/#enum-temp-val">temp_val</a></strong> { Therm_Val = 0, RTC_Val = 1}</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="defines">Defines</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th> </th>
+      <th>Name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td> </td>
+      <td><strong><a href="/Okapi_Library/Files/Okapi_8h/#define-red">RED</a></strong></td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td><strong><a href="/Okapi_Library/Files/Okapi_8h/#define-green">GREEN</a></strong></td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td><strong><a href="/Okapi_Library/Files/Okapi_8h/#define-blue">BLUE</a></strong></td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td><strong><a href="/Okapi_Library/Files/Okapi_8h/#define-maroon">MAROON</a></strong></td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td><strong><a href="/Okapi_Library/Files/Okapi_8h/#define-gold">GOLD</a></strong></td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td><strong><a href="/Okapi_Library/Files/Okapi_8h/#define-orange">ORANGE</a></strong></td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td><strong><a href="/Okapi_Library/Files/Okapi_8h/#define-purple">PURPLE</a></strong></td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td><strong><a href="/Okapi_Library/Files/Okapi_8h/#define-cyan">CYAN</a></strong></td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td><strong><a href="/Okapi_Library/Files/Okapi_8h/#define-black-alert">BLACK_ALERT</a></strong></td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td><strong><a href="/Okapi_Library/Files/Okapi_8h/#define-on">ON</a></strong></td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td><strong><a href="/Okapi_Library/Files/Okapi_8h/#define-off">OFF</a></strong></td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td><strong><a href="/Okapi_Library/Files/Okapi_8h/#define-vprime">VPRIME</a></strong></td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td><strong><a href="/Okapi_Library/Files/Okapi_8h/#define-vbeta">VBETA</a></strong></td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td><strong><a href="/Okapi_Library/Files/Okapi_8h/#define-internal">INTERNAL</a></strong></td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td><strong><a href="/Okapi_Library/Files/Okapi_8h/#define-external">EXTERNAL</a></strong></td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td><strong><a href="/Okapi_Library/Files/Okapi_8h/#define-model-1v0">MODEL_1v0</a></strong></td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td><strong><a href="/Okapi_Library/Files/Okapi_8h/#define-model-0v0">MODEL_0v0</a></strong></td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td><strong><a href="/Okapi_Library/Files/Okapi_8h/#define-cbi">cbi</a></strong>(sfr, bit)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="types-documentation">Types Documentation</h2>
+
+<h3 id="enum-board">enum board</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Enumerator</th>
+      <th>Value</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Model_0v0</td>
+      <td>0</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Model_1v0</td>
+      <td>1</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Model_2v0</td>
+      <td>2</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="enum-build">enum build</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Enumerator</th>
+      <th>Value</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Build_A</td>
+      <td>0</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Build_B</td>
+      <td>1</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Build_C</td>
+      <td>2</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="enum-temp_val">enum temp_val</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Enumerator</th>
+      <th>Value</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Therm_Val</td>
+      <td>0</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>RTC_Val</td>
+      <td>1</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="macros-documentation">Macros Documentation</h2>
+
+<h3 id="define-red">define RED</h3>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#define RED 0xFFFF0000L
+</span></code></pre></div></div>
+
+<h3 id="define-green">define GREEN</h3>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#define GREEN 0xFF00FF00L
+</span></code></pre></div></div>
+
+<h3 id="define-blue">define BLUE</h3>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#define BLUE 0xFF0000FFL
+</span></code></pre></div></div>
+
+<h3 id="define-maroon">define MAROON</h3>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#define MAROON 0xFF800000L
+</span></code></pre></div></div>
+
+<h3 id="define-gold">define GOLD</h3>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#define GOLD 0xFFFFD700L
+</span></code></pre></div></div>
+
+<h3 id="define-orange">define ORANGE</h3>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#define ORANGE 0xFFFFA500L
+</span></code></pre></div></div>
+
+<h3 id="define-purple">define PURPLE</h3>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#define PURPLE 0xFF800080L
+</span></code></pre></div></div>
+
+<h3 id="define-cyan">define CYAN</h3>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#define CYAN 0xFF00FFFF
+</span></code></pre></div></div>
+
+<h3 id="define-black_alert">define BLACK_ALERT</h3>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#define BLACK_ALERT 0x802019FF
+</span></code></pre></div></div>
+
+<h3 id="define-on">define ON</h3>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#define ON 1
+</span></code></pre></div></div>
+
+<h3 id="define-off">define OFF</h3>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#define OFF 0
+</span></code></pre></div></div>
+
+<h3 id="define-vprime">define VPRIME</h3>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#define VPRIME 1
+</span></code></pre></div></div>
+
+<h3 id="define-vbeta">define VBETA</h3>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#define VBETA 2
+</span></code></pre></div></div>
+
+<h3 id="define-internal">define INTERNAL</h3>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#define INTERNAL 0
+</span></code></pre></div></div>
+
+<h3 id="define-external">define EXTERNAL</h3>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#define EXTERNAL 1
+</span></code></pre></div></div>
+
+<h3 id="define-model_1v0">define MODEL_1v0</h3>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#define MODEL_1v0 
+</span></code></pre></div></div>
+
+<h3 id="define-model_0v0">define MODEL_0v0</h3>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#define MODEL_0v0 
+</span></code></pre></div></div>
+
+<h3 id="define-cbi">define cbi</h3>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#define cbi(
+</span>    <span class="n">sfr</span><span class="p">,</span>
+    <span class="n">bit</span>
+<span class="p">)</span>
+<span class="p">(</span><span class="n">_SFR_BYTE</span><span class="p">(</span><span class="n">sfr</span><span class="p">)</span> <span class="o">&amp;=</span> <span class="o">~</span><span class="n">_BV</span><span class="p">(</span><span class="n">bit</span><span class="p">))</span>
+</code></pre></div></div>
+
+<h2 id="source-code">Source code</h2>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#ifndef Okapi_h
+#define Okapi_h
+</span>
+
+<span class="cp">#include</span> <span class="cpf">&lt;Arduino.h&gt;</span><span class="cp">
+#include</span> <span class="cpf">&lt;Wire.h&gt;</span><span class="cp">
+#include</span> <span class="cpf">&lt;SPI.h&gt;</span><span class="cp">
+#include</span> <span class="cpf">&lt;avr/pgmspace.h&gt;</span><span class="cp">
+#include</span> <span class="cpf">&lt;avr/sleep.h&gt;</span><span class="cp">
+#include</span> <span class="cpf">&lt;avr/wdt.h&gt;</span><span class="cp">
+#include</span> <span class="cpf">&lt;avr/power.h&gt;</span><span class="cp">
+#include</span> <span class="cpf">&lt;EEPROM.h&gt;</span><span class="cp">
+#include</span> <span class="cpf">"DS3231_Logger.h"</span><span class="cp">
+</span><span class="c1">// #include "MCP3421.h"</span>
+<span class="cp">#include</span> <span class="cpf">&lt;Adafruit_ADS1015.h&gt;</span><span class="c1"> //Include ADC interface</span><span class="cp">
+</span><span class="c1">// #include &lt;Adafruit_MCP4725.h&gt; //Include DAC interface</span>
+<span class="cp">#include</span> <span class="cpf">&lt;MCP4725.h&gt;</span><span class="c1">  //Include custom DAC library</span><span class="cp">
+#include</span> <span class="cpf">&lt;MCP23018.h&gt;</span><span class="cp">
+#include</span> <span class="cpf">"SdFat.h"</span><span class="cp">
+#include</span> <span class="cpf">&lt;NW_BME280.h&gt;</span><span class="cp">
+</span>
+
+<span class="cp">#define RED 0xFFFF0000L
+#define GREEN 0xFF00FF00L
+#define BLUE 0xFF0000FFL
+#define MAROON 0xFF800000L
+#define GOLD 0xFFFFD700L
+#define ORANGE 0xFFFFA500L
+#define PURPLE 0xFF800080L
+#define CYAN 0xFF00FFFF
+#define BLACK_ALERT 0x802019FF
+</span>
+<span class="cp">#define ON 1
+#define OFF 0
+</span>
+<span class="cp">#define VPRIME 1
+#define VBETA 2
+</span>
+
+<span class="cp">#define INTERNAL 0
+#define EXTERNAL 1
+</span>
+<span class="cp">#define MODEL_1v0
+#define MODEL_0v0
+</span>
+<span class="c1">//Define CBI macro</span>
+<span class="cp">#ifndef cbi
+#define cbi(sfr, bit) (_SFR_BYTE(sfr) &amp;= ~_BV(bit))
+#endif
+</span>
+<span class="k">enum</span> <span class="n">board</span>
+<span class="p">{</span>
+    <span class="n">Model_0v0</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="n">Model_1v0</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="n">Model_2v0</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="p">};</span>
+
+<span class="k">enum</span> <span class="n">build</span>
+<span class="p">{</span>
+    <span class="n">Build_A</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="n">Build_B</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="n">Build_C</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="p">};</span>
+
+<span class="k">enum</span> <span class="n">temp_val</span>
+<span class="p">{</span>
+    <span class="n">Therm_Val</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="n">RTC_Val</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="p">};</span>
+
+
+<span class="k">class</span> <span class="nc">Okapi</span>
+<span class="p">{</span>
+
+    <span class="nl">public:</span>
+        <span class="n">Okapi</span><span class="p">(</span><span class="n">board</span> <span class="n">Model_</span> <span class="o">=</span> <span class="n">Model_0v0</span><span class="p">,</span> <span class="n">build</span> <span class="n">Specs_</span> <span class="o">=</span> <span class="n">Build_A</span><span class="p">);</span> <span class="c1">//Use Build_A by default</span>
+    <span class="c1">// Okapi();</span>
+
+        <span class="kt">bool</span> <span class="n">begin</span><span class="p">(</span><span class="kt">uint8_t</span> <span class="o">*</span><span class="n">Vals</span><span class="p">,</span> <span class="kt">uint8_t</span> <span class="n">NumVals</span><span class="p">,</span> <span class="n">String</span> <span class="n">header_</span><span class="p">);</span>
+        <span class="kt">bool</span> <span class="n">begin</span><span class="p">(</span><span class="n">String</span> <span class="n">Header_</span> <span class="o">=</span> <span class="s">""</span><span class="p">);</span>
+
+        <span class="kt">int</span> <span class="n">LogStr</span><span class="p">(</span><span class="n">String</span> <span class="n">Val</span><span class="p">);</span>
+
+        <span class="n">String</span> <span class="n">ReadStr</span><span class="p">(</span><span class="kt">uint8_t</span> <span class="n">LineIndex</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="n">DataIndex</span><span class="p">);</span>
+
+        <span class="kt">void</span> <span class="n">LED_Color</span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">long</span> <span class="n">Val</span><span class="p">);</span>
+
+        <span class="kt">void</span> <span class="n">Run</span><span class="p">(</span><span class="n">String</span> <span class="p">(</span><span class="o">*</span><span class="n">Update</span><span class="p">)(</span><span class="kt">void</span><span class="p">),</span> <span class="kt">unsigned</span> <span class="kt">long</span> <span class="n">LogInterval</span><span class="p">);</span>
+
+        <span class="kt">float</span> <span class="n">GetVoltage</span><span class="p">(</span><span class="kt">uint8_t</span> <span class="n">Pin</span><span class="p">);</span> <span class="c1">//Read ADC</span>
+
+        <span class="kt">uint8_t</span> <span class="n">SetVoltageRaw</span><span class="p">(</span><span class="kt">uint16_t</span> <span class="n">Val</span><span class="p">,</span> <span class="kt">bool</span> <span class="n">Gain</span> <span class="o">=</span> <span class="n">GAIN_1X</span><span class="p">);</span> <span class="c1">//Set DAC with raw input, default to 1x gain</span>
+
+        <span class="kt">uint8_t</span> <span class="n">SetVoltage</span><span class="p">(</span><span class="kt">float</span> <span class="n">Val</span><span class="p">);</span> <span class="c1">//Set DAC to nearest interpolated value</span>
+
+        <span class="kt">void</span> <span class="n">AddDataPoint</span><span class="p">(</span><span class="n">String</span> <span class="p">(</span><span class="o">*</span><span class="n">Update</span><span class="p">)(</span><span class="kt">void</span><span class="p">));</span>
+
+        <span class="n">String</span> <span class="n">GetOnBoardVals</span><span class="p">();</span>
+
+        <span class="kt">void</span> <span class="n">InitLogFile</span><span class="p">();</span>
+
+        <span class="c1">// void GetEnviro(); //Get/update enviromental values from BME280 and RTC</span>
+        <span class="c1">// float GetBatVoltage();</span>
+        <span class="c1">// float GetBatPer();</span>
+        <span class="c1">// void GetPowerStats(); //Get all voltage and current values, converter/solar states, etc //ADD!!!!!!!!</span>
+
+        <span class="kt">void</span> <span class="n">ResetWD</span><span class="p">();</span>
+        <span class="c1">// void PowerOB(bool State);</span>
+
+        <span class="kt">uint8_t</span> <span class="n">PowerAuto</span><span class="p">();</span>
+
+        <span class="kt">void</span> <span class="n">PowerAux</span><span class="p">(</span><span class="kt">uint8_t</span> <span class="n">State</span><span class="p">);</span>
+
+        <span class="c1">// void PowerFeather(bool State); //Turn feather power on or off  //ADD!!!!!</span>
+
+        <span class="kt">void</span> <span class="n">I2CState</span><span class="p">(</span><span class="kt">bool</span> <span class="n">State</span><span class="p">);</span> <span class="c1">//Use on board of external I2C</span>
+
+        <span class="kt">void</span> <span class="n">setExtInt</span><span class="p">(</span><span class="kt">uint8_t</span> <span class="n">n</span><span class="p">,</span> <span class="n">String</span> <span class="n">header_entry</span> <span class="o">=</span> <span class="s">"nInterrupts,"</span><span class="p">);</span>
+        <span class="kt">uint16_t</span> <span class="n">getExtIntCount</span><span class="p">(</span><span class="kt">bool</span> <span class="n">reset0</span> <span class="o">=</span> <span class="nb">true</span><span class="p">);</span>
+        <span class="kt">void</span> <span class="n">resetExtIntCount</span><span class="p">(</span><span class="kt">uint16_t</span> <span class="n">start</span> <span class="o">=</span> <span class="mi">0</span><span class="p">);</span>
+        <span class="c1">// Pin definitions - Public //</span>
+
+        <span class="kt">int</span> <span class="n">SD_CS</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
+
+        <span class="kt">uint8_t</span> <span class="n">BuiltInLED</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span>
+
+        <span class="kt">uint8_t</span> <span class="n">RedLED</span> <span class="o">=</span> <span class="mi">13</span><span class="p">;</span>
+
+        <span class="kt">uint8_t</span> <span class="n">GreenLED</span> <span class="o">=</span> <span class="mi">15</span><span class="p">;</span>
+
+        <span class="kt">uint8_t</span> <span class="n">BlueLED</span> <span class="o">=</span> <span class="mi">14</span><span class="p">;</span>
+
+        <span class="c1">// uint8_t VRef_Pin = 2;</span>
+        <span class="c1">// uint8_t ThermSense_Pin = 1;</span>
+        <span class="c1">// uint8_t BatSense_Pin = 0;</span>
+
+        <span class="c1">// uint8_t VSwitch_Pin = 3;</span>
+
+        <span class="kt">uint8_t</span> <span class="n">SD_CD</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+
+        <span class="c1">// uint8_t Ext3v3Ctrl = 19;</span>
+
+        <span class="kt">uint8_t</span> <span class="n">I2C_SW</span> <span class="o">=</span> <span class="mi">21</span><span class="p">;</span>
+
+        <span class="c1">// uint8_t PG = 18;</span>
+        <span class="c1">// uint8_t ExtInt = 11;</span>
+
+        <span class="kt">uint8_t</span> <span class="n">RTCInt</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+        <span class="kt">uint8_t</span> <span class="n">LogInt</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+
+        <span class="kt">uint8_t</span> <span class="n">WDHold</span> <span class="o">=</span> <span class="mi">23</span><span class="p">;</span> <span class="c1">//ADD TO DOCUMENTATION!</span>
+        <span class="c1">// uint8_t BatSwitch = 22; //ADD TO DOCUMENTATION!</span>
+
+        <span class="kt">uint8_t</span> <span class="n">TX</span> <span class="o">=</span> <span class="mi">11</span><span class="p">;</span> <span class="c1">//ADD TO DOCUMENTATION!</span>
+
+        <span class="kt">uint8_t</span> <span class="n">RX</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span> <span class="c1">//ADD TO DOCUMENTATION!</span>
+
+        <span class="c1">// uint8_t D0 = 3; //ADD TO DOCUMENTATION!</span>
+
+        <span class="kt">uint8_t</span> <span class="n">C0</span> <span class="o">=</span> <span class="mi">18</span><span class="p">;</span>
+        <span class="kt">uint8_t</span> <span class="n">C1</span> <span class="o">=</span> <span class="mi">19</span><span class="p">;</span>
+
+        <span class="kt">uint8_t</span> <span class="n">Sw_Bus_Prime</span> <span class="o">=</span> <span class="mi">23</span><span class="p">;</span>
+        <span class="kt">uint8_t</span> <span class="n">Sw_Bus_Sec</span> <span class="o">=</span> <span class="mi">22</span><span class="p">;</span>
+
+        <span class="kt">uint8_t</span> <span class="n">PG_3v3_Core</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+        <span class="kt">uint8_t</span> <span class="n">FeatherEN</span> <span class="o">=</span> <span class="mi">7</span><span class="p">;</span>
+
+        <span class="kt">uint8_t</span> <span class="n">D0</span> <span class="o">=</span> <span class="mi">12</span><span class="p">;</span>
+        <span class="kt">uint8_t</span> <span class="n">D1</span> <span class="o">=</span> <span class="mi">25</span><span class="p">;</span>
+        <span class="kt">uint8_t</span> <span class="n">D2</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+        <span class="kt">uint8_t</span> <span class="n">D3</span> <span class="o">=</span> <span class="mi">26</span><span class="p">;</span>
+
+        <span class="kt">uint8_t</span> <span class="n">ADC_Sense_SW</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+        <span class="kt">uint8_t</span> <span class="n">FeatherRTS</span> <span class="o">=</span> <span class="mi">31</span><span class="p">;</span>
+        <span class="kt">uint8_t</span> <span class="n">FeatherCTS</span> <span class="o">=</span> <span class="mi">30</span><span class="p">;</span>
+        <span class="kt">uint8_t</span> <span class="n">FeatherGPIO</span> <span class="o">=</span> <span class="mi">29</span><span class="p">;</span>
+        <span class="kt">uint8_t</span> <span class="n">CS_Ext</span> <span class="o">=</span> <span class="mi">24</span><span class="p">;</span>
+
+        <span class="kt">uint8_t</span> <span class="n">GlobalInt</span> <span class="o">=</span> <span class="mi">28</span><span class="p">;</span>
+
+
+
+        <span class="k">const</span> <span class="n">String</span> <span class="n">LibVersion</span> <span class="o">=</span> <span class="s">"0.7.0"</span><span class="p">;</span>
+
+    <span class="nl">protected:</span>
+        <span class="c1">// float TempConvert(float V, float Vcc, float R, float A, float B, float C, float D, float R25);</span>
+        <span class="kt">void</span> <span class="n">Blink</span><span class="p">();</span>
+        <span class="c1">// void StartLog();</span>
+        <span class="c1">// void Log();</span>
+        <span class="kt">void</span> <span class="k">virtual</span> <span class="n">Log</span><span class="p">();</span>
+        <span class="kt">void</span> <span class="k">virtual</span> <span class="n">ButtonLog</span><span class="p">();</span>
+        <span class="k">static</span> <span class="kt">void</span> <span class="n">isr0</span><span class="p">();</span>
+        <span class="k">static</span> <span class="kt">void</span> <span class="n">isr1</span><span class="p">();</span>
+        <span class="k">static</span> <span class="kt">void</span> <span class="n">isr2</span><span class="p">();</span>
+        <span class="k">static</span> <span class="n">Okapi</span><span class="o">*</span> <span class="n">selfPointer</span><span class="p">;</span>
+
+        <span class="k">static</span> <span class="kt">void</span> <span class="n">DateTimeSD</span><span class="p">(</span><span class="kt">uint16_t</span><span class="o">*</span> <span class="n">date</span><span class="p">,</span> <span class="kt">uint16_t</span><span class="o">*</span> <span class="n">time</span><span class="p">);</span>
+        <span class="kt">void</span> <span class="n">DateTimeSD_Glob</span><span class="p">(</span><span class="kt">uint16_t</span><span class="o">*</span> <span class="n">date</span><span class="p">,</span> <span class="kt">uint16_t</span><span class="o">*</span> <span class="n">time</span><span class="p">);</span>
+        <span class="kt">void</span> <span class="n">sleepNow</span><span class="p">();</span>
+        <span class="kt">void</span> <span class="n">turnOffSDcard</span><span class="p">();</span>
+        <span class="kt">void</span> <span class="n">turnOnSDcard</span><span class="p">();</span>
+        <span class="kt">void</span> <span class="n">GetTime</span><span class="p">();</span>
+        <span class="kt">void</span> <span class="n">I2CTest</span><span class="p">();</span>
+        <span class="kt">void</span> <span class="n">SDTest</span><span class="p">();</span>
+        <span class="kt">void</span> <span class="n">ClockTest</span><span class="p">();</span>
+        <span class="c1">// void BatTest();</span>
+        <span class="c1">// void PowerTest();</span>
+        <span class="kt">void</span> <span class="n">EnviroStats</span><span class="p">();</span>
+        <span class="kt">int</span> <span class="n">freeMemory</span><span class="p">();</span> <span class="c1">//DEBUG!</span>
+        <span class="kt">void</span> <span class="n">extIntCounter</span><span class="p">();</span>
+
+        <span class="n">DS3231_Logger</span> <span class="n">RTC</span><span class="p">;</span>
+        <span class="c1">// MCP3421 adc;</span>
+        <span class="n">BME</span> <span class="n">EnviroSense</span><span class="p">;</span>
+        <span class="n">MCP4725</span> <span class="n">DAC</span><span class="p">;</span> <span class="c1">//Instatiate DAC</span>
+        <span class="n">Adafruit_ADS1115</span> <span class="n">ADC_OB</span><span class="p">;</span> <span class="c1">//Initialize on board (power moitoring) ADC</span>
+        <span class="n">Adafruit_ADS1115</span> <span class="n">ADC_Ext</span><span class="p">;</span>  <span class="c1">//Initialize external (sensor) ADC</span>
+        <span class="n">MCP23018</span> <span class="n">IO</span><span class="p">;</span>
+        <span class="c1">// float A = 0.003354016;</span>
+        <span class="c1">// float B = 0.0003074038;</span>
+        <span class="c1">// float C = 1.019153E-05;</span>
+        <span class="c1">// float D = 9.093712E-07;</span>
+        <span class="n">String</span> <span class="n">LogTimeDate</span> <span class="o">=</span> <span class="s">"2063/04/05 20:00:00"</span><span class="p">;</span>
+        <span class="c1">// float Temp[5] = {0}; //Temp Downhole, Temp on board, Temp RTC, Temp Baro</span>
+        <span class="c1">// float Pressure[2] = {0}; //Downhole pressure, Atmospheric pressure (if applicable)</span>
+        <span class="kt">bool</span> <span class="n">OBError</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+        <span class="kt">bool</span> <span class="n">SensorError</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+        <span class="kt">bool</span> <span class="n">TimeError</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+        <span class="kt">bool</span> <span class="n">SDError</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span> <span class="c1">//USE??</span>
+        <span class="kt">bool</span> <span class="n">BatError</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+        <span class="kt">bool</span> <span class="n">BatWarning</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+        <span class="kt">float</span> <span class="n">BatVoltageError</span> <span class="o">=</span> <span class="mf">3.3</span><span class="p">;</span> <span class="c1">//Low battery alert will trigger if voltage drops below this value</span>
+        <span class="kt">float</span> <span class="n">BatPercentageWarning</span> <span class="o">=</span> <span class="mi">50</span><span class="p">;</span> <span class="c1">//Percentage at which a warning will be indicated</span>
+        <span class="kt">float</span> <span class="n">PowerState</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">//Keep track of what power mode the system is using when waking from sleep</span>
+        <span class="n">String</span> <span class="n">Header</span> <span class="o">=</span> <span class="s">""</span><span class="p">;</span>
+        <span class="k">const</span> <span class="kt">char</span> <span class="n">HexMap</span><span class="p">[</span><span class="mi">16</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="sc">'0'</span><span class="p">,</span> <span class="sc">'1'</span><span class="p">,</span> <span class="sc">'2'</span><span class="p">,</span> <span class="sc">'3'</span><span class="p">,</span> <span class="sc">'4'</span><span class="p">,</span> <span class="sc">'5'</span><span class="p">,</span> <span class="sc">'6'</span><span class="p">,</span> <span class="sc">'7'</span><span class="p">,</span> <span class="sc">'8'</span><span class="p">,</span> <span class="sc">'9'</span><span class="p">,</span> <span class="sc">'A'</span><span class="p">,</span> <span class="sc">'B'</span><span class="p">,</span> <span class="sc">'C'</span><span class="p">,</span> <span class="sc">'D'</span><span class="p">,</span> <span class="sc">'E'</span><span class="p">,</span> <span class="sc">'F'</span><span class="p">};</span> <span class="c1">//used for conversion to HEX of string</span>
+        <span class="kt">char</span> <span class="n">SN</span><span class="p">[</span><span class="mi">20</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">};</span> <span class="c1">//Used to store device serial number, 19 chars + null terminator</span>
+        <span class="c1">// String SN = "FFFF-FFFF-FFFF-FFFF";</span>
+        <span class="kt">uint8_t</span> <span class="n">NumADR</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="kt">uint8_t</span> <span class="n">I2C_ADR</span><span class="p">[</span><span class="mi">16</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">};</span> <span class="c1">//Change length??</span>
+        <span class="kt">uint8_t</span> <span class="n">NumADR_OB</span> <span class="o">=</span> <span class="mi">6</span><span class="p">;</span>
+        <span class="kt">uint8_t</span> <span class="n">I2C_ADR_OB</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mh">0x68</span><span class="p">,</span> <span class="mh">0x20</span><span class="p">,</span> <span class="mh">0x48</span><span class="p">,</span> <span class="mh">0x49</span><span class="p">,</span> <span class="mh">0x62</span><span class="p">,</span> <span class="mh">0x77</span><span class="p">};</span> <span class="c1">//Clock, IO Expander, ADC_OB, ADC_Ext, DAC, BME</span>
+
+        <span class="c1">// float BatteryDivider = 2.0; //Default for v1.0</span>
+
+        <span class="c1">// float Temp_BME = 0; //FIX! Make non-global, pass array??</span>
+        <span class="c1">// float Temp_RTC = 0;</span>
+        <span class="c1">// float RH = 0;</span>
+        <span class="c1">// float Pres = 0;</span>
+
+        <span class="n">board</span> <span class="n">Model</span><span class="p">;</span>
+        <span class="n">build</span> <span class="n">Specs</span><span class="p">;</span>
+
+        <span class="k">volatile</span> <span class="kt">bool</span> <span class="n">LogEvent</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span> <span class="c1">//Used to test if logging should begin yet</span>
+        <span class="k">volatile</span> <span class="kt">bool</span> <span class="n">NewLog</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span> <span class="c1">//Used to tell system to start a new log</span>
+        <span class="c1">// volatile bool ManualLog = false; //Used to add point to log by pressing the log button</span>
+        <span class="k">volatile</span> <span class="kt">int</span> <span class="n">AwakeCount</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+        <span class="kt">char</span> <span class="n">FileNameC</span><span class="p">[</span><span class="mi">11</span><span class="p">];</span> <span class="c1">//Used for file handling</span>
+        <span class="kt">char</span> <span class="n">FileNameTestC</span><span class="p">[</span><span class="mi">11</span><span class="p">];</span> <span class="c1">//Used for file handling</span>
+        <span class="kt">bool</span> <span class="n">SD_Init</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+        <span class="n">SdFat</span> <span class="n">SD</span><span class="p">;</span>
+        <span class="n">byte</span>  <span class="n">keep_SPCR</span><span class="p">;</span>
+        <span class="n">byte</span> <span class="n">keep_ADCSRA</span><span class="p">;</span>
+
+        <span class="kt">uint16_t</span> <span class="n">LogCountPush</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span> <span class="c1">//Number of logs to take before sending data off</span>
+        <span class="kt">uint16_t</span> <span class="n">LogCount</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">//Number of logs since last data write</span>
+        <span class="kt">uint16_t</span> <span class="n">Index</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">//Index of data entry USE???? FIX!</span>
+        <span class="kt">uint32_t</span> <span class="n">SDIndex</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">//Index of data point in SD card file</span>
+        <span class="kt">uint32_t</span> <span class="n">LastSDIndex</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">//Index as last data dump</span>
+<span class="p">};</span>
+
+<span class="cp">#endif
+</span></code></pre></div></div>
+
+<hr />
+
+<p>Updated on 2026-09-22 at 23:10:06 +0000</p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+  
+
+  
+
+
+        
+
+
+
+      </footer>
+
+      
+
+      
+
+
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+      
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        
+
+
+<div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+
+    
+      <li><a href="/Okapi_Library/feed.xml"><i class="fas fa-fw fa-square-rss" aria-hidden="true"></i> Feed</a></li>
+    
+  </ul>
+</div>
+
+
+<div class="page__footer-copyright">&copy; 2026 <a href="https://docs.northernwidget.com">Okapi Library</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+
+  <script src="/Okapi_Library/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>

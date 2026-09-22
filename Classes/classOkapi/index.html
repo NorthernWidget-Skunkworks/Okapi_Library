@@ -1,0 +1,1016 @@
+
+
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.28.1 by Michael Rose
+  Copyright 2013-2026 Michael Rose - mademistakes.com | @mmistakes
+  Copyright 2024-2026 iBug - ibugone.com | @iBug
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+
+<html lang="en" class="no-js" dir="ltr">
+  <head>
+    
+<meta charset="utf-8">
+
+
+<!-- begin _includes/seo.html --><title>Okapi - Okapi Library</title>
+<meta name="description" content="Library for the Okapi ATmega1284p data logger">
+
+
+  <meta name="author" content="Northern Widget">
+  
+
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Okapi Library">
+<meta property="og:title" content="Okapi">
+<meta property="og:url" content="https://docs.northernwidget.com/Okapi_Library/Classes/classOkapi/">
+
+
+  <meta property="og:description" content="Library for the Okapi ATmega1284p data logger">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="canonical" href="https://docs.northernwidget.com/Okapi_Library/Classes/classOkapi/">
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/Okapi_Library/feed.xml" type="application/atom+xml" rel="alternate" title="Okapi Library Feed">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+  
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/Okapi_Library/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    
+<nav class="skip-links" aria-label="Skip links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav" aria-label="Primary navigation">
+        
+        <a class="site-title" href="/Okapi_Library/">
+          Okapi Library
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a
+                href="https://mmistakes.github.io/minimal-mistakes/docs/quick-start-guide/"
+                
+                
+              >Quick-Start Guide</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+
+
+
+
+<div id="main" role="main">
+  
+
+  <div class="sidebar sticky">
+  
+  
+    
+      
+      
+      
+      
+    
+    
+      
+<nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle Menu</label>
+  <ul class="nav__items">
+    
+      
+      
+        <li>
+          
+            <a href="/Okapi_Library/"><span class="nav__sub-title">Overview</span></a>
+          
+
+          
+        </li>
+      
+        <li>
+          
+            <a href="/Okapi_Library/Classes/classOkapi/"><span class="nav__sub-title">Okapi Class</span></a>
+          
+
+          
+        </li>
+      
+        <li>
+          
+            <a href="/Okapi_Library/Classes/index_classes/"><span class="nav__sub-title">Classes</span></a>
+          
+
+          
+        </li>
+      
+        <li>
+          
+            <a href="/Okapi_Library/Files/index_files/"><span class="nav__sub-title">Files</span></a>
+          
+
+          
+        </li>
+      
+    
+  </ul>
+</nav>
+
+    
+  
+  
+  </div>
+
+
+
+  <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Okapi">
+    
+    
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title p-name" itemprop="headline">
+            <a href="https://docs.northernwidget.com/Okapi_Library/Classes/classOkapi/" itemprop="url">Okapi
+</a>
+          </h1>
+          
+
+
+
+        </header>
+      
+
+      <section class="page__content e-content" itemprop="text">
+        
+          <aside class="sidebar__right sticky">
+            <nav class="toc" aria-label="Table of contents">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
+              <ul class="toc__menu"><li><a href="#public-functions">Public Functions</a></li><li><a href="#public-attributes">Public Attributes</a></li><li><a href="#detailed-description">Detailed Description</a></li><li><a href="#public-functions-documentation">Public Functions Documentation</a><ul><li><a href="#function-okapi">function Okapi</a></li><li><a href="#function-begin">function begin</a></li><li><a href="#function-begin-1">function begin</a></li><li><a href="#function-logstr">function LogStr</a></li><li><a href="#function-readstr">function ReadStr</a></li><li><a href="#function-led_color">function LED_Color</a></li><li><a href="#function-run">function Run</a></li><li><a href="#function-getvoltage">function GetVoltage</a></li><li><a href="#function-setvoltageraw">function SetVoltageRaw</a></li><li><a href="#function-setvoltage">function SetVoltage</a></li><li><a href="#function-adddatapoint">function AddDataPoint</a></li><li><a href="#function-getonboardvals">function GetOnBoardVals</a></li><li><a href="#function-initlogfile">function InitLogFile</a></li><li><a href="#function-resetwd">function ResetWD</a></li><li><a href="#function-powerauto">function PowerAuto</a></li><li><a href="#function-poweraux">function PowerAux</a></li><li><a href="#function-i2cstate">function I2CState</a></li><li><a href="#function-setextint">function setExtInt</a></li><li><a href="#function-getextintcount">function getExtIntCount</a></li><li><a href="#function-resetextintcount">function resetExtIntCount</a></li></ul></li><li><a href="#public-attributes-documentation">Public Attributes Documentation</a><ul><li><a href="#variable-sd_cs">variable SD_CS</a></li><li><a href="#variable-builtinled">variable BuiltInLED</a></li><li><a href="#variable-redled">variable RedLED</a></li><li><a href="#variable-greenled">variable GreenLED</a></li><li><a href="#variable-blueled">variable BlueLED</a></li><li><a href="#variable-sd_cd">variable SD_CD</a></li><li><a href="#variable-i2c_sw">variable I2C_SW</a></li><li><a href="#variable-rtcint">variable RTCInt</a></li><li><a href="#variable-logint">variable LogInt</a></li><li><a href="#variable-wdhold">variable WDHold</a></li><li><a href="#variable-tx">variable TX</a></li><li><a href="#variable-rx">variable RX</a></li><li><a href="#variable-c0">variable C0</a></li><li><a href="#variable-c1">variable C1</a></li><li><a href="#variable-sw_bus_prime">variable Sw_Bus_Prime</a></li><li><a href="#variable-sw_bus_sec">variable Sw_Bus_Sec</a></li><li><a href="#variable-pg_3v3_core">variable PG_3v3_Core</a></li><li><a href="#variable-featheren">variable FeatherEN</a></li><li><a href="#variable-d0">variable D0</a></li><li><a href="#variable-d1">variable D1</a></li><li><a href="#variable-d2">variable D2</a></li><li><a href="#variable-d3">variable D3</a></li><li><a href="#variable-adc_sense_sw">variable ADC_Sense_SW</a></li><li><a href="#variable-featherrts">variable FeatherRTS</a></li><li><a href="#variable-feathercts">variable FeatherCTS</a></li><li><a href="#variable-feathergpio">variable FeatherGPIO</a></li><li><a href="#variable-cs_ext">variable CS_Ext</a></li><li><a href="#variable-globalint">variable GlobalInt</a></li><li><a href="#variable-libversion">variable LibVersion</a></li></ul></li></ul>
+            </nav>
+          </aside>
+        
+        <p>An Arduino-compatible library for utilizing the basic and logging features of the <a href="">Okapi</a> data logger.  <a href="#detailed-description">More…</a></p>
+
+<p><code class="language-plaintext highlighter-rouge">#include &lt;Okapi.h&gt;</code></p>
+
+<h2 id="public-functions">Public Functions</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th> </th>
+      <th>Name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td> </td>
+      <td><strong><a href="/Okapi_Library/Classes/classOkapi/#function-okapi">Okapi</a></strong>(board Model_ =Model_0v0, build Specs_ =Build_A)<br />Instantiate the <a href="/Okapi_Library/Classes/classOkapi/">Okapi</a> data-logger class.</td>
+    </tr>
+    <tr>
+      <td>bool</td>
+      <td><strong><a href="/Okapi_Library/Classes/classOkapi/#function-begin">begin</a></strong>(uint8<em>t * Vals, uint8_t NumVals, String header</em>)<br />Begin with a list of attached I2C devices.</td>
+    </tr>
+    <tr>
+      <td>bool</td>
+      <td><strong><a href="/Okapi_Library/Classes/classOkapi/#function-begin">begin</a></strong>(String Header_ =””)<br />Begin by passing a header string; default empty.</td>
+    </tr>
+    <tr>
+      <td>int</td>
+      <td><strong><a href="/Okapi_Library/Classes/classOkapi/#function-logstr">LogStr</a></strong>(String Val)</td>
+    </tr>
+    <tr>
+      <td>String</td>
+      <td><strong><a href="/Okapi_Library/Classes/classOkapi/#function-readstr">ReadStr</a></strong>(uint8_t LineIndex, uint32_t DataIndex)<br />BSCHULZ1701: WHAT EXACTLY DOES THIS FUNCTION DO?</td>
+    </tr>
+    <tr>
+      <td>void</td>
+      <td><strong><a href="/Okapi_Library/Classes/classOkapi/#function-led-color">LED_Color</a></strong>(unsigned long Val)<br />Set the color of the LED.</td>
+    </tr>
+    <tr>
+      <td>void</td>
+      <td><strong><a href="/Okapi_Library/Classes/classOkapi/#function-run">Run</a></strong>(String(*)(void) Update, unsigned long LogInterval)<br />Main function that loops infinititely during runtime BSCHULZ1701: I changed *f to *Update to match the CPP. Hope that does not break anything!</td>
+    </tr>
+    <tr>
+      <td>float</td>
+      <td><strong><a href="/Okapi_Library/Classes/classOkapi/#function-getvoltage">GetVoltage</a></strong>(uint8_t Pin)<br />Read voltage from the external 16-bit ADC.</td>
+    </tr>
+    <tr>
+      <td>uint8_t</td>
+      <td><strong><a href="/Okapi_Library/Classes/classOkapi/#function-setvoltageraw">SetVoltageRaw</a></strong>(uint16_t Val, bool Gain =GAIN_1X)<br />Set voltage on the 12-bit digital-to-analog converter.</td>
+    </tr>
+    <tr>
+      <td>uint8_t</td>
+      <td><strong><a href="/Okapi_Library/Classes/classOkapi/#function-setvoltage">SetVoltage</a></strong>(float Val)<br />Set voltage on the 12-bit digital-to-analog converter.</td>
+    </tr>
+    <tr>
+      <td>void</td>
+      <td><strong><a href="/Okapi_Library/Classes/classOkapi/#function-adddatapoint">AddDataPoint</a></strong>(String(*)(void) Update)<br />Writes date/time, on-board sensors, and external string to SD.</td>
+    </tr>
+    <tr>
+      <td>String</td>
+      <td><strong><a href="/Okapi_Library/Classes/classOkapi/#function-getonboardvals">GetOnBoardVals</a></strong>()<br />Obtain date/time, P/T/RH, temperatures, and voltages from board.</td>
+    </tr>
+    <tr>
+      <td>void</td>
+      <td><strong><a href="/Okapi_Library/Classes/classOkapi/#function-initlogfile">InitLogFile</a></strong>()<br />Create a new log file, following serial numbering.</td>
+    </tr>
+    <tr>
+      <td>void</td>
+      <td><strong><a href="/Okapi_Library/Classes/classOkapi/#function-resetwd">ResetWD</a></strong>()</td>
+    </tr>
+    <tr>
+      <td>uint8_t</td>
+      <td><strong><a href="/Okapi_Library/Classes/classOkapi/#function-powerauto">PowerAuto</a></strong>()<br />Determine which input has power and set up power path from that.</td>
+    </tr>
+    <tr>
+      <td>void</td>
+      <td><strong><a href="/Okapi_Library/Classes/classOkapi/#function-poweraux">PowerAux</a></strong>(uint8_t State)<br />Power from Main, backup, or off BSCHULZ1701: I am not sure what this does!</td>
+    </tr>
+    <tr>
+      <td>void</td>
+      <td><strong><a href="/Okapi_Library/Classes/classOkapi/#function-i2cstate">I2CState</a></strong>(bool State)<br />Set the I2C state.</td>
+    </tr>
+    <tr>
+      <td>void</td>
+      <td><strong><a href="/Okapi_Library/Classes/classOkapi/#function-setextint">setExtInt</a></strong>(uint8_t n, String header_entry =”nInterrupts,”)</td>
+    </tr>
+    <tr>
+      <td>uint16_t</td>
+      <td><strong><a href="/Okapi_Library/Classes/classOkapi/#function-getextintcount">getExtIntCount</a></strong>(bool reset0 =true)</td>
+    </tr>
+    <tr>
+      <td>void</td>
+      <td><strong><a href="/Okapi_Library/Classes/classOkapi/#function-resetextintcount">resetExtIntCount</a></strong>(uint16_t start =0)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="public-attributes">Public Attributes</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th> </th>
+      <th>Name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>int</td>
+      <td><strong><a href="/Okapi_Library/Classes/classOkapi/#variable-sd-cs">SD_CS</a></strong> <br />SD card chip select <strong>Pin 4</strong></td>
+    </tr>
+    <tr>
+      <td>uint8_t</td>
+      <td><strong><a href="/Okapi_Library/Classes/classOkapi/#variable-builtinled">BuiltInLED</a></strong> <br />Pin controlling on/off state of RGB LED <strong>Pin 20</strong></td>
+    </tr>
+    <tr>
+      <td>uint8_t</td>
+      <td><strong><a href="/Okapi_Library/Classes/classOkapi/#variable-redled">RedLED</a></strong> <br />Pin controlling red intensity of RGB LED <strong>Pin 13</strong></td>
+    </tr>
+    <tr>
+      <td>uint8_t</td>
+      <td><strong><a href="/Okapi_Library/Classes/classOkapi/#variable-greenled">GreenLED</a></strong> <br />Pin controlling green intensity of RGB LED <strong>Pin 15</strong></td>
+    </tr>
+    <tr>
+      <td>uint8_t</td>
+      <td><strong><a href="/Okapi_Library/Classes/classOkapi/#variable-blueled">BlueLED</a></strong> <br />Pin controlling blue intensity of RGB LED <strong>Pin 14</strong></td>
+    </tr>
+    <tr>
+      <td>uint8_t</td>
+      <td><strong><a href="/Okapi_Library/Classes/classOkapi/#variable-sd-cd">SD_CD</a></strong> <br />Chip-detect pin for the SD card <strong>Pin 1</strong></td>
+    </tr>
+    <tr>
+      <td>uint8_t</td>
+      <td><strong><a href="/Okapi_Library/Classes/classOkapi/#variable-i2c-sw">I2C_SW</a></strong> <br />Switch to enable/disable I2C <strong>Pin 21</strong></td>
+    </tr>
+    <tr>
+      <td>uint8_t</td>
+      <td><strong><a href="/Okapi_Library/Classes/classOkapi/#variable-rtcint">RTCInt</a></strong> <br />Interrupt from RTC <strong>Pin 10</strong><em><strong>DIFFERENT IN CPP!!!!</strong></em></td>
+    </tr>
+    <tr>
+      <td>uint8_t</td>
+      <td><strong><a href="/Okapi_Library/Classes/classOkapi/#variable-logint">LogInt</a></strong> <br />Interrupt from Log button <strong>Pin 2</strong><em><strong>DIFFERENT IN CPP!!!!</strong></em></td>
+    </tr>
+    <tr>
+      <td>uint8_t</td>
+      <td><strong><a href="/Okapi_Library/Classes/classOkapi/#variable-wdhold">WDHold</a></strong></td>
+    </tr>
+    <tr>
+      <td>uint8_t</td>
+      <td><strong><a href="/Okapi_Library/Classes/classOkapi/#variable-tx">TX</a></strong> <br />USART Transmit.</td>
+    </tr>
+    <tr>
+      <td>uint8_t</td>
+      <td><strong><a href="/Okapi_Library/Classes/classOkapi/#variable-rx">RX</a></strong> <br />USART Receive.</td>
+    </tr>
+    <tr>
+      <td>uint8_t</td>
+      <td><strong><a href="/Okapi_Library/Classes/classOkapi/#variable-c0">C0</a></strong> <br />BSCHULZ1701: WHAT ARE THESE??</td>
+    </tr>
+    <tr>
+      <td>uint8_t</td>
+      <td><strong><a href="/Okapi_Library/Classes/classOkapi/#variable-c1">C1</a></strong> <br />BSCHULZ1701: WHAT ARE THESE??</td>
+    </tr>
+    <tr>
+      <td>uint8_t</td>
+      <td><strong><a href="/Okapi_Library/Classes/classOkapi/#variable-sw-bus-prime">Sw_Bus_Prime</a></strong> <br />Primary bus switch pin (BSCHULZ1701: is this in addition to the physical switch?)</td>
+    </tr>
+    <tr>
+      <td>uint8_t</td>
+      <td><strong><a href="/Okapi_Library/Classes/classOkapi/#variable-sw-bus-sec">Sw_Bus_Sec</a></strong> <br />Secondary bus switch pin (BSCHULZ1701: is this in addition to the physical switch?)</td>
+    </tr>
+    <tr>
+      <td>uint8_t</td>
+      <td><strong><a href="/Okapi_Library/Classes/classOkapi/#variable-pg-3v3-core">PG_3v3_Core</a></strong> <br />IO Exp PORT B (BSCHULZ1701: what is this in plain English / purpose?)</td>
+    </tr>
+    <tr>
+      <td>uint8_t</td>
+      <td><strong><a href="/Okapi_Library/Classes/classOkapi/#variable-featheren">FeatherEN</a></strong> <br />IO Exp PORT B (BSCHULZ1701: turn Feather on if True, I guess?)</td>
+    </tr>
+    <tr>
+      <td>uint8_t</td>
+      <td><strong><a href="/Okapi_Library/Classes/classOkapi/#variable-d0">D0</a></strong> <br />GPIO pin D0 <strong>Arduino Pin 12</strong></td>
+    </tr>
+    <tr>
+      <td>uint8_t</td>
+      <td><strong><a href="/Okapi_Library/Classes/classOkapi/#variable-d1">D1</a></strong> <br />GPIO pin D1 <strong>Arduino Pin 25</strong></td>
+    </tr>
+    <tr>
+      <td>uint8_t</td>
+      <td><strong><a href="/Okapi_Library/Classes/classOkapi/#variable-d2">D2</a></strong> <br />GPIO pin D2 <strong>Arduino Pin 3</strong></td>
+    </tr>
+    <tr>
+      <td>uint8_t</td>
+      <td><strong><a href="/Okapi_Library/Classes/classOkapi/#variable-d3">D3</a></strong> <br />GPIO pin D3 <strong>Arduino Pin 26</strong></td>
+    </tr>
+    <tr>
+      <td>uint8_t</td>
+      <td><strong><a href="/Okapi_Library/Classes/classOkapi/#variable-adc-sense-sw">ADC_Sense_SW</a></strong> <br />Switch the Analog-Digital Converter on (true) or off (false) <strong>Pin 0</strong></td>
+    </tr>
+    <tr>
+      <td>uint8_t</td>
+      <td><strong><a href="/Okapi_Library/Classes/classOkapi/#variable-featherrts">FeatherRTS</a></strong> <br />Feather pin: should this be public or private?</td>
+    </tr>
+    <tr>
+      <td>uint8_t</td>
+      <td><strong><a href="/Okapi_Library/Classes/classOkapi/#variable-feathercts">FeatherCTS</a></strong> <br />Feather pin: should this be public or private?</td>
+    </tr>
+    <tr>
+      <td>uint8_t</td>
+      <td><strong><a href="/Okapi_Library/Classes/classOkapi/#variable-feathergpio">FeatherGPIO</a></strong> <br />Feather pin: should this be public or private?</td>
+    </tr>
+    <tr>
+      <td>uint8_t</td>
+      <td><strong><a href="/Okapi_Library/Classes/classOkapi/#variable-cs-ext">CS_Ext</a></strong> <br />Feather pin: should this be public or private?</td>
+    </tr>
+    <tr>
+      <td>uint8_t</td>
+      <td><strong><a href="/Okapi_Library/Classes/classOkapi/#variable-globalint">GlobalInt</a></strong> <br />WHAT IS THIS?</td>
+    </tr>
+    <tr>
+      <td>const String</td>
+      <td><strong><a href="/Okapi_Library/Classes/classOkapi/#variable-libversion">LibVersion</a></strong> <br /><a href="/Okapi_Library/Classes/classOkapi/">Okapi</a> data logger library version.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="detailed-description">Detailed Description</h2>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Okapi</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>An Arduino-compatible library for utilizing the basic and logging features of the <a href="">Okapi</a> data logger.</p>
+
+<p>Data-logger management. Basic operations, power management, on-board sensing, and links to external devices.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[![DOI](https://zenodo.org/badge/197810426.svg)](https://zenodo.org/badge/latestdoi/197810426)
+</code></pre></div></div>
+
+<h2 id="public-functions-documentation">Public Functions Documentation</h2>
+
+<h3 id="function-okapi">function Okapi</h3>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Okapi</span><span class="p">(</span>
+    <span class="n">board</span> <span class="n">Model_</span> <span class="o">=</span><span class="n">Model_0v0</span><span class="p">,</span>
+    <span class="n">build</span> <span class="n">Specs_</span> <span class="o">=</span><span class="n">Build_A</span>
+<span class="p">)</span>
+</code></pre></div></div>
+
+<p>Instantiate the <a href="/Okapi_Library/Classes/classOkapi/">Okapi</a> data-logger class.</p>
+
+<p><strong>Parameters</strong>:</p>
+
+<ul>
+  <li><strong>Model_</strong> Not currently used for <a href="/Okapi_Library/Classes/classOkapi/">Okapi</a></li>
+  <li><strong>Specs_</strong> Defines the number of on-board I2C device addresses. <strong>Build_A</strong>: <strong>DEFAULT</strong> 6 on-board I2C devices. <strong>Build_B</strong>: 0 on-board I2C devices.</li>
+</ul>
+
+<h3 id="function-begin">function begin</h3>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">bool</span> <span class="n">begin</span><span class="p">(</span>
+    <span class="kt">uint8_t</span> <span class="o">*</span> <span class="n">Vals</span><span class="p">,</span>
+    <span class="kt">uint8_t</span> <span class="n">NumVals</span><span class="p">,</span>
+    <span class="n">String</span> <span class="n">header_</span>
+<span class="p">)</span>
+</code></pre></div></div>
+
+<p>Begin with a list of attached I2C devices.</p>
+
+<p><strong>Parameters</strong>:</p>
+
+<ul>
+  <li><strong>*Vals</strong> List of I2C addresses for external sensors</li>
+  <li><strong>NumVals</strong> The length of the *Vals list</li>
+  <li><strong>Header_</strong> A header string for the data file</li>
+</ul>
+
+<h3 id="function-begin-1">function begin</h3>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">bool</span> <span class="n">begin</span><span class="p">(</span>
+    <span class="n">String</span> <span class="n">Header_</span> <span class="o">=</span><span class="s">""</span>
+<span class="p">)</span>
+</code></pre></div></div>
+
+<p>Begin by passing a header string; default empty.</p>
+
+<p><strong>Parameters</strong>:</p>
+
+<ul>
+  <li><strong>Header_</strong> A header string for the data file</li>
+</ul>
+
+<h3 id="function-logstr">function LogStr</h3>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="n">LogStr</span><span class="p">(</span>
+    <span class="n">String</span> <span class="n">Val</span>
+<span class="p">)</span>
+</code></pre></div></div>
+
+<p><strong>Parameters</strong>:</p>
+
+<ul>
+  <li><strong>Val</strong> The string to be written</li>
+</ul>
+
+<p>Write a string to the log file.</p>
+
+<h3 id="function-readstr">function ReadStr</h3>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">String</span> <span class="n">ReadStr</span><span class="p">(</span>
+    <span class="kt">uint8_t</span> <span class="n">LineIndex</span><span class="p">,</span>
+    <span class="kt">uint32_t</span> <span class="n">DataIndex</span>
+<span class="p">)</span>
+</code></pre></div></div>
+
+<p>BSCHULZ1701: WHAT EXACTLY DOES THIS FUNCTION DO?</p>
+
+<p><strong>Parameters</strong>:</p>
+
+<ul>
+  <li><strong>LineIndex</strong> The desired line number</li>
+  <li><strong>DataIndex</strong> The desired byte at which to start in the file</li>
+</ul>
+
+<h3 id="function-led_color">function LED_Color</h3>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span> <span class="n">LED_Color</span><span class="p">(</span>
+    <span class="kt">unsigned</span> <span class="kt">long</span> <span class="n">Val</span>
+<span class="p">)</span>
+</code></pre></div></div>
+
+<p>Set the color of the LED.</p>
+
+<p><strong>Parameters</strong>:</p>
+
+<ul>
+  <li><strong>Val</strong> 4-byte (R, G, B, alpha) color</li>
+</ul>
+
+<h3 id="function-run">function Run</h3>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span> <span class="n">Run</span><span class="p">(</span>
+    <span class="n">String</span><span class="p">(</span><span class="o">*</span><span class="p">)(</span><span class="kt">void</span><span class="p">)</span> <span class="n">Update</span><span class="p">,</span>
+    <span class="kt">unsigned</span> <span class="kt">long</span> <span class="n">LogInterval</span>
+<span class="p">)</span>
+</code></pre></div></div>
+
+<p>Main function that loops infinititely during runtime BSCHULZ1701: I changed *f to *Update to match the CPP. Hope that does not break anything!</p>
+
+<p><strong>Parameters</strong>:</p>
+
+<ul>
+  <li><strong>*Update</strong> Pointer to a function in the Arduino sketch (ino); this retrieves new sensor data as a String object</li>
+  <li>
+    <p><strong>LogInterval</strong> Number of seconds between log events</p>
+  </li>
+  <li></li>
+</ul>
+
+<h3 id="function-getvoltage">function GetVoltage</h3>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">float</span> <span class="n">GetVoltage</span><span class="p">(</span>
+    <span class="kt">uint8_t</span> <span class="n">Pin</span>
+<span class="p">)</span>
+</code></pre></div></div>
+
+<p>Read voltage from the external 16-bit ADC.</p>
+
+<p><strong>Parameters</strong>:</p>
+
+<ul>
+  <li><strong>Pin</strong> (range 0-3) – which pin to read?</li>
+</ul>
+
+<h3 id="function-setvoltageraw">function SetVoltageRaw</h3>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">uint8_t</span> <span class="n">SetVoltageRaw</span><span class="p">(</span>
+    <span class="kt">uint16_t</span> <span class="n">Val</span><span class="p">,</span>
+    <span class="kt">bool</span> <span class="n">Gain</span> <span class="o">=</span><span class="n">GAIN_1X</span>
+<span class="p">)</span>
+</code></pre></div></div>
+
+<p>Set voltage on the 12-bit digital-to-analog converter.</p>
+
+<p><strong>Parameters</strong>:</p>
+
+<ul>
+  <li><strong>Val</strong> 0 to 4095, which scales from 0 to Vbus</li>
+  <li><strong>Gain</strong> WHAT? WHY BOOL?</li>
+</ul>
+
+<p>BSCHULZ1701: WHY IS THE GAIN A BOOLEAN? AND IS THIS FROM 0 TO VBUS? AND SHOULD THIS BE A PRIVATE UTILITY FUNCTION?</p>
+
+<h3 id="function-setvoltage">function SetVoltage</h3>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">uint8_t</span> <span class="n">SetVoltage</span><span class="p">(</span>
+    <span class="kt">float</span> <span class="n">Val</span>
+<span class="p">)</span>
+</code></pre></div></div>
+
+<p>Set voltage on the 12-bit digital-to-analog converter.</p>
+
+<p><strong>Parameters</strong>:</p>
+
+<ul>
+  <li><strong>Val</strong> Desired voltage value, in volts.</li>
+</ul>
+
+<h3 id="function-adddatapoint">function AddDataPoint</h3>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span> <span class="n">AddDataPoint</span><span class="p">(</span>
+    <span class="n">String</span><span class="p">(</span><span class="o">*</span><span class="p">)(</span><span class="kt">void</span><span class="p">)</span> <span class="n">Update</span>
+<span class="p">)</span>
+</code></pre></div></div>
+
+<p>Writes date/time, on-board sensors, and external string to SD.</p>
+
+<p><strong>Parameters</strong>:</p>
+
+<ul>
+  <li><strong>*Update</strong> External update function from Arduino sketch</li>
+</ul>
+
+<h3 id="function-getonboardvals">function GetOnBoardVals</h3>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">String</span> <span class="n">GetOnBoardVals</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p>Obtain date/time, P/T/RH, temperatures, and voltages from board.</p>
+
+<h3 id="function-initlogfile">function InitLogFile</h3>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span> <span class="n">InitLogFile</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p>Create a new log file, following serial numbering.</p>
+
+<h3 id="function-resetwd">function ResetWD</h3>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span> <span class="n">ResetWD</span><span class="p">()</span>
+</code></pre></div></div>
+
+<h3 id="function-powerauto">function PowerAuto</h3>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">uint8_t</span> <span class="n">PowerAuto</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p>Determine which input has power and set up power path from that.</p>
+
+<h3 id="function-poweraux">function PowerAux</h3>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span> <span class="n">PowerAux</span><span class="p">(</span>
+    <span class="kt">uint8_t</span> <span class="n">State</span>
+<span class="p">)</span>
+</code></pre></div></div>
+
+<p>Power from Main, backup, or off BSCHULZ1701: I am not sure what this does!</p>
+
+<p><strong>Parameters</strong>:</p>
+
+<ul>
+  <li><strong>State</strong></li>
+</ul>
+
+<h3 id="function-i2cstate">function I2CState</h3>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span> <span class="n">I2CState</span><span class="p">(</span>
+    <span class="kt">bool</span> <span class="n">State</span>
+<span class="p">)</span>
+</code></pre></div></div>
+
+<p>Set the I2C state.</p>
+
+<p><strong>Parameters</strong>:</p>
+
+<ul>
+  <li><strong>State</strong> True or False gives On or Off</li>
+</ul>
+
+<h3 id="function-setextint">function setExtInt</h3>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span> <span class="n">setExtInt</span><span class="p">(</span>
+    <span class="kt">uint8_t</span> <span class="n">n</span><span class="p">,</span>
+    <span class="n">String</span> <span class="n">header_entry</span> <span class="o">=</span><span class="s">"nInterrupts,"</span>
+<span class="p">)</span>
+</code></pre></div></div>
+
+<h3 id="function-getextintcount">function getExtIntCount</h3>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">uint16_t</span> <span class="n">getExtIntCount</span><span class="p">(</span>
+    <span class="kt">bool</span> <span class="n">reset0</span> <span class="o">=</span><span class="nb">true</span>
+<span class="p">)</span>
+</code></pre></div></div>
+
+<h3 id="function-resetextintcount">function resetExtIntCount</h3>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span> <span class="n">resetExtIntCount</span><span class="p">(</span>
+    <span class="kt">uint16_t</span> <span class="n">start</span> <span class="o">=</span><span class="mi">0</span>
+<span class="p">)</span>
+</code></pre></div></div>
+
+<h2 id="public-attributes-documentation">Public Attributes Documentation</h2>
+
+<h3 id="variable-sd_cs">variable SD_CS</h3>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="n">SD_CS</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>SD card chip select <strong>Pin 4</strong></p>
+
+<h3 id="variable-builtinled">variable BuiltInLED</h3>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">uint8_t</span> <span class="n">BuiltInLED</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>Pin controlling on/off state of RGB LED <strong>Pin 20</strong></p>
+
+<h3 id="variable-redled">variable RedLED</h3>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">uint8_t</span> <span class="n">RedLED</span> <span class="o">=</span> <span class="mi">13</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>Pin controlling red intensity of RGB LED <strong>Pin 13</strong></p>
+
+<h3 id="variable-greenled">variable GreenLED</h3>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">uint8_t</span> <span class="n">GreenLED</span> <span class="o">=</span> <span class="mi">15</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>Pin controlling green intensity of RGB LED <strong>Pin 15</strong></p>
+
+<h3 id="variable-blueled">variable BlueLED</h3>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">uint8_t</span> <span class="n">BlueLED</span> <span class="o">=</span> <span class="mi">14</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>Pin controlling blue intensity of RGB LED <strong>Pin 14</strong></p>
+
+<h3 id="variable-sd_cd">variable SD_CD</h3>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">uint8_t</span> <span class="n">SD_CD</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>Chip-detect pin for the SD card <strong>Pin 1</strong></p>
+
+<h3 id="variable-i2c_sw">variable I2C_SW</h3>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">uint8_t</span> <span class="n">I2C_SW</span> <span class="o">=</span> <span class="mi">21</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>Switch to enable/disable I2C <strong>Pin 21</strong></p>
+
+<h3 id="variable-rtcint">variable RTCInt</h3>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">uint8_t</span> <span class="n">RTCInt</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>Interrupt from RTC <strong>Pin 10</strong><em><strong>DIFFERENT IN CPP!!!!</strong></em></p>
+
+<h3 id="variable-logint">variable LogInt</h3>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">uint8_t</span> <span class="n">LogInt</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>Interrupt from Log button <strong>Pin 2</strong><em><strong>DIFFERENT IN CPP!!!!</strong></em></p>
+
+<h3 id="variable-wdhold">variable WDHold</h3>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">uint8_t</span> <span class="n">WDHold</span> <span class="o">=</span> <span class="mi">23</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h3 id="variable-tx">variable TX</h3>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">uint8_t</span> <span class="n">TX</span> <span class="o">=</span> <span class="mi">11</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>USART Transmit.</p>
+
+<h3 id="variable-rx">variable RX</h3>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">uint8_t</span> <span class="n">RX</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>USART Receive.</p>
+
+<h3 id="variable-c0">variable C0</h3>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">uint8_t</span> <span class="n">C0</span> <span class="o">=</span> <span class="mi">18</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>BSCHULZ1701: WHAT ARE THESE??</p>
+
+<h3 id="variable-c1">variable C1</h3>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">uint8_t</span> <span class="n">C1</span> <span class="o">=</span> <span class="mi">19</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>BSCHULZ1701: WHAT ARE THESE??</p>
+
+<h3 id="variable-sw_bus_prime">variable Sw_Bus_Prime</h3>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">uint8_t</span> <span class="n">Sw_Bus_Prime</span> <span class="o">=</span> <span class="mi">23</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>Primary bus switch pin (BSCHULZ1701: is this in addition to the physical switch?)</p>
+
+<h3 id="variable-sw_bus_sec">variable Sw_Bus_Sec</h3>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">uint8_t</span> <span class="n">Sw_Bus_Sec</span> <span class="o">=</span> <span class="mi">22</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>Secondary bus switch pin (BSCHULZ1701: is this in addition to the physical switch?)</p>
+
+<h3 id="variable-pg_3v3_core">variable PG_3v3_Core</h3>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">uint8_t</span> <span class="n">PG_3v3_Core</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>IO Exp PORT B (BSCHULZ1701: what is this in plain English / purpose?)</p>
+
+<h3 id="variable-featheren">variable FeatherEN</h3>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">uint8_t</span> <span class="n">FeatherEN</span> <span class="o">=</span> <span class="mi">7</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>IO Exp PORT B (BSCHULZ1701: turn Feather on if True, I guess?)</p>
+
+<h3 id="variable-d0">variable D0</h3>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">uint8_t</span> <span class="n">D0</span> <span class="o">=</span> <span class="mi">12</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>GPIO pin D0 <strong>Arduino Pin 12</strong></p>
+
+<h3 id="variable-d1">variable D1</h3>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">uint8_t</span> <span class="n">D1</span> <span class="o">=</span> <span class="mi">25</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>GPIO pin D1 <strong>Arduino Pin 25</strong></p>
+
+<h3 id="variable-d2">variable D2</h3>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">uint8_t</span> <span class="n">D2</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>GPIO pin D2 <strong>Arduino Pin 3</strong></p>
+
+<h3 id="variable-d3">variable D3</h3>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">uint8_t</span> <span class="n">D3</span> <span class="o">=</span> <span class="mi">26</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>GPIO pin D3 <strong>Arduino Pin 26</strong></p>
+
+<h3 id="variable-adc_sense_sw">variable ADC_Sense_SW</h3>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">uint8_t</span> <span class="n">ADC_Sense_SW</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>Switch the Analog-Digital Converter on (true) or off (false) <strong>Pin 0</strong></p>
+
+<h3 id="variable-featherrts">variable FeatherRTS</h3>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">uint8_t</span> <span class="n">FeatherRTS</span> <span class="o">=</span> <span class="mi">31</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>Feather pin: should this be public or private?</p>
+
+<h3 id="variable-feathercts">variable FeatherCTS</h3>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">uint8_t</span> <span class="n">FeatherCTS</span> <span class="o">=</span> <span class="mi">30</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>Feather pin: should this be public or private?</p>
+
+<h3 id="variable-feathergpio">variable FeatherGPIO</h3>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">uint8_t</span> <span class="n">FeatherGPIO</span> <span class="o">=</span> <span class="mi">29</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>Feather pin: should this be public or private?</p>
+
+<h3 id="variable-cs_ext">variable CS_Ext</h3>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">uint8_t</span> <span class="n">CS_Ext</span> <span class="o">=</span> <span class="mi">24</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>Feather pin: should this be public or private?</p>
+
+<h3 id="variable-globalint">variable GlobalInt</h3>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">uint8_t</span> <span class="n">GlobalInt</span> <span class="o">=</span> <span class="mi">28</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>WHAT IS THIS?</p>
+
+<h3 id="variable-libversion">variable LibVersion</h3>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">const</span> <span class="n">String</span> <span class="n">LibVersion</span> <span class="o">=</span> <span class="s">"0.7.0"</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p><a href="/Okapi_Library/Classes/classOkapi/">Okapi</a> data logger library version.</p>
+
+<hr />
+
+<p>Updated on 2026-09-22 at 23:10:06 +0000</p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+  
+
+  
+
+
+        
+
+
+
+      </footer>
+
+      
+
+      
+
+
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+      
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        
+
+
+<div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+
+    
+      <li><a href="/Okapi_Library/feed.xml"><i class="fas fa-fw fa-square-rss" aria-hidden="true"></i> Feed</a></li>
+    
+  </ul>
+</div>
+
+
+<div class="page__footer-copyright">&copy; 2026 <a href="https://docs.northernwidget.com">Okapi Library</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+
+  <script src="/Okapi_Library/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>

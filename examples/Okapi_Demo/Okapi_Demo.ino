@@ -22,7 +22,7 @@ String update() {
 void setup() {
   Serial.begin(38400);
   if (!logger.begin("ExternalData,")) {
-    Serial.println("begin() reported an error — check LED color for details.");
+    Serial.println("begin() reported an error; check LED color for details.");
   }
 }
 

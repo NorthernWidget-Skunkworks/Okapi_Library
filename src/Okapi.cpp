@@ -744,7 +744,7 @@ void Okapi::Run(String (*Update)(void), unsigned long LogInterval) //Pass in fun
 		AddDataPoint(Update); //Write values to SD
 		if(LogCount >= LogCountPush && PowerState == 0) {  //If enough logs have been recorded and main battery power is available - backhaul //REPLACE WITH TIMER TEST!
 		  //// Update conventions in MCP23018 library
-			IO.DigitalWrite(FeatherEN, HIGH, MCP23018::Ports::B); //Turn on Feather power 
+			IO.digitalWrite(FeatherEN, HIGH, MCP23018::Port::B); //Turn on Feather power 
 			////IO.digitalWrite(FeatherEN, HIGH, MCP23018::Ports::B); //Turn on Feather power 
 			// for(int i = 0; i < 10; i++) {  //DEBUG!
 			// 	Serial.println("START BACKHAUL"); //DEBUG!

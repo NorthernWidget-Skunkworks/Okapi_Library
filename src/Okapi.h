@@ -4,34 +4,21 @@
 
 #include <Arduino.h>
 #include <Wire.h>
-#include <SPI.h>
-#include <avr/pgmspace.h>
-#include <avr/sleep.h>
-#include <avr/wdt.h>
-#include <avr/power.h>
-#include <EEPROM.h>
-#include "DS3231_Logger.h"
-// #include "MCP3421.h"
+#include <NW_Logger.h>   // the logger core that Okapi and Margay share (NW_Sensor and NW_Pages through it)
 #include <Adafruit_ADS1015.h> //Include ADC interface
-// #include <Adafruit_MCP4725.h> //Include DAC interface
 #include <MCP4725.h>  //Include custom DAC library
 #include <MCP23018.h>
-#include "SdFat.h"
-#include <NW_BME280.h>
 
-
-#define RED 0xFFFF0000L
-#define GREEN 0xFF00FF00L
-#define BLUE 0xFF0000FFL
-#define MAROON 0xFF800000L
-#define GOLD 0xFFFFD700L
-#define ORANGE 0xFFFFA500L
-#define PURPLE 0xFF800080L
-#define CYAN 0xFF00FFFF
-#define BLACK_ALERT 0x802019FF
-
-#define ON 1
-#define OFF 0
+// Build identity: this library's version (held equal to library.properties by
+// NW-Tests/version_check.py) and its build commit, set by the NW-Build wrapper from
+// git and blank in an Arduino IDE build; the sketch's commit the same way.
+#define OKAPI_LIBRARY_VERSION "0.7.0"
+#ifndef OKAPI_LIBRARY_COMMIT
+#define OKAPI_LIBRARY_COMMIT ""
+#endif
+#ifndef SKETCH_COMMIT
+#define SKETCH_COMMIT ""
+#endif
 
 #define VPRIME 1
 #define VBETA 2
@@ -42,11 +29,6 @@
 
 #define MODEL_1v0
 #define MODEL_0v0
-
-//Define CBI macro
-#ifndef cbi
-#define cbi(sfr, bit) (_SFR_BYTE(sfr) &= ~_BV(bit))
-#endif
 
 enum board
 {
@@ -68,20 +50,21 @@ enum temp_val
 	RTC_Val = 1
 };
 
-////////////////////////////PIN DEFINITIONS///////////////////////
-
 /**
- * @class Okapi
- * @brief An Arduino-compatible library for utilizing the basic and logging
- * features of the Okapi data logger
- * @details Data-logger management.
- * Basic operations, power management, on-board sensing,
- * and links to external devices.
+ * @brief The Okapi data logger: what is Okapi's about it, on the NW_Logger core.
+ * @details Everything a logger does (the card layout, the data and status
+ * files, run(), the interrupts, the self-tests, the LED, the serial number
+ * from Page 0) comes from NW_Logger. Okapi adds its two power rails with
+ * their arbitration, its on-board ADS1115 pair and MCP4725 DAC, the MCP23018
+ * port expander that switches the Feather, and the backhaul over Serial
+ * after every LogCountPush rows. Okapi is a Schema 1 device like Margay: its
+ * Pages 0 from EEPROM, Pages 2 and 3 a reading of itself (the appendix's
+ * Block 1, power, waits on the power model and stays zero).
  *
- * \verbatim [![DOI](https://zenodo.org/badge/197810426.svg)](https://zenodo.org/badge/latestdoi/197810426)
-\endverbatim
+ * Names are camelCase as of 2026-09-23; the PascalCase names stay as
+ * deprecated forwarders for one release.
  */
-class Okapi
+class Okapi : public NW_Logger
 {
 
 	public:
@@ -97,192 +80,97 @@ class Okapi
      *
     */
 		Okapi(board Model_ = Model_0v0, build Specs_ = Build_A); //Use Build_A by default
-    // Okapi();
-
     /**
      * @brief Begin with a list of attached I2C devices
      *
      * @param[in] *Vals: List of I2C addresses for external sensors
      * @param[in] NumVals: The length of the *Vals list
      * @param[in] Header_: A header string for the data file
+     * @return true when the self-tests found nothing wrong
      */
-		bool begin(uint8_t *Vals, uint8_t NumVals, String header_);
+		bool begin(uint8_t *Vals, uint8_t NumVals, String header_) override;
+		using NW_Logger::begin; ///< begin(header) with no external sensors
     /**
-     * @brief Begin by passing a header string; default empty
+     * @brief Read one row back from the data file, for the backhaul
      *
-     * @param[in] Header_: A header string for the data file
+     * @param[in] LineIndex: The desired line number, counted from DataIndex
+     * @param[in] DataIndex: The byte at which to start in the file
      */
-		bool begin(String Header_ = "");
-
-    /**
-     * Write a string to the log file.
-     *
-     * @param[in] Val: The string to be written
-     */
-		int LogStr(String Val);
-
-    /**
-     * @brief BSCHULZ1701: WHAT EXACTLY DOES THIS FUNCTION DO?
-     *
-     * @param[in] LineIndex: The desired line number
-     * @param[in] DataIndex: The desired byte at which to start in the file
-     */
-		String ReadStr(uint8_t LineIndex, uint32_t DataIndex);
-
-    /**
-     * @brief Set the color of the LED
-     *
-     * @param[in] Val: 4-byte (R, G, B, alpha) color
-     */
-		void LED_Color(unsigned long Val);
-
-    /**
-     * @brief Main function that loops infinititely during runtime
-     * BSCHULZ1701: I changed *f to *Update to match the CPP. Hope that does
-     * not break anything!
-     *
-     * @param[in] *Update: Pointer to a function in the Arduino sketch (ino);
-     *                     this retrieves new sensor data as a String object
-     * @param[in] LogInterval: Number of seconds between log events
-     */
-		void Run(String (*Update)(void), unsigned long LogInterval);
-
+		String readStr(uint8_t LineIndex, uint32_t DataIndex);
     /**
      * @brief Read voltage from the external 16-bit ADC
      * @param[in] Pin (range 0-3) -- which pin to read?
      */
-		float GetVoltage(uint8_t Pin); //Read ADC
-
+		float getVoltage(uint8_t Pin); //Read ADC
     /**
      * @brief Set voltage on the 12-bit digital-to-analog converter
      * @param[in] Val: 0 to 4095, which scales from 0 to Vbus
-     * @param[in] Gain: WHAT? WHY BOOL?
-     *
-     * BSCHULZ1701: WHY IS THE GAIN A BOOLEAN? AND IS THIS FROM 0 TO VBUS?
-     * AND SHOULD THIS BE A PRIVATE UTILITY FUNCTION?
+     * @param[in] Gain: GAIN_1X or GAIN_2X
      */
-		uint8_t SetVoltageRaw(uint16_t Val, bool Gain = GAIN_1X); //Set DAC with raw input, default to 1x gain
-
+		uint8_t setVoltageRaw(uint16_t Val, bool Gain = GAIN_1X); //Set DAC with raw input, default to 1x gain
     /**
      * @brief Set voltage on the 12-bit digital-to-analog converter
      * @param[in] Val: Desired voltage value, in volts.
      */
-		uint8_t SetVoltage(float Val); //Set DAC to nearest interpolated value
-
+		uint8_t setVoltage(float Val); //Set DAC to nearest interpolated value
     /**
      * @brief Writes date/time, on-board sensors, and external string to SD
      * @param *Update: External update function from Arduino sketch
      */
-		void AddDataPoint(String (*Update)(void));
-
+		void addDataPoint(String (*Update)(void)) override;
     /**
      * @brief Obtain date/time, P/T/RH, temperatures, and voltages from board
      */
-		String GetOnBoardVals();
-
-    /**
-     * @brief Create a new log file, following serial numbering
-     */
-		void InitLogFile();
-
-		// void GetEnviro(); //Get/update enviromental values from BME280 and RTC
-		// float GetBatVoltage();
-		// float GetBatPer();
-		// void GetPowerStats(); //Get all voltage and current values, converter/solar states, etc //ADD!!!!!!!!
-
-		void ResetWD();
-		// void PowerOB(bool State);
-
+		String getOnBoardVals();
     /**
      * @brief Determine which input has power and set up power path from that
      */
-		uint8_t PowerAuto();
-
+		uint8_t powerAuto();
     /**
      * @brief Power from Main, backup, or off
-     * BSCHULZ1701: I am not sure what this does!
-     * @param[in] State:
+     * @param[in] State: 0 or 3 = OFF, 1 = V_Prime, 2 = V_Beta
      */
-		void PowerAux(uint8_t State);
-
-		// void PowerFeather(bool State); //Turn feather power on or off  //ADD!!!!!
-
+		void powerAux(uint8_t State);
     /**
-     * @brief Set the I2C state
-     * @param State: True or False gives On or Off
+     * @brief Use the on-board (INTERNAL) or external (EXTERNAL) I2C bus
      */
-		void I2CState(bool State); //Use on board of external I2C
+		void i2cState(bool State);
 
-		void setExtInt(uint8_t n, String header_entry = "nInterrupts,");
-		uint16_t getExtIntCount(bool reset0 = true);
-		void resetExtIntCount(uint16_t start = 0);
-    //////////////////////////////
-		// Pin definitions - Public //
-    //////////////////////////////
+		// --- NW_Sensor: Okapi is a Schema 1 device and watches itself ---
+		const char* name() const override { return "Okapi"; }
+		size_t printStatus(Print& out, bool boot = false) override;
 
-    /// SD card chip select **Pin 4**
-		int SD_CS = 4;
-
-    /// Pin controlling on/off state of RGB LED **Pin 20**
-		uint8_t BuiltInLED = 20;
-
-    /// Pin controlling red intensity of RGB LED **Pin 13**
-		uint8_t RedLED = 13;
-
-    /// Pin controlling green intensity of RGB LED **Pin 15**
-		uint8_t GreenLED = 15;
-
-    /// Pin controlling blue intensity of RGB LED **Pin 14**
-		uint8_t BlueLED = 14;
-
-		// uint8_t VRef_Pin = 2;
-		// uint8_t ThermSense_Pin = 1;
-		// uint8_t BatSense_Pin = 0;
-
-		// uint8_t VSwitch_Pin = 3;
-
-    /// Chip-detect pin for the SD card **Pin 1**
-		uint8_t SD_CD = 1;
-
-		// uint8_t Ext3v3Ctrl = 19;
-
-    /// Switch to enable/disable I2C **Pin 21**
-		uint8_t I2C_SW = 21;
-
-		// uint8_t PG = 18;
-		// uint8_t ExtInt = 11;
-
-    /// Interrupt from RTC **Pin 10** ***DIFFERENT IN CPP!!!!***
-		uint8_t RTCInt = 10;
-    /// Interrupt from Log button **Pin 2** ***DIFFERENT IN CPP!!!!***
-		uint8_t LogInt = 2;
-
-		uint8_t WDHold = 23; //ADD TO DOCUMENTATION!
-		// uint8_t BatSwitch = 22; //ADD TO DOCUMENTATION!
+		// --- PascalCase names, deprecated 2026-09-23: forwarders for one release ---
+		[[deprecated("Use logStr()")]] int LogStr(String Val) { return logStr(Val); }
+		[[deprecated("Use readStr()")]] String ReadStr(uint8_t LineIndex, uint32_t DataIndex) { return readStr(LineIndex, DataIndex); }
+		[[deprecated("Use run()")]] void Run(String (*Update)(void), unsigned long LogInterval) { run(Update, LogInterval); }
+		[[deprecated("Use getVoltage()")]] float GetVoltage(uint8_t Pin) { return getVoltage(Pin); }
+		[[deprecated("Use setVoltageRaw()")]] uint8_t SetVoltageRaw(uint16_t Val, bool Gain = GAIN_1X) { return setVoltageRaw(Val, Gain); }
+		[[deprecated("Use setVoltage()")]] uint8_t SetVoltage(float Val) { return setVoltage(Val); }
+		[[deprecated("Use addDataPoint()")]] void AddDataPoint(String (*Update)(void)) { addDataPoint(Update); }
+		[[deprecated("Use getOnBoardVals()")]] String GetOnBoardVals() { return getOnBoardVals(); }
+		[[deprecated("Use initLogFile()")]] void InitLogFile() { initLogFile(); }
+		[[deprecated("Use resetWDT()")]] void ResetWD() { resetWDT(); }
+		[[deprecated("Use powerAuto()")]] uint8_t PowerAuto() { return powerAuto(); }
+		[[deprecated("Use powerAux()")]] void PowerAux(uint8_t State) { powerAux(State); }
+		[[deprecated("Use i2cState()")]] void I2CState(bool State) { i2cState(State); }
 
     /// USART Transmit
 		uint8_t TX = 11; //ADD TO DOCUMENTATION!
-
     /// USART Receive
 		uint8_t RX = 10; //ADD TO DOCUMENTATION!
-
-		// uint8_t D0 = 3; //ADD TO DOCUMENTATION!
-
     /// BSCHULZ1701: WHAT ARE THESE??
 		uint8_t C0 = 18;
     /// BSCHULZ1701: WHAT ARE THESE??
 		uint8_t C1 = 19;
-
     /// Primary bus switch pin (BSCHULZ1701: is this in addition to the physical switch?)
 		uint8_t Sw_Bus_Prime = 23;
     /// Secondary bus switch pin (BSCHULZ1701: is this in addition to the physical switch?)
 		uint8_t Sw_Bus_Sec = 22;
-
     /// IO Exp PORT B (BSCHULZ1701: what is this in plain English / purpose?)
 		uint8_t PG_3v3_Core = 1;
     /// IO Exp PORT B (BSCHULZ1701: turn Feather on if True, I guess?)
 		uint8_t FeatherEN = 7;
-
     /// GPIO pin D0 **Arduino Pin 12**
 		uint8_t D0 = 12;
     /// GPIO pin D1 **Arduino Pin 25**
@@ -291,10 +179,8 @@ class Okapi
 		uint8_t D2 = 3;
     /// GPIO pin D3 **Arduino Pin 26**
 		uint8_t D3 = 26;
-
     /// Switch the Analog-Digital Converter on (true) or off (false) **Pin 0**
 		uint8_t ADC_Sense_SW = 0;
-
     /// Feather pin: should this be public or private?
 		uint8_t FeatherRTS = 31;
     /// Feather pin: should this be public or private?
@@ -303,100 +189,34 @@ class Okapi
 		uint8_t FeatherGPIO = 29;
     /// Feather pin: should this be public or private?
 		uint8_t CS_Ext = 24;
-
     /// WHAT IS THIS?
 		uint8_t GlobalInt = 28;
-
-
-
     /// Okapi data logger library version
-		const String LibVersion = "0.7.0";
+		const String LibVersion = OKAPI_LIBRARY_VERSION;
 
 	protected:
-		// float TempConvert(float V, float Vcc, float R, float A, float B, float C, float D, float R25);
-		void Blink();
-		// void StartLog();
-		// void Log();
-		void virtual Log();
-		void virtual ButtonLog();
-		static void isr0();
-		static void isr1();
-		static void isr2();
-		static Okapi* selfPointer;
-
-		static void DateTimeSD(uint16_t* date, uint16_t* time);
-		void DateTimeSD_Glob(uint16_t* date, uint16_t* time);
-		void sleepNow();
+		String dataHeader() override;
+		void sleepNow() override;
+		void afterLogEvent() override; //The backhaul: after LogCountPush rows on main power, hand them to the Feather
 		void turnOffSDcard();
 		void turnOnSDcard();
-		void GetTime();
-		void I2CTest();
-		void SDTest();
-		void ClockTest();
-		// void BatTest();
-		// void PowerTest();
-		void EnviroStats();
-		int freeMemory(); //DEBUG!
-		void extIntCounter();
+		void enviroStats();
+		uint8_t chipFaults();    // Okapi's chip-fault bits for Block 0: SDCard, Clock, BME280, SensorBus, Charger, Backup
+		void fillPages();        // Page 2 and 3 from the logger's own readings, then endReading()
 
-		DS3231_Logger RTC;
-		// MCP3421 adc;
-		BME EnviroSense;
 		MCP4725 DAC; //Instatiate DAC
 		Adafruit_ADS1115 ADC_OB; //Initialize on board (power moitoring) ADC
 		Adafruit_ADS1115 ADC_Ext;  //Initialize external (sensor) ADC
 		MCP23018 IO;
-		// float A = 0.003354016;
-		// float B = 0.0003074038;
-		// float C = 1.019153E-05;
-		// float D = 9.093712E-07;
-		String LogTimeDate = "2063/04/05 20:00:00";
-		// float Temp[5] = {0}; //Temp Downhole, Temp on board, Temp RTC, Temp Baro
-		// float Pressure[2] = {0}; //Downhole pressure, Atmospheric pressure (if applicable)
-		bool OBError = false;
-		bool SensorError = false;
-		bool TimeError = false;
-		bool SDError = false; //USE??
-		bool BatError = false;
-		bool BatWarning = false;
-		float BatVoltageError = 3.3; //Low battery alert will trigger if voltage drops below this value
-		float BatPercentageWarning = 50; //Percentage at which a warning will be indicated
+
 		float PowerState = 0; //Keep track of what power mode the system is using when waking from sleep
-		String Header = "";
-		const char HexMap[16] = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'}; //used for conversion to HEX of string
-		char SN[20] = {0}; //Used to store device serial number, 19 chars + null terminator
-		// String SN = "FFFF-FFFF-FFFF-FFFF";
-		uint8_t NumADR = 0;
-		uint8_t I2C_ADR[16] = {0}; //Change length??
-		uint8_t NumADR_OB = 6;
-		uint8_t I2C_ADR_OB[6] = {0x68, 0x20, 0x48, 0x49, 0x62, 0x77}; //Clock, IO Expander, ADC_OB, ADC_Ext, DAC, BME
-
-		// float BatteryDivider = 2.0; //Default for v1.0
-
-		// float Temp_BME = 0; //FIX! Make non-global, pass array??
-		// float Temp_RTC = 0;
-		// float RH = 0;
-		// float Pres = 0;
 
 		board Model;
 		build Specs;
 
-		volatile bool LogEvent = false; //Used to test if logging should begin yet
-		volatile bool NewLog = false; //Used to tell system to start a new log
-		// volatile bool ManualLog = false; //Used to add point to log by pressing the log button
-		volatile int AwakeCount = 0;
-
-		char FileNameC[11]; //Used for file handling
-		char FileNameTestC[11]; //Used for file handling
-		bool SD_Init = false;
-		SdFat SD;
-		byte  keep_SPCR;
-		byte keep_ADCSRA;
-
 		uint16_t LogCountPush = 5; //Number of logs to take before sending data off
 		uint16_t LogCount = 0; //Number of logs since last data write
 		uint16_t Index = 0; //Index of data entry USE???? FIX!
-		uint32_t SDIndex = 0; //Index of data point in SD card file
 		uint32_t LastSDIndex = 0; //Index as last data dump
 };
 

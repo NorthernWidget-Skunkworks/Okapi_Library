@@ -16,22 +16,27 @@ temp_val	KEYWORD1
 #######################################
 
 begin			KEYWORD2
-LogStr			KEYWORD2
-ReadStr			KEYWORD2
+logStr			KEYWORD2
+readStr			KEYWORD2
 LED_Color		KEYWORD2
-Run				KEYWORD2
-GetVoltage		KEYWORD2
-SetVoltageRaw	KEYWORD2
-SetVoltage		KEYWORD2
-AddDataPoint	KEYWORD2
-GetOnBoardVals	KEYWORD2
-InitLogFile		KEYWORD2
-PowerAuto		KEYWORD2
-PowerAux		KEYWORD2
-I2CState		KEYWORD2
+run				KEYWORD2
+getVoltage		KEYWORD2
+setVoltageRaw	KEYWORD2
+setVoltage		KEYWORD2
+addDataPoint	KEYWORD2
+getOnBoardVals	KEYWORD2
+initLogFile		KEYWORD2
+powerAuto		KEYWORD2
+powerAux		KEYWORD2
+i2cState		KEYWORD2
 setExtInt		KEYWORD2
 getExtIntCount	KEYWORD2
 resetExtIntCount	KEYWORD2
+resetWDT		KEYWORD2
+statusStr		KEYWORD2
+watch			KEYWORD2
+note			KEYWORD2
+printStatus		KEYWORD2
 
 #######################################
 # Constants (LITERAL1)

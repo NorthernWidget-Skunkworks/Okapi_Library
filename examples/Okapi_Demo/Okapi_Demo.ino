@@ -27,5 +27,5 @@ void setup() {
 }
 
 void loop() {
-  logger.Run(update, 60);
+  logger.run(update, 60);
 }

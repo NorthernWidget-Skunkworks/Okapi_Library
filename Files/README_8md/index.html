@@ -255,7 +255,7 @@ Data-logger management. Basic operations, power management, on-board sensing, an
 <span class="kt">void</span> <span class="nf">setup</span><span class="p">()</span> <span class="p">{</span>
   <span class="n">Serial</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="mi">38400</span><span class="p">);</span>
   <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">logger</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="s">"ExternalData,"</span><span class="p">))</span> <span class="p">{</span>
-    <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">"begin() reported an error — check LED color for details."</span><span class="p">);</span>
+    <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">"begin() reported an error; check LED color for details."</span><span class="p">);</span>
   <span class="p">}</span>
 <span class="p">}</span>
 
@@ -271,7 +271,7 @@ Data-logger management. Basic operations, power management, on-board sensing, an
 
 <hr />
 
-<p>Updated on 2026-09-22 at 23:10:06 +0000</p>
+<p>Updated on 2026-09-23 at 04:49:59 +0000</p>
 
         
       </section>

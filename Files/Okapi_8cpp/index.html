@@ -1036,7 +1036,7 @@
         <span class="c1">// RTC.setAlarm(LogInterval);  //Set/reset alarm //DEBUG!</span>
         <span class="n">AddDataPoint</span><span class="p">(</span><span class="n">Update</span><span class="p">);</span> <span class="c1">//Write values to SD</span>
         <span class="k">if</span><span class="p">(</span><span class="n">LogCount</span> <span class="o">&gt;=</span> <span class="n">LogCountPush</span> <span class="o">&amp;&amp;</span> <span class="n">PowerState</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>  <span class="c1">//If enough logs have been recorded and main battery power is available - backhaul //REPLACE WITH TIMER TEST!</span>
-            <span class="n">IO</span><span class="p">.</span><span class="n">DigitalWrite</span><span class="p">(</span><span class="n">FeatherEN</span><span class="p">,</span> <span class="n">HIGH</span><span class="p">,</span> <span class="n">MCP23018</span><span class="o">::</span><span class="n">Ports</span><span class="o">::</span><span class="n">B</span><span class="p">);</span> <span class="c1">//Turn on Feather power </span>
+            <span class="n">IO</span><span class="p">.</span><span class="n">digitalWrite</span><span class="p">(</span><span class="n">FeatherEN</span><span class="p">,</span> <span class="n">HIGH</span><span class="p">,</span> <span class="n">MCP23018</span><span class="o">::</span><span class="n">Port</span><span class="o">::</span><span class="n">B</span><span class="p">);</span> <span class="c1">//Turn on Feather power </span>
             <span class="c1">// for(int i = 0; i &lt; 10; i++) {  //DEBUG!</span>
             <span class="c1">//  Serial.println("START BACKHAUL"); //DEBUG!</span>
             <span class="c1">//  delay(100);</span>
@@ -1398,7 +1398,7 @@
 
 <hr />
 
-<p>Updated on 2026-09-22 at 23:10:06 +0000</p>
+<p>Updated on 2026-09-23 at 04:49:59 +0000</p>
 
         
       </section>

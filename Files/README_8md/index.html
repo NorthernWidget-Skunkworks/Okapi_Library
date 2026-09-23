@@ -239,6 +239,8 @@ An Arduino-compatible library for utilizing the basic and logging features of th
 
 Data-logger management. Basic operations, power management, on-board sensing, and links to external devices. Manages logging, power, telemetry, and on-board sensing for the Okapi data logger. Supports solar charging, Particle Boron telemetry, external interrupt counting, RTC-driven sleep/wake cycles, and SD-card data logging.
 
+Since 2026-09-23 Okapi is built on <span class="p">[</span><span class="nv">NW_Logger</span><span class="p">](</span><span class="sx">https://github.com/NorthernWidget/NW_Logger</span><span class="p">)</span>, the logger core it shares with Margay. That gives it Margay's card layout (<span class="sb">`/&lt;SN&gt;/log00001.csv`</span> and <span class="sb">`sta00001.csv`</span>, <span class="sb">`HWTest.txt`</span>; the old <span class="sb">`NW/&lt;SN&gt;/Logs/LogN.txt`</span> is gone), the status file with <span class="sb">`watch(sensor)`</span>, <span class="sb">`note(word)`</span> and the Note column, its serial number from Page 0 when the board is provisioned (NW-Provision) and from the last 8 bytes of EEPROM otherwise, and the camelCase names (<span class="sb">`run`</span>, <span class="sb">`logStr`</span>, <span class="sb">`addDataPoint`</span>, <span class="sb">`initLogFile`</span>, <span class="sb">`resetWDT`</span>, <span class="sb">`powerAuto`</span>, <span class="sb">`powerAux`</span>, <span class="sb">`i2cState`</span>, <span class="sb">`getVoltage`</span>, <span class="sb">`setVoltage`</span>, <span class="sb">`readStr`</span>). The PascalCase names still compile as deprecated forwarders for one release. <span class="sb">`begin()`</span> still returns whether the self-tests passed.
+
 <span class="gs">**Installation:**</span> included in <span class="p">[</span><span class="nv">NorthernWidget-libraries</span><span class="p">](</span><span class="sx">https://github.com/NorthernWidget/NorthernWidget-libraries</span><span class="p">)</span>.
 
 <span class="p">```</span><span class="nl">cpp
@@ -260,7 +262,7 @@ Data-logger management. Basic operations, power management, on-board sensing, an
 <span class="p">}</span>
 
 <span class="kt">void</span> <span class="nf">loop</span><span class="p">()</span> <span class="p">{</span>
-  <span class="n">logger</span><span class="p">.</span><span class="n">Run</span><span class="p">(</span><span class="n">update</span><span class="p">,</span> <span class="mi">60</span><span class="p">);</span>
+  <span class="n">logger</span><span class="p">.</span><span class="n">run</span><span class="p">(</span><span class="n">update</span><span class="p">,</span> <span class="mi">60</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div></div>
 
@@ -271,7 +273,7 @@ Data-logger management. Basic operations, power management, on-board sensing, an
 
 <hr />
 
-<p>Updated on 2026-09-23 at 04:49:59 +0000</p>
+<p>Updated on 2026-09-23 at 22:44:32 +0000</p>
 
         
       </section>

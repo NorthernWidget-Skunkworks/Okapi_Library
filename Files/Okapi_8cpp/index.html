@@ -225,7 +225,7 @@
           <aside class="sidebar__right sticky">
             <nav class="toc" aria-label="Table of contents">
               <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
-              <ul class="toc__menu"><li><a href="#attributes">Attributes</a></li><li><a href="#attributes-documentation">Attributes Documentation</a><ul><li><a href="#variable-manuallog">variable ManualLog</a></li><li><a href="#variable-extintpin">variable ExtIntPin</a></li><li><a href="#variable-ext_int_header_entry">variable ext_int_header_entry</a></li><li><a href="#variable-extinttripped">variable ExtIntTripped</a></li><li><a href="#variable-extint_count">variable ExtInt_count</a></li></ul></li><li><a href="#source-code">Source code</a></li></ul>
+              <ul class="toc__menu"><li><a href="#attributes">Attributes</a></li><li><a href="#attributes-documentation">Attributes Documentation</a><ul><li><a href="#variable-okapichips">variable okapiChips</a></li><li><a href="#variable-okapiwords">variable okapiWords</a></li><li><a href="#variable-okapichipwords">variable okapiChipWords</a></li></ul></li><li><a href="#source-code">Source code</a></li></ul>
             </nav>
           </aside>
         
@@ -240,53 +240,35 @@
   </thead>
   <tbody>
     <tr>
-      <td>volatile bool</td>
-      <td><strong><a href="/Okapi_Library/Files/Okapi_8cpp/#variable-manuallog">ManualLog</a></strong></td>
+      <td>const char *const</td>
+      <td><strong><a href="/Okapi_Library/Files/Okapi_8cpp/#variable-okapichips">okapiChips</a></strong></td>
     </tr>
     <tr>
-      <td>volatile uint8_t</td>
-      <td><strong><a href="/Okapi_Library/Files/Okapi_8cpp/#variable-extintpin">ExtIntPin</a></strong></td>
+      <td>const char *const</td>
+      <td><strong><a href="/Okapi_Library/Files/Okapi_8cpp/#variable-okapiwords">okapiWords</a></strong></td>
     </tr>
     <tr>
-      <td>String</td>
-      <td><strong><a href="/Okapi_Library/Files/Okapi_8cpp/#variable-ext-int-header-entry">ext_int_header_entry</a></strong></td>
-    </tr>
-    <tr>
-      <td>volatile bool</td>
-      <td><strong><a href="/Okapi_Library/Files/Okapi_8cpp/#variable-extinttripped">ExtIntTripped</a></strong></td>
-    </tr>
-    <tr>
-      <td>volatile uint16_t</td>
-      <td><strong><a href="/Okapi_Library/Files/Okapi_8cpp/#variable-extint-count">ExtInt_count</a></strong></td>
+      <td>const char *const</td>
+      <td><strong><a href="/Okapi_Library/Files/Okapi_8cpp/#variable-okapichipwords">okapiChipWords</a></strong></td>
     </tr>
   </tbody>
 </table>
 
 <h2 id="attributes-documentation">Attributes Documentation</h2>
 
-<h3 id="variable-manuallog">variable ManualLog</h3>
+<h3 id="variable-okapichips">variable okapiChips</h3>
 
-<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">volatile</span> <span class="kt">bool</span> <span class="n">ManualLog</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">static</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="k">const</span> <span class="n">okapiChips</span> <span class="o">=</span> <span class="p">{</span><span class="s">"SDCard"</span><span class="p">,</span> <span class="s">"Clock"</span><span class="p">,</span> <span class="s">"BME280"</span><span class="p">,</span> <span class="s">"SensorBus"</span><span class="p">,</span> <span class="s">"Charger"</span><span class="p">,</span> <span class="s">"Backup"</span><span class="p">};</span>
 </code></pre></div></div>
 
-<h3 id="variable-extintpin">variable ExtIntPin</h3>
+<h3 id="variable-okapiwords">variable okapiWords</h3>
 
-<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">volatile</span> <span class="kt">uint8_t</span> <span class="n">ExtIntPin</span> <span class="o">=</span> <span class="mi">255</span><span class="p">;</span>
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">static</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="k">const</span> <span class="n">okapiWords</span> <span class="o">=</span> <span class="p">{</span><span class="s">"LoggingStarted"</span><span class="p">,</span> <span class="s">"NewLogFile"</span><span class="p">,</span> <span class="s">"RowNotWritten"</span><span class="p">};</span>
 </code></pre></div></div>
 
-<h3 id="variable-ext_int_header_entry">variable ext_int_header_entry</h3>
+<h3 id="variable-okapichipwords">variable okapiChipWords</h3>
 
-<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">String</span> <span class="n">ext_int_header_entry</span><span class="p">;</span>
-</code></pre></div></div>
-
-<h3 id="variable-extinttripped">variable ExtIntTripped</h3>
-
-<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">volatile</span> <span class="kt">bool</span> <span class="n">ExtIntTripped</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
-</code></pre></div></div>
-
-<h3 id="variable-extint_count">variable ExtInt_count</h3>
-
-<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">volatile</span> <span class="kt">uint16_t</span> <span class="n">ExtInt_count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">static</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="k">const</span> <span class="n">okapiChipWords</span> <span class="o">=</span> <span class="p">{</span><span class="s">"ClockSet"</span><span class="p">};</span>
 </code></pre></div></div>
 
 <h2 id="source-code">Source code</h2>
@@ -296,30 +278,11 @@
 <span class="cp">#include</span> <span class="cpf">&lt;Okapi.h&gt;</span><span class="cp">
 #include</span> <span class="cpf">&lt;Arduino.h&gt;</span><span class="cp">
 </span>
-<span class="c1">// #include &lt;PCINT.h&gt;</span>
-
-
-
-<span class="c1">// extern void AttachPCI(byte Pin, void (*UserFunc)(void), int Mode);</span>
-<span class="c1">// extern void enableInterrupt(uint8_t interruptDesignator, void (*userFunction)(void), uint8_t mode);</span>
-<span class="c1">// uint8_t LogInt = 28; //DEBUG!</span>
-
-<span class="c1">// *digitalPinToPCMSK(LogInt) |= bit (digitalPinToPCMSKbit(LogInt));  // enable pin</span>
-
-
-
-<span class="k">volatile</span> <span class="kt">bool</span> <span class="n">ManualLog</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span> <span class="c1">//Global for interrupt access</span>
-
-<span class="k">volatile</span> <span class="kt">uint8_t</span> <span class="n">ExtIntPin</span> <span class="o">=</span> <span class="mi">255</span><span class="p">;</span> <span class="c1">// Sets external interrupt number; 255 for none</span>
-<span class="n">String</span> <span class="n">ext_int_header_entry</span><span class="p">;</span>
-<span class="k">volatile</span> <span class="kt">bool</span> <span class="n">ExtIntTripped</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span> <span class="c1">// Global for the external interrupt</span>
-<span class="k">volatile</span> <span class="kt">uint16_t</span> <span class="n">ExtInt_count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">// Global for the external interrupt</span>
-
-
-<span class="n">Okapi</span><span class="o">*</span> <span class="n">Okapi</span><span class="o">::</span><span class="n">selfPointer</span><span class="p">;</span>
-
 <span class="n">Okapi</span><span class="o">::</span><span class="n">Okapi</span><span class="p">(</span><span class="n">board</span> <span class="n">Model_</span><span class="p">,</span> <span class="n">build</span> <span class="n">Specs_</span><span class="p">)</span> <span class="o">:</span> <span class="n">ADC_OB</span><span class="p">(</span><span class="mh">0x48</span><span class="p">),</span> <span class="n">ADC_Ext</span><span class="p">(</span><span class="mh">0x49</span><span class="p">),</span> <span class="n">IO</span><span class="p">(</span><span class="mh">0x20</span><span class="p">)</span>
 <span class="p">{</span>
+    <span class="n">NumADR_OB</span> <span class="o">=</span> <span class="mi">6</span><span class="p">;</span> <span class="c1">//Clock, IO Expander, ADC_OB, ADC_Ext, DAC, BME</span>
+    <span class="kt">uint8_t</span> <span class="n">ob</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mh">0x68</span><span class="p">,</span> <span class="mh">0x20</span><span class="p">,</span> <span class="mh">0x48</span><span class="p">,</span> <span class="mh">0x49</span><span class="p">,</span> <span class="mh">0x62</span><span class="p">,</span> <span class="mh">0x77</span><span class="p">};</span>
+    <span class="n">memcpy</span><span class="p">(</span><span class="n">I2C_ADR_OB</span><span class="p">,</span> <span class="n">ob</span><span class="p">,</span> <span class="mi">6</span><span class="p">);</span>
     <span class="c1">// VSwitch_Pin = 3;</span>
     <span class="c1">// VSwitch_Pin = 12; //DEBUG!??</span>
 
@@ -356,545 +319,88 @@
     <span class="n">pinMode</span><span class="p">(</span><span class="n">C1</span><span class="p">,</span> <span class="n">OUTPUT</span><span class="p">);</span>
     <span class="n">pinMode</span><span class="p">(</span><span class="n">I2C_SW</span><span class="p">,</span> <span class="n">OUTPUT</span><span class="p">);</span>
 
-    <span class="c1">// pinMode(22, OUTPUT); //DEBUG!</span>
-    <span class="c1">// pinMode(23, OUTPUT); //DEBUG!</span>
-    <span class="c1">// digitalWrite(22, LOW); //DEBUG!</span>
-    <span class="c1">// digitalWrite(23, LOW); //DEBUG!</span>
     <span class="n">pinMode</span><span class="p">(</span><span class="n">Sw_Bus_Prime</span><span class="p">,</span> <span class="n">OUTPUT</span><span class="p">);</span>
     <span class="n">pinMode</span><span class="p">(</span><span class="n">Sw_Bus_Sec</span><span class="p">,</span> <span class="n">OUTPUT</span><span class="p">);</span>
     <span class="n">digitalWrite</span><span class="p">(</span><span class="n">Sw_Bus_Prime</span><span class="p">,</span> <span class="n">LOW</span><span class="p">);</span>
     <span class="n">digitalWrite</span><span class="p">(</span><span class="n">Sw_Bus_Sec</span><span class="p">,</span> <span class="n">LOW</span><span class="p">);</span>
-    <span class="n">PowerAuto</span><span class="p">();</span> <span class="c1">//Get main power running</span>
-    <span class="c1">// IO.PinMode(FeatherEN, OUTPUT, B); //Setup IO to control FeatherEN</span>
-    <span class="c1">// IO.DigitalWrite(FeatherEN, HIGH, B); //Turn off battery to feather by default</span>
+    <span class="n">powerAuto</span><span class="p">();</span> <span class="c1">//Get main power running</span>
 
-    <span class="n">pinMode</span><span class="p">(</span><span class="n">BuiltInLED</span><span class="p">,</span> <span class="n">OUTPUT</span><span class="p">);</span>
-    <span class="n">digitalWrite</span><span class="p">(</span><span class="n">BuiltInLED</span><span class="p">,</span> <span class="n">LOW</span><span class="p">);</span> <span class="c1">//Turn built in LED on</span>
+    <span class="n">pinMode</span><span class="p">(</span><span class="n">AuxLED</span><span class="p">,</span> <span class="n">OUTPUT</span><span class="p">);</span>
+    <span class="n">digitalWrite</span><span class="p">(</span><span class="n">AuxLED</span><span class="p">,</span> <span class="n">LOW</span><span class="p">);</span> <span class="c1">//Turn built in LED on</span>
     <span class="n">delay</span><span class="p">(</span><span class="mi">25</span><span class="p">);</span>
     <span class="n">digitalWrite</span><span class="p">(</span><span class="n">Sw_Bus_Prime</span><span class="p">,</span> <span class="n">HIGH</span><span class="p">);</span>
     <span class="n">digitalWrite</span><span class="p">(</span><span class="n">Sw_Bus_Sec</span><span class="p">,</span> <span class="n">HIGH</span><span class="p">);</span>
     <span class="n">delay</span><span class="p">(</span><span class="mi">500</span><span class="p">);</span>
-    <span class="c1">// digitalWrite(22, HIGH); //DEBUG!</span>
-    <span class="c1">// digitalWrite(23, HIGH); //DEBUG!</span>
-    <span class="c1">// pinMode(Sw_Bus_Prime, OUTPUT);</span>
-    <span class="c1">// pinMode(Sw_Bus_Sec, OUTPUT);</span>
 
+    <span class="n">acceptAddresses</span><span class="p">(</span><span class="n">Vals</span><span class="p">,</span> <span class="n">NumVals</span><span class="p">,</span> <span class="n">header_</span><span class="p">);</span> <span class="c1">//The sketch's sensor addresses (bounded copy) and header</span>
 
-
-    <span class="n">memcpy</span><span class="p">(</span><span class="n">I2C_ADR</span><span class="p">,</span> <span class="n">Vals</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">I2C_ADR</span><span class="p">));</span> <span class="c1">//Copy array</span>
-    <span class="c1">// memcpy(I2C_ADR, Vals, NumVals); //Copy array  //DEBUG??</span>
-    <span class="n">NumADR</span> <span class="o">=</span> <span class="n">NumVals</span><span class="p">;</span> <span class="c1">//Copy length of array</span>
-    <span class="c1">// Header = Header_; //Copy user defined header</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">ExtIntPin</span> <span class="o">==</span> <span class="mi">255</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="n">Header</span> <span class="o">=</span> <span class="n">header_</span><span class="p">;</span> <span class="c1">//Copy user defined header</span>
-    <span class="p">}</span>
-    <span class="k">else</span>
-    <span class="p">{</span>
-        <span class="n">Header</span> <span class="o">=</span> <span class="n">header_</span> <span class="o">+</span> <span class="n">ext_int_header_entry</span><span class="p">;</span>
-  <span class="p">}</span>
-
-    <span class="n">I2CState</span><span class="p">(</span><span class="n">INTERNAL</span><span class="p">);</span>
-    <span class="c1">// NumADR_OB = 2; //DEBUG!</span>
+    <span class="n">i2cState</span><span class="p">(</span><span class="n">INTERNAL</span><span class="p">);</span>
     <span class="n">RTC</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span> <span class="c1">//Initalize RTC</span>
     <span class="n">RTC</span><span class="p">.</span><span class="n">clearAlarm</span><span class="p">();</span> <span class="c1">//</span>
     <span class="n">ADC_OB</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span>
     <span class="n">ADC_Ext</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span>
     <span class="n">DAC</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="mh">0x62</span><span class="p">);</span>
     <span class="n">DAC</span><span class="p">.</span><span class="n">SetRef</span><span class="p">(</span><span class="n">BUFFERED_VREF</span><span class="p">);</span> <span class="c1">//Set buffer configuration //FIX! Make variable if need to set greater than 4.096v?</span>
-    <span class="c1">// adc.Begin(I2C_ADR_OB[1]); //Initalize external ADC</span>
-    <span class="c1">// adc.SetResolution(18);</span>
-    <span class="n">EnviroSense</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="mh">0x77</span><span class="p">);</span> <span class="c1">//Initalize onboard temp/pressure/RH sensor (BME280)</span>
-
-
-    <span class="c1">// ADCSRA = 0b10000111; //Confiure on board ADC for low speed, and enable</span>
+    <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">bme280</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="mh">0x77</span><span class="p">))</span> <span class="p">{</span> <span class="c1">//Initalize onboard temp/pressure/RH sensor (BME280)</span>
+        <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">"BME280 init: FAIL"</span><span class="p">);</span>
+        <span class="n">OnBoardError</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+        <span class="n">BMEError</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+    <span class="p">}</span>
 
     <span class="n">Serial</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="mi">38400</span><span class="p">);</span> <span class="c1">//DEBUG!</span>
     <span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">"Lib = "</span><span class="p">);</span>
     <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">LibVersion</span><span class="p">);</span>
-    <span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">"SN = "</span><span class="p">);</span>
-    <span class="kt">int</span> <span class="n">EEPROMLen</span> <span class="o">=</span> <span class="n">EEPROM</span><span class="p">.</span><span class="n">length</span><span class="p">();</span> <span class="c1">//Copy value for faster access</span>
-    <span class="kt">int</span> <span class="n">Val</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">//Value to read temp EEPROM values into</span>
-    <span class="kt">int</span> <span class="n">Pos</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">//used to keep track of position in SN string</span>
-    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">EEPROMLen</span> <span class="o">-</span> <span class="mi">8</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">EEPROMLen</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>  <span class="c1">//Read out Serial Number</span>
-        <span class="n">Val</span> <span class="o">=</span> <span class="n">EEPROM</span><span class="p">.</span><span class="n">read</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>  <span class="c1">//Read SN values as individual bytes from EEPROM</span>
-        <span class="n">SN</span><span class="p">[</span><span class="n">Pos</span><span class="o">++</span><span class="p">]</span> <span class="o">=</span> <span class="n">HexMap</span><span class="p">[(</span><span class="n">Val</span> <span class="o">&gt;&gt;</span> <span class="mi">4</span><span class="p">)];</span> <span class="c1">//Load upper nibble of hex value, post inc pos</span>
-        <span class="n">SN</span><span class="p">[</span><span class="n">Pos</span><span class="o">++</span><span class="p">]</span> <span class="o">=</span> <span class="n">HexMap</span><span class="p">[(</span><span class="n">Val</span> <span class="o">%</span> <span class="mh">0x10</span><span class="p">)];</span> <span class="c1">//Load lower nibble of hex value, post inc pos</span>
-        <span class="k">if</span><span class="p">(</span><span class="n">i</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">1</span> <span class="o">&amp;&amp;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">EEPROMLen</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
-            <span class="n">SN</span><span class="p">[</span><span class="n">Pos</span><span class="o">++</span><span class="p">]</span> <span class="o">=</span> <span class="sc">'-'</span><span class="p">;</span>  <span class="c1">//Place - between each SN category, post inc pos</span>
-            <span class="c1">// Pos += 1;</span>
-        <span class="p">}</span>
-        <span class="n">SN</span><span class="p">[</span><span class="mi">19</span><span class="p">]</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span> <span class="c1">//Null terminate string</span>
-    <span class="p">}</span>
+    <span class="kt">bool</span> <span class="n">schema1</span> <span class="o">=</span> <span class="n">readIdentity</span><span class="p">();</span> <span class="c1">//Serial number and hardware version from Page 0 (Schema 1), else the last 8 bytes (Schema 0)</span>
+    <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">schema1</span><span class="p">)</span> <span class="n">HWVersion</span> <span class="o">=</span> <span class="n">String</span><span class="p">(</span><span class="n">Model</span><span class="p">);</span> <span class="c1">//Schema 0: the model number the sketch declared</span>
+    <span class="n">serialTimeSet</span><span class="p">();</span> <span class="c1">//A YYMMDDHHMMSS string waiting on Serial sets the clock; then the timestamp</span>
+    <span class="n">attachLoggerInterrupts</span><span class="p">(</span><span class="nb">true</span><span class="p">);</span> <span class="c1">//LED pins, SD chip select, file times, the alarm and the button (PCINT)</span>
+    <span class="n">attachExtInt</span><span class="p">();</span> <span class="c1">//The external-interrupt counter, if setExtInt() named a pin</span>
 
-    <span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="n">SN</span><span class="p">);</span> <span class="c1">//Print compiled string</span>
-    <span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">"</span><span class="se">\n\n</span><span class="s">"</span><span class="p">);</span>
-    <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s">Initializing...</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span> <span class="c1">//DEBUG!</span>
-    <span class="n">delay</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span>
-    <span class="k">if</span><span class="p">(</span><span class="n">Serial</span><span class="p">.</span><span class="n">available</span><span class="p">())</span> <span class="p">{</span>  <span class="c1">//If time setting info available</span>
-        <span class="n">String</span> <span class="n">DateTimeTemp</span> <span class="o">=</span> <span class="n">Serial</span><span class="p">.</span><span class="n">readString</span><span class="p">();</span>
-        <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">DateTimeTemp</span><span class="p">);</span>  <span class="c1">//DEBUG!</span>
-        <span class="kt">int</span> <span class="n">DateTimeVals</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">};</span>
-        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">6</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-            <span class="n">DateTimeVals</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">DateTimeTemp</span><span class="p">.</span><span class="n">substring</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">i</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)).</span><span class="n">toInt</span><span class="p">();</span>
-            <span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="n">i</span><span class="p">);</span> <span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">"  "</span><span class="p">);</span> <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">DateTimeVals</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>  <span class="c1">//DEBUG!</span>
-        <span class="p">}</span>
-        <span class="n">RTC</span><span class="p">.</span><span class="n">setTime</span><span class="p">(</span><span class="mi">2000</span> <span class="o">+</span> <span class="n">DateTimeVals</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">DateTimeVals</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">DateTimeVals</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">DateTimeVals</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">DateTimeVals</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">DateTimeVals</span><span class="p">[</span><span class="mi">5</span><span class="p">]);</span>
-    <span class="p">}</span>
-
-    <span class="n">GetTime</span><span class="p">();</span> <span class="c1">//Get time to pass to computer</span>
-    <span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s">Timestamp = "</span><span class="p">);</span>
-    <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">LogTimeDate</span><span class="p">);</span>
-
-    <span class="c1">//Sets up basic initialization required for the system</span>
-    <span class="n">selfPointer</span> <span class="o">=</span> <span class="k">this</span><span class="p">;</span>
-
-
-    <span class="n">pinMode</span><span class="p">(</span><span class="n">RedLED</span><span class="p">,</span> <span class="n">OUTPUT</span><span class="p">);</span>
-    <span class="n">pinMode</span><span class="p">(</span><span class="n">GreenLED</span><span class="p">,</span> <span class="n">OUTPUT</span><span class="p">);</span>
-    <span class="n">pinMode</span><span class="p">(</span><span class="n">BlueLED</span><span class="p">,</span> <span class="n">OUTPUT</span><span class="p">);</span>
-
-    <span class="n">LED_Color</span><span class="p">(</span><span class="n">OFF</span><span class="p">);</span>
-
-    <span class="c1">// Wire.begin();</span>
-    <span class="n">pinMode</span><span class="p">(</span><span class="n">SD_CS</span><span class="p">,</span> <span class="n">OUTPUT</span><span class="p">);</span>
-    <span class="c1">// SPI.setDataMode(SPI_MODE0);</span>
-    <span class="c1">// SPI.setClockDivider(SPI_CLOCK_DIV2); //Sts SPI clock to 4 MHz for an 8 MHz system clock</span>
-
-    <span class="n">SdFile</span><span class="o">::</span><span class="n">dateTimeCallback</span><span class="p">(</span><span class="n">DateTimeSD</span><span class="p">);</span> <span class="c1">//Setup SD file time setting</span>
-    <span class="n">attachInterrupt</span><span class="p">(</span><span class="n">digitalPinToInterrupt</span><span class="p">(</span><span class="n">RTCInt</span><span class="p">),</span> <span class="n">Okapi</span><span class="o">::</span><span class="n">isr1</span><span class="p">,</span> <span class="n">FALLING</span><span class="p">);</span> <span class="c1">//Attach an interrupt driven by the interrupt from RTC, logs data</span>
-    <span class="c1">// if(Model &lt; 2) attachInterrupt(digitalPinToInterrupt(LogInt), Okapi::isr0, FALLING);  //Attach an interrupt driven by the manual log button, sets logging flag and logs data</span>
-    <span class="c1">// AttachPCI(LogInt, ButtonLog, FALLING); //Attach an interrupt driven by the manual log button, sets logging flag and logs data (using pin change interrupts)</span>
-    <span class="c1">// enableInterrupt(LogInt, ButtonLog, FALLING);</span>
-    <span class="o">*</span><span class="n">digitalPinToPCMSK</span><span class="p">(</span><span class="n">LogInt</span><span class="p">)</span> <span class="o">|=</span> <span class="n">bit</span> <span class="p">(</span><span class="n">digitalPinToPCMSKbit</span><span class="p">(</span><span class="n">LogInt</span><span class="p">));</span>  <span class="c1">// enable pin</span>
-    <span class="c1">// PCIFR  |= 0xFE; // clear any outstanding interrupt</span>
-    <span class="c1">// PCICR  |= 0x01; // enable interrupt for the group</span>
-    <span class="n">PCIFR</span>  <span class="o">|=</span> <span class="n">bit</span> <span class="p">(</span><span class="n">digitalPinToPCICRbit</span><span class="p">(</span><span class="n">LogInt</span><span class="p">));</span> <span class="c1">// clear any outstanding interrupt</span>
-    <span class="n">PCICR</span>  <span class="o">|=</span> <span class="n">bit</span> <span class="p">(</span><span class="n">digitalPinToPCICRbit</span><span class="p">(</span><span class="n">LogInt</span><span class="p">));</span> <span class="c1">// enable interrupt for the group</span>
-
-    <span class="n">pinMode</span><span class="p">(</span><span class="n">RTCInt</span><span class="p">,</span> <span class="n">INPUT_PULLUP</span><span class="p">);</span>
-    <span class="n">pinMode</span><span class="p">(</span><span class="n">LogInt</span><span class="p">,</span> <span class="n">INPUT</span><span class="p">);</span>
-
-    <span class="k">if</span> <span class="p">(</span><span class="n">ExtIntPin</span> <span class="o">!=</span> <span class="mi">255</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">pinMode</span><span class="p">(</span><span class="n">ExtIntPin</span><span class="p">,</span> <span class="n">INPUT</span><span class="p">);</span>
-        <span class="n">digitalWrite</span><span class="p">(</span><span class="n">ExtIntPin</span><span class="p">,</span> <span class="n">HIGH</span><span class="p">);</span>
-        <span class="n">attachInterrupt</span><span class="p">(</span><span class="n">digitalPinToInterrupt</span><span class="p">(</span><span class="n">ExtIntPin</span><span class="p">),</span> <span class="n">Okapi</span><span class="o">::</span><span class="n">isr2</span><span class="p">,</span> <span class="n">FALLING</span><span class="p">);</span>
-    <span class="p">}</span>
-
-
-    <span class="n">I2CTest</span><span class="p">();</span>
-    <span class="n">ClockTest</span><span class="p">();</span>
-    <span class="n">SDTest</span><span class="p">();</span>
+    <span class="n">I2Ctest</span><span class="p">();</span>
+    <span class="n">clockTest</span><span class="p">();</span>
+    <span class="n">SDtest</span><span class="p">();</span>
     <span class="c1">// BatTest();</span>
-    <span class="n">EnviroStats</span><span class="p">();</span>  <span class="c1">//Only print out enviromental variables if BME is on board</span>
+    <span class="n">enviroStats</span><span class="p">();</span>  <span class="c1">//Only print out enviromental variables if BME is on board</span>
     <span class="c1">//FIX! Add Feather test??</span>
 
-
-
-    <span class="n">digitalWrite</span><span class="p">(</span><span class="n">BuiltInLED</span><span class="p">,</span> <span class="n">HIGH</span><span class="p">);</span>
-
-    <span class="k">if</span><span class="p">(</span><span class="n">OBError</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">LED_Color</span><span class="p">(</span><span class="n">RED</span><span class="p">);</span> <span class="c1">//On board failure</span>
-        <span class="n">delay</span><span class="p">(</span><span class="mi">2000</span><span class="p">);</span>
-    <span class="p">}</span>
-    <span class="k">if</span><span class="p">(</span><span class="n">SensorError</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">LED_Color</span><span class="p">(</span><span class="n">ORANGE</span><span class="p">);</span>  <span class="c1">//Sensor failure</span>
-        <span class="n">delay</span><span class="p">(</span><span class="mi">2000</span><span class="p">);</span>
-    <span class="p">}</span>
-    <span class="k">if</span><span class="p">(</span><span class="n">TimeError</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">LED_Color</span><span class="p">(</span><span class="n">CYAN</span><span class="p">);</span> <span class="c1">//Time set error</span>
-        <span class="n">delay</span><span class="p">(</span><span class="mi">2000</span><span class="p">);</span>
-    <span class="p">}</span>
-    <span class="k">if</span><span class="p">(</span><span class="n">SDError</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">LED_Color</span><span class="p">(</span><span class="n">PURPLE</span><span class="p">);</span> <span class="c1">//Sd card not inserted</span>
-        <span class="n">delay</span><span class="p">(</span><span class="mi">2000</span><span class="p">);</span>
-    <span class="p">}</span>
-    <span class="k">if</span><span class="p">(</span><span class="n">BatError</span><span class="p">)</span> <span class="p">{</span>  <span class="c1">//Battery voltage is below level where hardware functionality can be gaurenteed</span>
-        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-            <span class="n">LED_Color</span><span class="p">(</span><span class="n">RED</span><span class="p">);</span>
-            <span class="n">delay</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span>
-            <span class="n">LED_Color</span><span class="p">(</span><span class="n">OFF</span><span class="p">);</span>
-            <span class="n">delay</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
-
-    <span class="k">if</span><span class="p">(</span><span class="n">BatWarning</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="n">BatError</span><span class="p">)</span> <span class="p">{</span>  <span class="c1">//Battery charge % is at a concerning level, recomend repacing batteries</span>
-        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-            <span class="n">LED_Color</span><span class="p">(</span><span class="n">GOLD</span><span class="p">);</span> <span class="c1">//Sd card not inserted</span>
-            <span class="n">delay</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span>
-            <span class="n">LED_Color</span><span class="p">(</span><span class="n">OFF</span><span class="p">);</span>
-            <span class="n">delay</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
-    <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">OBError</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="n">SensorError</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="n">TimeError</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="n">SDError</span><span class="p">)</span> <span class="p">{</span>  <span class="c1">//Include battery error in test??</span>
-        <span class="n">LED_Color</span><span class="p">(</span><span class="n">GREEN</span><span class="p">);</span>
-        <span class="n">delay</span><span class="p">(</span><span class="mi">2000</span><span class="p">);</span>
-    <span class="p">}</span>
-
-    <span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s">Ready to Log...</span><span class="se">\n\n</span><span class="s">"</span><span class="p">);</span>
+    <span class="n">ledReport</span><span class="p">();</span> <span class="c1">//The self-test results on the RGB LED, then "Ready to Log"</span>
+    <span class="c1">//The logger's own report at boot, for its first status row: the first fault the</span>
+    <span class="c1">//self-tests found, else LoggingStarted (unit, kind 16).</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">SDCardMissing</span><span class="p">)</span> <span class="n">Pages</span><span class="p">.</span><span class="n">latchFault</span><span class="p">(</span><span class="mh">0x01</span><span class="p">);</span>
+    <span class="k">else</span> <span class="nf">if</span><span class="p">(</span><span class="n">SDTestFailed</span><span class="p">)</span> <span class="n">Pages</span><span class="p">.</span><span class="n">latchFault</span><span class="p">(</span><span class="mh">0x05</span><span class="p">);</span>
+    <span class="k">else</span> <span class="nf">if</span><span class="p">(</span><span class="n">ClockError</span><span class="p">)</span> <span class="n">Pages</span><span class="p">.</span><span class="n">latchFault</span><span class="p">(</span><span class="mh">0x21</span><span class="p">);</span>
+    <span class="k">else</span> <span class="nf">if</span><span class="p">(</span><span class="n">BMEError</span><span class="p">)</span> <span class="n">Pages</span><span class="p">.</span><span class="n">latchFault</span><span class="p">(</span><span class="mh">0x41</span><span class="p">);</span>
+    <span class="k">else</span> <span class="nf">if</span><span class="p">(</span><span class="n">SensorError</span><span class="p">)</span> <span class="n">Pages</span><span class="p">.</span><span class="n">latchFault</span><span class="p">(</span><span class="mh">0x61</span><span class="p">);</span>
+    <span class="n">Pages</span><span class="p">.</span><span class="n">latchNotice</span><span class="p">(</span><span class="mh">0xF0</span><span class="p">);</span>
+    <span class="n">BootReport</span> <span class="o">=</span> <span class="n">Pages</span><span class="p">.</span><span class="n">report</span><span class="p">();</span>
+    <span class="n">Pages</span><span class="p">.</span><span class="n">acknowledge</span><span class="p">();</span>
     <span class="n">NewLog</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span> <span class="c1">//Set flag to begin new log file</span>
 
-    <span class="c1">// delay(2000);</span>
-
     <span class="n">LED_Color</span><span class="p">(</span><span class="n">OFF</span><span class="p">);</span>
-    <span class="k">return</span> <span class="o">!</span><span class="p">(</span><span class="n">OBError</span> <span class="o">||</span> <span class="n">SensorError</span> <span class="o">||</span> <span class="n">TimeError</span> <span class="o">||</span> <span class="n">SDError</span><span class="p">);</span>
+    <span class="k">return</span> <span class="o">!</span><span class="p">(</span><span class="n">OnBoardError</span> <span class="o">||</span> <span class="n">SensorError</span> <span class="o">||</span> <span class="n">TimeError</span> <span class="o">||</span> <span class="n">SDCardMissing</span><span class="p">);</span>
 <span class="p">}</span>
 
-<span class="n">ISR</span> <span class="p">(</span><span class="n">PCINT0_vect</span><span class="p">)</span> <span class="c1">// handle pin change interrupt for D24-D31 (Port A) on ATmega1284p</span>
+<span class="c1">// The data file's header row: the on-board columns, then the sketch's Header,</span>
+<span class="c1">// then Note. Note is always the last column and carries no comma after it.</span>
+<span class="n">String</span> <span class="n">Okapi</span><span class="o">::</span><span class="n">dataHeader</span><span class="p">()</span>
 <span class="p">{</span>
-    <span class="c1">// boolean PinVal = (PINA &amp; digitalPinToBitMask(28));</span>
-    <span class="c1">// if(PinVal == LOW) ManualLog = true; //Set flag to manually record an additional data point; //Only fun the function if trigger criteria is true</span>
-    <span class="c1">// digitalWrite(14, LOW); //DEBUG!</span>
-    <span class="n">ManualLog</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span> <span class="c1">//DEBUG!</span>
+    <span class="k">return</span> <span class="s">"Time [UTC], PresOB [mBar], RH_OB [%], TempOB [C], Temp RTC [C], VBeta [mV], VPrime [mV], ISolar [mA], IBeta [mA],"</span> <span class="o">+</span> <span class="n">Header</span> <span class="o">+</span> <span class="s">"Note"</span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="kt">bool</span> <span class="n">Okapi</span><span class="o">::</span><span class="n">begin</span><span class="p">(</span><span class="n">String</span> <span class="n">Header_</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="kt">uint8_t</span> <span class="n">Dummy</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="nb">NULL</span><span class="p">};</span>
-    <span class="k">return</span> <span class="nf">begin</span><span class="p">(</span><span class="n">Dummy</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">Header_</span><span class="p">);</span>
-<span class="p">}</span>
-
-<span class="kt">void</span> <span class="n">Okapi</span><span class="o">::</span><span class="n">I2CTest</span><span class="p">()</span>
-<span class="p">{</span>
-    <span class="kt">int</span> <span class="n">Error</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-    <span class="kt">bool</span> <span class="n">I2C_Test</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
-
-    <span class="n">I2CState</span><span class="p">(</span><span class="n">EXTERNAL</span><span class="p">);</span> <span class="c1">//Connect to external</span>
-    <span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">"I2C: "</span><span class="p">);</span>
-    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">NumADR</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">Wire</span><span class="p">.</span><span class="n">beginTransmission</span><span class="p">(</span><span class="n">I2C_ADR</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
-        <span class="n">Error</span> <span class="o">=</span> <span class="n">Wire</span><span class="p">.</span><span class="n">endTransmission</span><span class="p">();</span>
-        <span class="k">if</span><span class="p">(</span><span class="n">Error</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
-            <span class="k">if</span><span class="p">(</span><span class="n">I2C_Test</span><span class="p">)</span> <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">" Fail"</span><span class="p">);</span>
-            <span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">"   Fail At: "</span><span class="p">);</span>
-            <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">I2C_ADR</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">HEX</span><span class="p">);</span>
-            <span class="n">I2C_Test</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
-            <span class="n">SensorError</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
-
-    <span class="n">I2CState</span><span class="p">(</span><span class="n">INTERNAL</span><span class="p">);</span> <span class="c1">//Connect to on board</span>
-    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">NumADR_OB</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">Wire</span><span class="p">.</span><span class="n">beginTransmission</span><span class="p">(</span><span class="n">I2C_ADR_OB</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
-        <span class="n">Error</span> <span class="o">=</span> <span class="n">Wire</span><span class="p">.</span><span class="n">endTransmission</span><span class="p">();</span>
-        <span class="k">if</span><span class="p">(</span><span class="n">Error</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
-            <span class="k">if</span><span class="p">(</span><span class="n">I2C_Test</span><span class="p">)</span> <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">" Fail"</span><span class="p">);</span>
-            <span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">"   Fail At: "</span><span class="p">);</span>
-            <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">I2C_ADR_OB</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">HEX</span><span class="p">);</span>
-            <span class="n">I2C_Test</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
-            <span class="n">OBError</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
-
-    <span class="k">if</span><span class="p">(</span><span class="n">I2C_Test</span><span class="p">)</span> <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">"PASS"</span><span class="p">);</span>
-<span class="p">}</span>
-
-
-<span class="kt">void</span> <span class="n">Okapi</span><span class="o">::</span><span class="n">SDTest</span><span class="p">()</span>
-<span class="p">{</span>
-    <span class="kt">bool</span> <span class="n">SDErrorTemp</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
-    <span class="c1">// bool SD_Test = true;</span>
-
-    <span class="n">pinMode</span><span class="p">(</span><span class="n">SD_CD</span><span class="p">,</span> <span class="n">INPUT</span><span class="p">);</span>
-    <span class="kt">bool</span> <span class="n">CardPressent</span> <span class="o">=</span> <span class="n">digitalRead</span><span class="p">(</span><span class="n">SD_CD</span><span class="p">);</span>
-    <span class="c1">// IO.PinMode(6, OUTPUT, A); //DEBUG!</span>
-    <span class="c1">// IO.DigitalWrite(6, LOW, A); //DEBUG!</span>
-    <span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">"SD: "</span><span class="p">);</span>
-    <span class="n">delay</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span> <span class="c1">//DEBUG!</span>
-    <span class="k">if</span><span class="p">(</span><span class="n">CardPressent</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">F</span><span class="p">(</span><span class="s">" NO CARD"</span><span class="p">));</span>
-        <span class="n">SDErrorTemp</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
-        <span class="n">SDError</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span> <span class="c1">//Card not inserted</span>
-    <span class="p">}</span>
-
-    <span class="k">else</span> <span class="nf">if</span> <span class="p">(</span><span class="o">!</span><span class="n">SD</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="n">SD_CS</span><span class="p">))</span> <span class="p">{</span>
-        <span class="n">OBError</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
-        <span class="n">SDErrorTemp</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
-    <span class="p">}</span>
-
-    <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">CardPressent</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">SD</span><span class="p">.</span><span class="n">mkdir</span><span class="p">(</span><span class="s">"NW"</span><span class="p">);</span>  <span class="c1">//Create NW folder (if not already present)</span>
-        <span class="n">SD</span><span class="p">.</span><span class="n">chdir</span><span class="p">(</span><span class="s">"/NW"</span><span class="p">);</span> <span class="c1">//Move file pointer into NW folder (at root level)</span>
-        <span class="n">SD</span><span class="p">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">SN</span><span class="p">);</span> <span class="c1">//Make directory with serial number as name</span>
-        <span class="n">SD</span><span class="p">.</span><span class="n">chdir</span><span class="p">(</span><span class="n">SN</span><span class="p">);</span> <span class="c1">//Move into this directory</span>
-        <span class="c1">//Change directory to SN# named dir</span>
-        <span class="n">SD</span><span class="p">.</span><span class="n">mkdir</span><span class="p">(</span><span class="s">"Logs"</span><span class="p">);</span> <span class="c1">//Use???</span>
-        <span class="n">String</span> <span class="n">FileNameTest</span> <span class="o">=</span> <span class="s">"HWTest"</span><span class="p">;</span>
-        <span class="p">(</span><span class="n">FileNameTest</span> <span class="o">+</span> <span class="s">".txt"</span><span class="p">).</span><span class="n">toCharArray</span><span class="p">(</span><span class="n">FileNameTestC</span><span class="p">,</span> <span class="mi">11</span><span class="p">);</span>
-        <span class="n">SD</span><span class="p">.</span><span class="n">remove</span><span class="p">(</span><span class="n">FileNameTestC</span><span class="p">);</span> <span class="c1">//Remove any previous files</span>
-
-        <span class="n">randomSeed</span><span class="p">(</span><span class="n">analogRead</span><span class="p">(</span><span class="n">A7</span><span class="p">));</span> <span class="c1">//Seed with a random process to try to endsure randomness</span>
-        <span class="kt">int</span> <span class="n">RandVal</span> <span class="o">=</span> <span class="n">random</span><span class="p">(</span><span class="mi">30557</span><span class="p">);</span> <span class="c1">//Generate a random number between 0 and 30557 (the number of words in Hamlet)</span>
-        <span class="kt">char</span> <span class="n">RandDigits</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">};</span>
-        <span class="n">sprintf</span><span class="p">(</span><span class="n">RandDigits</span><span class="p">,</span> <span class="s">"%d"</span><span class="p">,</span> <span class="n">RandVal</span><span class="p">);</span> <span class="c1">//Convert RandVal into a series of digits</span>
-        <span class="kt">int</span> <span class="n">RandLength</span> <span class="o">=</span> <span class="p">(</span><span class="kt">int</span><span class="p">)((</span><span class="n">ceil</span><span class="p">(</span><span class="n">log10</span><span class="p">(</span><span class="n">RandVal</span><span class="p">))</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="k">sizeof</span><span class="p">(</span><span class="kt">char</span><span class="p">));</span> <span class="c1">//Find the length of the values in the array</span>
-
-        <span class="n">File</span> <span class="n">DataWrite</span> <span class="o">=</span> <span class="n">SD</span><span class="p">.</span><span class="n">open</span><span class="p">(</span><span class="n">FileNameTestC</span><span class="p">,</span> <span class="n">FILE_WRITE</span><span class="p">);</span>
-        <span class="k">if</span><span class="p">(</span><span class="n">DataWrite</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">DataWrite</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">RandVal</span><span class="p">);</span>
-        <span class="n">DataWrite</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s">He was a man. Take him for all in all."</span><span class="p">);</span>
-        <span class="n">DataWrite</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">"I shall not look upon his like again."</span><span class="p">);</span>
-        <span class="n">DataWrite</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">"-Hamlet, Act 1, Scene 2"</span><span class="p">);</span>
-        <span class="p">}</span>
-        <span class="n">DataWrite</span><span class="p">.</span><span class="n">close</span><span class="p">();</span>
-
-        <span class="kt">char</span> <span class="n">TestDigits</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">};</span>
-        <span class="n">File</span> <span class="n">DataRead</span> <span class="o">=</span> <span class="n">SD</span><span class="p">.</span><span class="n">open</span><span class="p">(</span><span class="n">FileNameTestC</span><span class="p">,</span> <span class="n">FILE_READ</span><span class="p">);</span>
-        <span class="k">if</span><span class="p">(</span><span class="n">DataRead</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">DataRead</span><span class="p">.</span><span class="n">read</span><span class="p">(</span><span class="n">TestDigits</span><span class="p">,</span> <span class="n">RandLength</span><span class="p">);</span>
-
-        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">RandLength</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span> <span class="c1">//Test random value string</span>
-          <span class="k">if</span><span class="p">(</span><span class="n">TestDigits</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">!=</span> <span class="n">RandDigits</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="p">{</span>
-            <span class="n">SDErrorTemp</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
-            <span class="n">OBError</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
-          <span class="p">}</span>
-        <span class="p">}</span>
-        <span class="p">}</span>
-        <span class="n">DataRead</span><span class="p">.</span><span class="n">close</span><span class="p">();</span>
-
-        <span class="n">keep_SPCR</span><span class="o">=</span><span class="n">SPCR</span><span class="p">;</span>
-    <span class="p">}</span>
-    <span class="c1">// IO.PinMode(6, OUTPUT, A); //DEBUG!</span>
-    <span class="c1">// IO.DigitalWrite(6, HIGH, A); //DEBUG!</span>
-    <span class="k">if</span><span class="p">(</span><span class="n">SDError</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="n">CardPressent</span><span class="p">)</span> <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">"FAIL"</span><span class="p">);</span>  <span class="c1">//If card is inserted and still does not connect propperly, throw error</span>
-    <span class="k">else</span> <span class="nf">if</span><span class="p">(</span><span class="o">!</span><span class="n">SDError</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="n">CardPressent</span><span class="p">)</span> <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">"PASS"</span><span class="p">);</span>  <span class="c1">//If card is inserted AND connectects propely return success</span>
-<span class="p">}</span>
-
-<span class="kt">void</span> <span class="n">Okapi</span><span class="o">::</span><span class="n">ClockTest</span><span class="p">()</span>
-<span class="p">{</span>
-    <span class="kt">int</span> <span class="n">Error</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
-    <span class="kt">uint8_t</span> <span class="n">TestSeconds</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-    <span class="kt">bool</span> <span class="n">OscStop</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
-
-    <span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">"Clock: "</span><span class="p">);</span>
-    <span class="n">Wire</span><span class="p">.</span><span class="n">beginTransmission</span><span class="p">(</span><span class="n">I2C_ADR_OB</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
-    <span class="n">Wire</span><span class="p">.</span><span class="n">write</span><span class="p">(</span><span class="mh">0xFF</span><span class="p">);</span>
-    <span class="n">Error</span> <span class="o">=</span> <span class="n">Wire</span><span class="p">.</span><span class="n">endTransmission</span><span class="p">();</span>
-
-    <span class="k">if</span><span class="p">(</span><span class="n">Error</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">GetTime</span><span class="p">();</span> <span class="c1">//FIX!</span>
-        <span class="n">TestSeconds</span> <span class="o">=</span> <span class="n">RTC</span><span class="p">.</span><span class="n">getValue</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>
-        <span class="c1">// PowerAux(OFF); //Switch of auxilary power</span>
-        <span class="n">delay</span><span class="p">(</span><span class="mi">1100</span><span class="p">);</span>
-        <span class="c1">// PowerAuto(); //Turn any power back on</span>
-        <span class="k">if</span><span class="p">(</span><span class="n">RTC</span><span class="p">.</span><span class="n">getValue</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="o">==</span> <span class="n">TestSeconds</span><span class="p">)</span> <span class="p">{</span>
-            <span class="n">OBError</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span> <span class="c1">//If clock is not incrementing</span>
-            <span class="n">OscStop</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span> <span class="c1">//Oscilator not running</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
-
-    <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">YearNow</span> <span class="o">=</span> <span class="n">RTC</span><span class="p">.</span><span class="n">getValue</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
-
-    <span class="k">if</span><span class="p">(</span><span class="n">YearNow</span> <span class="o">==</span> <span class="mo">00</span><span class="p">)</span> <span class="p">{</span>  <span class="c1">//If value is 2000, work around Y2K bug by setting time to Jan 1st, midnight, 2049</span>
-        <span class="c1">// if(YearNow &lt;= 00) RTC.setTime(2018, 01, 01, 00, 00, 00);  //Only reset if Y2K</span>
-        <span class="c1">// GetTime(); //Update local time</span>
-        <span class="n">TimeError</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
-        <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">" PASS, BAD TIME"</span><span class="p">);</span>
-    <span class="p">}</span>
-
-    <span class="k">if</span><span class="p">(</span><span class="n">Error</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">" FAIL"</span><span class="p">);</span>
-        <span class="n">OBError</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
-    <span class="p">}</span>
-
-    <span class="k">else</span> <span class="nf">if</span><span class="p">(</span><span class="n">Error</span> <span class="o">==</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">OscStop</span> <span class="o">==</span> <span class="nb">false</span> <span class="o">&amp;&amp;</span> <span class="n">TimeError</span> <span class="o">==</span> <span class="nb">false</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">" PASS"</span><span class="p">);</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-
-<span class="c1">// void Okapi::BatTest()</span>
-<span class="c1">// {</span>
-<span class="c1">//  if(GetBatVoltage() &lt; BatVoltageError) BatError = true; //Set error flag if below min voltage</span>
-<span class="c1">//  if(GetBatPer() &lt; BatPercentageWarning) BatWarning = true; //Set warning flag is below set percentage</span>
-<span class="c1">//  Serial.print("Bat = ");</span>
-<span class="c1">//  Serial.print(GetBatVoltage());</span>
-<span class="c1">//  Serial.print("V\t");</span>
-<span class="c1">//  Serial.print(GetBatPer());</span>
-<span class="c1">//  Serial.println("%");</span>
-<span class="c1">// }</span>
-
-<span class="c1">// void Okapi::PowerTest()</span>
-<span class="c1">// {</span>
-<span class="c1">//  int Error = 0;</span>
-
-<span class="c1">//  digitalWrite(Ext3v3Ctrl, HIGH); //Turn off power to outputs</span>
-
-<span class="c1">//  Serial.print("Power: ");</span>
-<span class="c1">//  Wire.beginTransmission(I2C_ADR[1]);</span>
-<span class="c1">//  Error = Wire.endTransmission();</span>
-<span class="c1">//  if(Error == 0) Serial.println(" FAIL");</span>
-
-<span class="c1">//  if(Error != 0) Serial.println(" PASS");</span>
-
-<span class="c1">//  digitalWrite(Ext3v3Ctrl, LOW); //Turn power back on</span>
-<span class="c1">// }</span>
-
-<span class="kt">void</span> <span class="n">Okapi</span><span class="o">::</span><span class="n">EnviroStats</span><span class="p">()</span>
+<span class="kt">void</span> <span class="n">Okapi</span><span class="o">::</span><span class="n">enviroStats</span><span class="p">()</span>
 <span class="p">{</span>
     <span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">"Temp = "</span><span class="p">);</span>
-    <span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="n">EnviroSense</span><span class="p">.</span><span class="n">GetTemperature</span><span class="p">());</span>
+    <span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="n">bme280</span><span class="p">.</span><span class="n">getTemperature</span><span class="p">());</span>
     <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">"C"</span><span class="p">);</span>
     <span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">"Pressure = "</span><span class="p">);</span>
-    <span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="n">EnviroSense</span><span class="p">.</span><span class="n">GetPressure</span><span class="p">());</span>
+    <span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="n">bme280</span><span class="p">.</span><span class="n">getPressure</span><span class="p">());</span>
     <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">" mBar"</span><span class="p">);</span>
     <span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">"RH = "</span><span class="p">);</span>
-    <span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="n">EnviroSense</span><span class="p">.</span><span class="n">GetHumidity</span><span class="p">());</span>
+    <span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="n">bme280</span><span class="p">.</span><span class="n">getHumidity</span><span class="p">());</span>
     <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">"%"</span><span class="p">);</span>
 <span class="p">}</span>
 
-<span class="kt">void</span> <span class="n">Okapi</span><span class="o">::</span><span class="n">InitLogFile</span><span class="p">()</span>
-<span class="p">{</span>
-    <span class="c1">// IO.PinMode(6, OUTPUT, A); //DEBUG!</span>
-    <span class="c1">// IO.DigitalWrite(6, LOW, A); //DEBUG!</span>
-    <span class="c1">// SD.chdir("/"); //Return to root to define starting state</span>
-    <span class="n">SD</span><span class="p">.</span><span class="n">chdir</span><span class="p">(</span><span class="s">"/NW"</span><span class="p">);</span>  <span class="c1">//Move into northern widget folder from root</span>
-    <span class="n">SD</span><span class="p">.</span><span class="n">chdir</span><span class="p">(</span><span class="n">SN</span><span class="p">);</span>  <span class="c1">//Move into specific numbered sub folder</span>
-    <span class="n">SD</span><span class="p">.</span><span class="n">chdir</span><span class="p">(</span><span class="s">"Logs"</span><span class="p">);</span> <span class="c1">//Move into the logs sub-folder</span>
-    <span class="c1">//Perform same search, but do so inside of "SD:NW/sn/Logs"</span>
-    <span class="n">String</span> <span class="n">FileName</span> <span class="o">=</span> <span class="s">"Log"</span><span class="p">;</span>
-    <span class="kt">int</span> <span class="n">FileNum</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
-    <span class="n">String</span> <span class="n">NumString</span> <span class="o">=</span> <span class="s">"01"</span><span class="p">;</span>
-    <span class="p">(</span><span class="n">FileName</span> <span class="o">+</span> <span class="s">"01"</span><span class="o">+</span> <span class="s">".txt"</span><span class="p">).</span><span class="n">toCharArray</span><span class="p">(</span><span class="n">FileNameC</span><span class="p">,</span> <span class="mi">11</span><span class="p">);</span>
-    <span class="k">while</span><span class="p">(</span><span class="n">SD</span><span class="p">.</span><span class="n">exists</span><span class="p">(</span><span class="n">FileNameC</span><span class="p">))</span> <span class="p">{</span>
-      <span class="n">FileNum</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">;</span>
-      <span class="n">NumString</span> <span class="o">=</span> <span class="n">String</span><span class="p">(</span><span class="n">FileNum</span><span class="p">,</span> <span class="n">DEC</span><span class="p">);</span>
-      <span class="p">(</span><span class="n">FileName</span> <span class="o">+</span> <span class="n">NumString</span> <span class="o">+</span> <span class="s">".txt"</span><span class="p">).</span><span class="n">toCharArray</span><span class="p">(</span><span class="n">FileNameC</span><span class="p">,</span> <span class="mi">11</span><span class="p">);</span>
-    <span class="p">}</span>
-    <span class="p">(</span><span class="n">FileName</span> <span class="o">+</span> <span class="n">NumString</span> <span class="o">+</span> <span class="s">".txt"</span><span class="p">).</span><span class="n">toCharArray</span><span class="p">(</span><span class="n">FileNameC</span><span class="p">,</span> <span class="mi">11</span><span class="p">);</span>
-    <span class="n">String</span> <span class="n">InitData</span> <span class="o">=</span> <span class="s">"Lib = "</span> <span class="o">+</span> <span class="n">String</span><span class="p">(</span><span class="n">LibVersion</span><span class="p">)</span> <span class="o">+</span> <span class="s">" SN = "</span> <span class="o">+</span> <span class="n">String</span><span class="p">(</span><span class="n">SN</span><span class="p">);</span>  <span class="c1">//Make string of onboard characteristics</span>
-    <span class="n">LogStr</span><span class="p">(</span><span class="n">InitData</span><span class="p">);</span> <span class="c1">//Log as first line of data</span>
-    <span class="c1">// LogStr("Drink. Drink. Drink. Drink. Don't Think. Drive. Kill. Get drunk a lot. And work 40 hours a week. Drink. Drink. Drink. Drink. Don't Think. Drive. Kill. Get drunk a lot. And work 40 hours a week. "); //DEBUG!</span>
-    <span class="c1">// LogStr(Header); //DEBUG!</span>
-    <span class="c1">// if(Model &lt; Model_2v0) LogStr("Time [UTC], Temp OB [C], Temp RTC [C], Bat [V], " + Header); //Log concatonated header (for old loggers)</span>
-    <span class="n">LogStr</span><span class="p">(</span><span class="s">"Time [UTC], PresOB [mBar], RH_OB [%], TempOB [C], Temp RTC [C], VBeta [mV], VPrime [mV], ISolar [mA], IBeta [mA],"</span> <span class="o">+</span> <span class="n">Header</span><span class="p">);</span> <span class="c1">//Log concatonated header (for new loggers)</span>
-    <span class="c1">// LogStr("Time [UTC], PresOB [mBar], RH_OB [%], TempOB [C], Temp RTC [C], Bat [V], " + Header); //Log concatonated header (for new loggers)</span>
-    <span class="c1">// IO.PinMode(6, OUTPUT, A); //DEBUG!</span>
-    <span class="c1">// IO.DigitalWrite(6, HIGH, A); //DEBUG!</span>
-<span class="p">}</span>
-
-<span class="kt">int</span> <span class="n">Okapi</span><span class="o">::</span><span class="n">LogStr</span><span class="p">(</span><span class="n">String</span> <span class="n">Val</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">Val</span><span class="p">);</span> <span class="c1">//Echo to serial monitor</span>
-    <span class="c1">// SD.begin(SD_CS); //DEBUG!</span>
-    <span class="c1">// SD.chdir("/"); //Return to root to define starting state</span>
-    <span class="c1">// IO.PinMode(6, OUTPUT, A); //DEBUG!</span>
-    <span class="c1">// IO.DigitalWrite(6, LOW, A); //DEBUG!</span>
-    <span class="n">SD</span><span class="p">.</span><span class="n">chdir</span><span class="p">(</span><span class="s">"/NW"</span><span class="p">);</span>  <span class="c1">//Move into northern widget folder from root</span>
-    <span class="n">SD</span><span class="p">.</span><span class="n">chdir</span><span class="p">(</span><span class="n">SN</span><span class="p">);</span>  <span class="c1">//Move into specific numbered sub folder</span>
-    <span class="n">SD</span><span class="p">.</span><span class="n">chdir</span><span class="p">(</span><span class="s">"Logs"</span><span class="p">);</span> <span class="c1">//Move into the logs sub-folder</span>
-    <span class="n">File</span> <span class="n">DataFile</span> <span class="o">=</span> <span class="n">SD</span><span class="p">.</span><span class="n">open</span><span class="p">(</span><span class="n">FileNameC</span><span class="p">,</span> <span class="n">FILE_WRITE</span><span class="p">);</span>
-
-    <span class="c1">// if the file is available, write to it:</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">DataFile</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">DataFile</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">Val</span><span class="p">);</span>
-       <span class="c1">// return 0;</span>
-    <span class="p">}</span>
-    <span class="c1">// if the file isn't open, pop up an error:</span>
-    <span class="k">else</span> <span class="p">{</span>
-       <span class="c1">// return -1;</span>
-    <span class="p">}</span>
-    <span class="n">SDIndex</span> <span class="o">=</span> <span class="n">DataFile</span><span class="p">.</span><span class="n">position</span><span class="p">();</span>
-    <span class="n">DataFile</span><span class="p">.</span><span class="n">close</span><span class="p">();</span>
-    <span class="c1">// IO.PinMode(6, OUTPUT, A); //DEBUG!</span>
-    <span class="c1">// IO.DigitalWrite(6, HIGH, A); //DEBUG!</span>
-<span class="p">}</span>
-
-<span class="n">String</span> <span class="n">Okapi</span><span class="o">::</span><span class="n">ReadStr</span><span class="p">(</span><span class="kt">uint8_t</span> <span class="n">LineIndex</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="n">DataIndex</span><span class="p">)</span>  <span class="c1">//Pass index (working backwards from most recent log)</span>
-<span class="p">{</span>
-    <span class="c1">// Serial.println(Val); //Echo to serial monitor</span>
-    <span class="c1">// SD.begin(SD_CS); //DEBUG!</span>
-    <span class="c1">// SD.chdir("/"); //Return to root to define starting state</span>
-    <span class="c1">// IO.PinMode(6, OUTPUT, A); //DEBUG!</span>
-    <span class="c1">// IO.DigitalWrite(6, LOW, A); //DEBUG!</span>
-    <span class="n">SD</span><span class="p">.</span><span class="n">chdir</span><span class="p">(</span><span class="s">"/NW"</span><span class="p">);</span>  <span class="c1">//Move into northern widget folder from root</span>
-    <span class="n">SD</span><span class="p">.</span><span class="n">chdir</span><span class="p">(</span><span class="n">SN</span><span class="p">);</span>  <span class="c1">//Move into specific numbered sub folder</span>
-    <span class="n">SD</span><span class="p">.</span><span class="n">chdir</span><span class="p">(</span><span class="s">"Logs"</span><span class="p">);</span> <span class="c1">//Move into the logs sub-folder</span>
-    <span class="n">File</span> <span class="n">DataFile</span> <span class="o">=</span> <span class="n">SD</span><span class="p">.</span><span class="n">open</span><span class="p">(</span><span class="n">FileNameC</span><span class="p">,</span> <span class="n">FILE_READ</span><span class="p">);</span>
-
-    <span class="c1">// if the file is available, read from it:</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">DataFile</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">DataFile</span><span class="p">.</span><span class="n">seek</span><span class="p">(</span><span class="n">DataIndex</span><span class="p">);</span> <span class="c1">//Run to starting location</span>
-        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">LineIndex</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-            <span class="n">DataFile</span><span class="p">.</span><span class="n">readStringUntil</span><span class="p">(</span><span class="sc">'\n'</span><span class="p">);</span> <span class="c1">//Read out previous lines</span>
-        <span class="p">}</span>
-        <span class="k">return</span> <span class="n">DataFile</span><span class="p">.</span><span class="n">readStringUntil</span><span class="p">(</span><span class="sc">'\n'</span><span class="p">);</span> <span class="c1">//Return desired line</span>
-       <span class="c1">// return 0;</span>
-    <span class="p">}</span>
-    <span class="c1">// if the file isn't open, pop up an error:</span>
-    <span class="k">else</span> <span class="p">{</span>
-       <span class="c1">// return -1;</span>
-    <span class="p">}</span>
-
-    <span class="n">DataFile</span><span class="p">.</span><span class="n">close</span><span class="p">();</span>
-
-    <span class="c1">// IO.PinMode(6, OUTPUT, A); //DEBUG!</span>
-    <span class="c1">// IO.DigitalWrite(6, HIGH, A); //DEBUG!</span>
-<span class="p">}</span>
-
-<span class="kt">void</span> <span class="n">Okapi</span><span class="o">::</span><span class="n">LED_Color</span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">long</span> <span class="n">Val</span><span class="p">)</span> <span class="c1">//Set color of onboard led</span>
-<span class="p">{</span>
-    <span class="kt">int</span> <span class="n">Red</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">//Red led color</span>
-    <span class="kt">int</span> <span class="n">Green</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>  <span class="c1">//Green led color</span>
-    <span class="kt">int</span> <span class="n">Blue</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>  <span class="c1">//Blue led color</span>
-    <span class="kt">int</span> <span class="n">Lum</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>  <span class="c1">//Luminosity</span>
-
-    <span class="c1">//Parse all values from single Val</span>
-    <span class="n">Blue</span> <span class="o">=</span> <span class="n">Val</span> <span class="o">&amp;</span> <span class="mh">0xFF</span><span class="p">;</span>
-    <span class="n">Green</span> <span class="o">=</span> <span class="p">(</span><span class="n">Val</span> <span class="o">&gt;&gt;</span> <span class="mi">8</span><span class="p">)</span> <span class="o">&amp;</span> <span class="mh">0xFF</span><span class="p">;</span>
-    <span class="n">Red</span> <span class="o">=</span> <span class="p">(</span><span class="n">Val</span> <span class="o">&gt;&gt;</span> <span class="mi">16</span><span class="p">)</span> <span class="o">&amp;</span> <span class="mh">0xFF</span><span class="p">;</span>
-    <span class="n">Lum</span> <span class="o">=</span> <span class="p">(</span><span class="n">Val</span> <span class="o">&gt;&gt;</span> <span class="mi">24</span><span class="p">)</span> <span class="o">&amp;</span> <span class="mh">0xFF</span><span class="p">;</span>
-    <span class="c1">//  Lum = 255 - Lum; //Invert since LEDs are open drain</span>
-
-    <span class="n">analogWrite</span><span class="p">(</span><span class="n">RedLED</span><span class="p">,</span> <span class="mi">255</span> <span class="o">-</span> <span class="p">(</span><span class="n">Red</span> <span class="o">*</span> <span class="n">Lum</span><span class="p">)</span><span class="o">/</span><span class="mh">0xFF</span><span class="p">);</span>
-    <span class="n">analogWrite</span><span class="p">(</span><span class="n">GreenLED</span><span class="p">,</span> <span class="mi">255</span> <span class="o">-</span> <span class="p">(</span><span class="n">Green</span> <span class="o">*</span> <span class="n">Lum</span><span class="p">)</span><span class="o">/</span><span class="mh">0xFF</span><span class="p">);</span>
-    <span class="n">analogWrite</span><span class="p">(</span><span class="n">BlueLED</span><span class="p">,</span> <span class="mi">255</span> <span class="o">-</span> <span class="p">(</span><span class="n">Blue</span> <span class="o">*</span> <span class="n">Lum</span><span class="p">)</span><span class="o">/</span><span class="mh">0xFF</span><span class="p">);</span>
-<span class="p">}</span>
-
-<span class="kt">void</span> <span class="n">Okapi</span><span class="o">::</span><span class="n">GetTime</span><span class="p">()</span>
-<span class="p">{</span>
-    <span class="c1">//Update global time string</span>
-    <span class="c1">// DateTime TimeStamp = RTC.now();</span>
-    <span class="c1">// LogTimeDate = String(TimeStamp.year()) + "/" + String(TimeStamp.month()) + "/" + String(TimeStamp.day()) + " " + String(TimeStamp.hour()) + ":" + String(TimeStamp.minute()) + ":" + String(TimeStamp.second());</span>
-    <span class="n">LogTimeDate</span> <span class="o">=</span> <span class="n">RTC</span><span class="p">.</span><span class="n">getTime</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
-<span class="p">}</span>
-
-<span class="c1">// float Okapi::EnviroStats()</span>
-<span class="c1">// {</span>
-<span class="c1">//  Pres = EnviroSense.GetPressure();</span>
-<span class="c1">//  RH = EnviroSense.GetHumidity();</span>
-<span class="c1">//  Temp_BME = EnviroSense.GetTemperature();</span>
-<span class="c1">//  Temp_RTC = RTC.getTemp();  //Get Temp from RTC</span>
-<span class="c1">// }</span>
-
-<span class="c1">// float Okapi::GetBatVoltage()</span>
-<span class="c1">// {</span>
-<span class="c1">//  ADMUX = 0b00000000; //Setup voltage ref</span>
-<span class="c1">//  delay(10); //Alow for &gt;1 clock cycle to set values</span>
-<span class="c1">//  ADCSRA = 0b10000111; //Enable ADC, set clock divider to max to deal with high impedance input</span>
-<span class="c1">//  delay(10); //Alow for &gt;1 clock cycle to set values</span>
-<span class="c1">//  float Vcc = 3.3;</span>
-<span class="c1">//  float BatVoltage = analogRead(BatSense_Pin); //Get (divided) battery voltage</span>
-<span class="c1">//  float Comp = (1.8/3.3)*1024.0/analogRead(VRef_Pin);  //Find compensation value with VRef due to Vcc error</span>
-<span class="c1">//  if(Model == 0) Comp = 1.0; //Overide comp calculation since many v0.0 models do not have ref equiped</span>
-<span class="c1">//  BatVoltage = BatVoltage*BatteryDivider*Comp*(Vcc/1024.0); //Compensate for voltage divider and ref voltage error</span>
-<span class="c1">//  return BatVoltage;</span>
-<span class="c1">// }</span>
-
-<span class="c1">// float Okapi::GetBatPer()</span>
-<span class="c1">// {</span>
-<span class="c1">//  //NOTE: Fit developed for Duracell AA, should work well for most alkalines, but no gaurentee given on accuracy</span>
-<span class="c1">//  //From 305 to 100% capacity, should be accurate to within 1% (for data taken at 25C)</span>
-<span class="c1">//  float A = -1.9809;</span>
-<span class="c1">//  float B = 6.2931;</span>
-<span class="c1">//  float C = -4.0063;</span>
-<span class="c1">//  float Val = GetBatVoltage()/3.0; //Divide to get cell voltage</span>
-<span class="c1">//  float Per = ((A*pow(Val, 2) + B*Val + C)*2 - 1)*100.0; //Return percentage of remaining battery energy</span>
-<span class="c1">//  if(Per &lt; 0) return 0;  //Do not allow return of non-sensical values</span>
-<span class="c1">//  if(Per &gt; 100) return 100;  //Is this appropriate? Float voltage could be higher than specified and still be correct</span>
-<span class="c1">//  return Per;</span>
-<span class="c1">// }</span>
-
-<span class="n">String</span> <span class="n">Okapi</span><span class="o">::</span><span class="n">GetOnBoardVals</span><span class="p">()</span>
+<span class="n">String</span> <span class="n">Okapi</span><span class="o">::</span><span class="n">getOnBoardVals</span><span class="p">()</span>
 <span class="p">{</span>
     <span class="c1">//Get onboard temp, RTC temp, and battery voltage, referance voltage</span>
     <span class="c1">// float VRef = analogRead(VRef_Pin);</span>
@@ -918,7 +424,7 @@
     <span class="c1">// float BatVoltage = GetBatVoltage(); //Get battery voltage, Include voltage divider in math</span>
 
     <span class="c1">// Temp[3] = Clock.getTemperature(); //Get tempreture from RTC //FIX!</span>
-    <span class="c1">// PowerAuto(); //Turn on power  //FIX??</span>
+    <span class="c1">// powerAuto(); //Turn on power  //FIX??</span>
     <span class="n">pinMode</span><span class="p">(</span><span class="n">ADC_Sense_SW</span><span class="p">,</span> <span class="n">OUTPUT</span><span class="p">);</span> <span class="c1">//DEBUG!!!!!!!!!!!!!!!!!!</span>
     <span class="n">digitalWrite</span><span class="p">(</span><span class="n">ADC_Sense_SW</span><span class="p">,</span> <span class="n">HIGH</span><span class="p">);</span> <span class="c1">//Enable reading of battery lines  //FIX! Shorten to reduce current draw!</span>
     <span class="c1">// float VBeta = 0;</span>
@@ -937,36 +443,91 @@
     <span class="kt">float</span> <span class="n">IBeta</span> <span class="o">=</span> <span class="p">(</span><span class="n">ADC_OB</span><span class="p">.</span><span class="n">readADC_SingleEnded</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">*</span><span class="mf">0.1875</span> <span class="o">-</span> <span class="mi">2500</span><span class="p">)</span><span class="o">/</span><span class="mf">1.5</span><span class="p">;</span>
 
     <span class="kt">float</span> <span class="n">RTCTemp</span> <span class="o">=</span> <span class="n">RTC</span><span class="p">.</span><span class="n">getTemp</span><span class="p">();</span>  <span class="c1">//Get Temp from RTC</span>
-    <span class="n">GetTime</span><span class="p">();</span> <span class="c1">//FIX!</span>
+    <span class="n">getTime</span><span class="p">();</span> <span class="c1">//FIX!</span>
     <span class="c1">// if(Model&lt; Model_2v0) return LogTimeDate + "," + String(RTCTemp) + "," + String(VBeta) + ",";</span>
-    <span class="k">return</span> <span class="n">LogTimeDate</span> <span class="o">+</span> <span class="s">","</span> <span class="o">+</span> <span class="n">String</span><span class="p">(</span><span class="n">EnviroSense</span><span class="p">.</span><span class="n">GetString</span><span class="p">())</span> <span class="o">+</span> <span class="n">String</span><span class="p">(</span><span class="n">RTCTemp</span><span class="p">)</span> <span class="o">+</span> <span class="s">","</span> <span class="o">+</span> <span class="n">String</span><span class="p">(</span><span class="n">VBeta</span><span class="p">)</span> <span class="o">+</span> <span class="s">","</span> <span class="o">+</span> <span class="n">String</span><span class="p">(</span><span class="n">VPrime</span><span class="p">)</span> <span class="o">+</span> <span class="s">","</span> <span class="o">+</span> <span class="n">String</span><span class="p">(</span><span class="n">ISolar</span><span class="p">)</span> <span class="o">+</span> <span class="s">","</span> <span class="o">+</span> <span class="n">String</span><span class="p">(</span><span class="n">IBeta</span><span class="p">)</span> <span class="o">+</span> <span class="s">","</span><span class="p">;</span>
+    <span class="k">return</span> <span class="n">LogTimeDate</span> <span class="o">+</span> <span class="s">","</span> <span class="o">+</span> <span class="n">String</span><span class="p">(</span><span class="n">bme280</span><span class="p">.</span><span class="n">getString</span><span class="p">())</span> <span class="o">+</span> <span class="n">String</span><span class="p">(</span><span class="n">RTCTemp</span><span class="p">)</span> <span class="o">+</span> <span class="s">","</span> <span class="o">+</span> <span class="n">String</span><span class="p">(</span><span class="n">VBeta</span><span class="p">)</span> <span class="o">+</span> <span class="s">","</span> <span class="o">+</span> <span class="n">String</span><span class="p">(</span><span class="n">VPrime</span><span class="p">)</span> <span class="o">+</span> <span class="s">","</span> <span class="o">+</span> <span class="n">String</span><span class="p">(</span><span class="n">ISolar</span><span class="p">)</span> <span class="o">+</span> <span class="s">","</span> <span class="o">+</span> <span class="n">String</span><span class="p">(</span><span class="n">IBeta</span><span class="p">)</span> <span class="o">+</span> <span class="s">","</span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="c1">// float Okapi::TempConvert(float V, float Vcc, float R, float A, float B, float C, float D, float R25)</span>
-<span class="c1">// {</span>
-<span class="c1">//  //  Serial.print("R = "); //DEBUG!</span>
-<span class="c1">//  //  Serial.println(R); //DEBUG!</span>
-<span class="c1">//  float Rt = ((Vcc/V)*R) - R;</span>
-<span class="c1">//  //  Serial.print("Rt = "); //DEBUG!</span>
-<span class="c1">//  //  Serial.println(Rt); //DEBUG!</span>
-<span class="c1">//  float LogRt = log(Rt/R25);</span>
-<span class="c1">//  //  Serial.print("LogRt = "); //DEBUG!</span>
-<span class="c1">//  //  Serial.println(LogRt); //DEBUG!</span>
-<span class="c1">//  float T = 1.0/(A + B*LogRt + C*pow(LogRt, 2.0) + D*pow(LogRt, 3.0));</span>
-<span class="c1">//  return T;</span>
-<span class="c1">// }</span>
-
-<span class="kt">void</span> <span class="n">Okapi</span><span class="o">::</span><span class="n">Blink</span><span class="p">()</span>
+<span class="n">String</span> <span class="n">Okapi</span><span class="o">::</span><span class="n">readStr</span><span class="p">(</span><span class="kt">uint8_t</span> <span class="n">LineIndex</span><span class="p">,</span> <span class="kt">uint32_t</span> <span class="n">DataIndex</span><span class="p">)</span>  <span class="c1">//Pass index (working backwards from most recent log)</span>
 <span class="p">{</span>
-  <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">digitalWrite</span><span class="p">(</span><span class="n">BlueLED</span><span class="p">,</span> <span class="n">LOW</span><span class="p">);</span>
-    <span class="n">delay</span><span class="p">(</span><span class="mi">500</span><span class="p">);</span>
-    <span class="n">digitalWrite</span><span class="p">(</span><span class="n">BlueLED</span><span class="p">,</span> <span class="n">HIGH</span><span class="p">);</span>
-    <span class="n">delay</span><span class="p">(</span><span class="mi">500</span><span class="p">);</span>
-  <span class="p">}</span>
+    <span class="c1">// Serial.println(Val); //Echo to serial monitor</span>
+    <span class="c1">// SD.begin(SD_CS); //DEBUG!</span>
+    <span class="c1">// SD.chdir("/"); //Return to root to define starting state</span>
+    <span class="c1">// IO.PinMode(6, OUTPUT, A); //DEBUG!</span>
+    <span class="c1">// IO.DigitalWrite(6, LOW, A); //DEBUG!</span>
+    <span class="n">SD</span><span class="p">.</span><span class="n">chdir</span><span class="p">(</span><span class="s">"/"</span><span class="p">);</span>  <span class="c1">//The card's root</span>
+    <span class="n">SD</span><span class="p">.</span><span class="n">chdir</span><span class="p">(</span><span class="n">SN</span><span class="p">);</span>  <span class="c1">//Move into this logger's folder, named by its serial number</span>
+    <span class="n">File</span> <span class="n">DataFile</span> <span class="o">=</span> <span class="n">SD</span><span class="p">.</span><span class="n">open</span><span class="p">(</span><span class="n">FileNameC</span><span class="p">,</span> <span class="n">FILE_READ</span><span class="p">);</span>
+
+    <span class="c1">// if the file is available, read from it:</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">DataFile</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">DataFile</span><span class="p">.</span><span class="n">seek</span><span class="p">(</span><span class="n">DataIndex</span><span class="p">);</span> <span class="c1">//Run to starting location</span>
+        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">LineIndex</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">DataFile</span><span class="p">.</span><span class="n">readStringUntil</span><span class="p">(</span><span class="sc">'\n'</span><span class="p">);</span> <span class="c1">//Read out previous lines</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="n">DataFile</span><span class="p">.</span><span class="n">readStringUntil</span><span class="p">(</span><span class="sc">'\n'</span><span class="p">);</span> <span class="c1">//Return desired line</span>
+       <span class="c1">// return 0;</span>
+    <span class="p">}</span>
+    <span class="c1">// if the file isn't open, pop up an error:</span>
+    <span class="k">else</span> <span class="p">{</span>
+       <span class="c1">// return -1;</span>
+    <span class="p">}</span>
+
+    <span class="n">DataFile</span><span class="p">.</span><span class="n">close</span><span class="p">();</span>
+
+    <span class="c1">// IO.PinMode(6, OUTPUT, A); //DEBUG!</span>
+    <span class="c1">// IO.DigitalWrite(6, HIGH, A); //DEBUG!</span>
 <span class="p">}</span>
 
-<span class="kt">uint8_t</span> <span class="n">Okapi</span><span class="o">::</span><span class="n">SetVoltageRaw</span><span class="p">(</span><span class="kt">uint16_t</span> <span class="n">Val</span><span class="p">,</span> <span class="kt">bool</span> <span class="n">Gain</span><span class="p">)</span>
+<span class="kt">void</span> <span class="n">Okapi</span><span class="o">::</span><span class="n">addDataPoint</span><span class="p">(</span><span class="n">String</span> <span class="p">(</span><span class="o">*</span><span class="n">Update</span><span class="p">)(</span><span class="kt">void</span><span class="p">))</span> <span class="c1">//Reads new data and writes data to SD</span>
+<span class="p">{</span>
+    <span class="n">String</span> <span class="n">Data</span> <span class="o">=</span> <span class="s">""</span><span class="p">;</span>
+    <span class="n">i2cState</span><span class="p">(</span><span class="n">EXTERNAL</span><span class="p">);</span>
+    <span class="n">Data</span> <span class="o">=</span> <span class="p">(</span><span class="o">*</span><span class="n">Update</span><span class="p">)();</span> <span class="c1">//Run external update function</span>
+    <span class="n">i2cState</span><span class="p">(</span><span class="n">INTERNAL</span><span class="p">);</span>  <span class="c1">//DEBUG!</span>
+    <span class="n">bme280</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="mh">0x77</span><span class="p">);</span> <span class="c1">//DEBUG!</span>
+    <span class="n">Data</span> <span class="o">=</span> <span class="n">getOnBoardVals</span><span class="p">()</span> <span class="o">+</span> <span class="n">Data</span> <span class="o">+</span> <span class="n">Note</span><span class="p">;</span> <span class="c1">//Prepend on board readings; Note column last</span>
+    <span class="n">Note</span> <span class="o">=</span> <span class="s">""</span><span class="p">;</span> <span class="c1">//One row's worth of notes</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">logStr</span><span class="p">(</span><span class="n">Data</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="n">Pages</span><span class="p">.</span><span class="n">latchNotice</span><span class="p">(</span><span class="mh">0xF2</span><span class="p">);</span> <span class="c1">//RowNotWritten</span>
+    <span class="n">LogCount</span><span class="o">++</span><span class="p">;</span> <span class="c1">//FIX??</span>
+    <span class="n">fillPages</span><span class="p">();</span> <span class="c1">//Okapi's reading of itself: Page 2, Page 3, Block 0</span>
+    <span class="n">reportRows</span><span class="p">();</span> <span class="c1">//The status file: a row for the logger and every watched sensor with something to report</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="n">Okapi</span><span class="o">::</span><span class="n">afterLogEvent</span><span class="p">()</span> <span class="c1">//After an alarm-driven row: the backhaul</span>
+<span class="p">{</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">LogCount</span> <span class="o">&gt;=</span> <span class="n">LogCountPush</span> <span class="o">&amp;&amp;</span> <span class="n">PowerState</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>  <span class="c1">//If enough logs have been recorded and main battery power is available - backhaul //REPLACE WITH TIMER TEST!</span>
+        <span class="n">IO</span><span class="p">.</span><span class="n">digitalWrite</span><span class="p">(</span><span class="n">FeatherEN</span><span class="p">,</span> <span class="n">HIGH</span><span class="p">,</span> <span class="n">MCP23018</span><span class="o">::</span><span class="n">Port</span><span class="o">::</span><span class="n">B</span><span class="p">);</span> <span class="c1">//Turn on Feather power </span>
+        <span class="c1">// for(int i = 0; i &lt; 10; i++) {  //DEBUG!</span>
+        <span class="c1">//  Serial.println("START BACKHAUL"); //DEBUG!</span>
+        <span class="c1">//  delay(100);</span>
+        <span class="c1">// }</span>
+        <span class="c1">//delay(20);</span>
+        <span class="c1">//Serial.end();</span>
+        <span class="c1">//delay(20);</span>
+        <span class="c1">//Serial.begin(38400); // Use different rate too?</span>
+        <span class="c1">//delay(20);</span>
+        <span class="c1">// Delay to make transmission work</span>
+        <span class="kt">unsigned</span> <span class="kt">long</span> <span class="n">Timeout</span> <span class="o">=</span> <span class="n">millis</span><span class="p">();</span>
+        <span class="k">while</span><span class="p">((</span><span class="n">millis</span><span class="p">()</span> <span class="o">-</span> <span class="n">Timeout</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">1000</span><span class="p">);</span> <span class="c1">// Give transmission some time. (This must be substantial!)</span>
+        <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">"START BACKHAUL"</span><span class="p">);</span> <span class="c1">//DEBUG!</span>
+        <span class="c1">//Serial.println("MID BACKHAUL"); //DEBUG!</span>
+        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">LogCountPush</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span> <span class="c1">//Print out SD values</span>
+            <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">readStr</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">LastSDIndex</span><span class="p">));</span>
+        <span class="p">}</span>
+        <span class="c1">//*/</span>
+        <span class="n">LastSDIndex</span> <span class="o">=</span> <span class="n">SDIndex</span><span class="p">;</span> <span class="c1">//copy new value over</span>
+        <span class="n">LogCount</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">"END BACKHAUL"</span><span class="p">);</span> <span class="c1">//DEBUG!</span>
+        <span class="n">Timeout</span> <span class="o">=</span> <span class="n">millis</span><span class="p">();</span>
+        <span class="k">while</span><span class="p">(</span><span class="n">digitalRead</span><span class="p">(</span><span class="n">FeatherGPIO</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="n">millis</span><span class="p">()</span> <span class="o">-</span> <span class="n">Timeout</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">180000</span><span class="p">);</span> <span class="c1">//Wait for completerion or for timeout (180 seconds -- takes 2G/3G longer)</span>
+        <span class="c1">// while((millis() - Timeout) &lt; 59000); //DEBUG!</span>
+        <span class="c1">// Give as much time as possible to complete the communications. Takes a while and can time out easily.</span>
+        <span class="n">pinMode</span><span class="p">(</span><span class="n">FeatherGPIO</span><span class="p">,</span> <span class="n">INPUT</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">uint8_t</span> <span class="n">Okapi</span><span class="o">::</span><span class="n">setVoltageRaw</span><span class="p">(</span><span class="kt">uint16_t</span> <span class="n">Val</span><span class="p">,</span> <span class="kt">bool</span> <span class="n">Gain</span><span class="p">)</span>
 <span class="p">{</span>
     <span class="k">if</span><span class="p">(</span><span class="n">Val</span> <span class="o">&gt;</span> <span class="mi">4095</span> <span class="o">||</span> <span class="n">Val</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
         <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">"BANG!"</span><span class="p">);</span>
@@ -980,7 +541,7 @@
     <span class="p">}</span>
 <span class="p">}</span>
 
-<span class="kt">uint8_t</span> <span class="n">Okapi</span><span class="o">::</span><span class="n">SetVoltage</span><span class="p">(</span><span class="kt">float</span> <span class="n">Val</span><span class="p">)</span>  <span class="c1">//Interpolated nearest value from float</span>
+<span class="kt">uint8_t</span> <span class="n">Okapi</span><span class="o">::</span><span class="n">setVoltage</span><span class="p">(</span><span class="kt">float</span> <span class="n">Val</span><span class="p">)</span>  <span class="c1">//Interpolated nearest value from float</span>
 <span class="p">{</span>
     <span class="kt">uint16_t</span> <span class="n">BitValue</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">//used to calculate the bit value to set the DAC to</span>
     <span class="k">if</span><span class="p">(</span><span class="n">Val</span> <span class="o">&gt;</span> <span class="mf">5.0</span> <span class="o">||</span> <span class="n">Val</span> <span class="o">&lt;</span> <span class="mf">0.0</span><span class="p">)</span> <span class="p">{</span>
@@ -1003,175 +564,15 @@
     <span class="p">}</span>
 <span class="p">}</span>
 
-<span class="kt">float</span> <span class="n">Okapi</span><span class="o">::</span><span class="n">GetVoltage</span><span class="p">(</span><span class="kt">uint8_t</span> <span class="n">Pin</span><span class="p">)</span>  <span class="c1">//Get voltage external ADC from specified pin</span>
+<span class="kt">float</span> <span class="n">Okapi</span><span class="o">::</span><span class="n">getVoltage</span><span class="p">(</span><span class="kt">uint8_t</span> <span class="n">Pin</span><span class="p">)</span>  <span class="c1">//Get voltage external ADC from specified pin</span>
 <span class="p">{</span>
-    <span class="n">I2CState</span><span class="p">(</span><span class="n">INTERNAL</span><span class="p">);</span>
+    <span class="n">i2cState</span><span class="p">(</span><span class="n">INTERNAL</span><span class="p">);</span>
     <span class="kt">float</span> <span class="n">Val</span> <span class="o">=</span> <span class="n">ADC_Ext</span><span class="p">.</span><span class="n">readADC_SingleEnded</span><span class="p">(</span><span class="n">Pin</span><span class="p">)</span><span class="o">*</span><span class="mf">0.1875</span><span class="p">;</span>
-    <span class="n">I2CState</span><span class="p">(</span><span class="n">EXTERNAL</span><span class="p">);</span>
+    <span class="n">i2cState</span><span class="p">(</span><span class="n">EXTERNAL</span><span class="p">);</span>
     <span class="k">return</span> <span class="n">Val</span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="kt">void</span> <span class="n">Okapi</span><span class="o">::</span><span class="n">Run</span><span class="p">(</span><span class="n">String</span> <span class="p">(</span><span class="o">*</span><span class="n">Update</span><span class="p">)(</span><span class="kt">void</span><span class="p">),</span> <span class="kt">unsigned</span> <span class="kt">long</span> <span class="n">LogInterval</span><span class="p">)</span> <span class="c1">//Pass in function which returns string of data</span>
-<span class="p">{</span>
-    <span class="c1">// Serial.println("BANG!"); //DEBUG!</span>
-    <span class="c1">// Serial.println(millis()); //DEBUG!</span>
-    <span class="c1">// IO.digitalWrite(FeatherEN, HIGH, B); //Turn on Feather power //FIX! Needed??</span>
-    <span class="k">if</span><span class="p">(</span><span class="n">NewLog</span><span class="p">)</span> <span class="p">{</span>
-        <span class="c1">// Serial.println("Log Started!"); //DEBUG</span>
-        <span class="c1">// LogEvent = true;</span>
-        <span class="c1">// unsigned long TempLogInterval = LogInterval; //ANDY, Fix with addition of function??</span>
-        <span class="n">RTC</span><span class="p">.</span><span class="n">setAlarm</span><span class="p">(</span><span class="n">LogInterval</span><span class="p">);</span> <span class="c1">//DEBUG!</span>
-        <span class="n">InitLogFile</span><span class="p">();</span> <span class="c1">//Start a new file each time log button is pressed</span>
-
-        <span class="c1">//Add inital data point</span>
-        <span class="n">AddDataPoint</span><span class="p">(</span><span class="n">Update</span><span class="p">);</span>
-        <span class="n">NewLog</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>  <span class="c1">//Clear flag once log is started</span>
-        <span class="n">Blink</span><span class="p">();</span>  <span class="c1">//Alert user to start of log</span>
-        <span class="n">ResetWD</span><span class="p">();</span> <span class="c1">//Clear alarm</span>
-    <span class="p">}</span>
-
-    <span class="k">if</span><span class="p">(</span><span class="n">LogEvent</span><span class="p">)</span> <span class="p">{</span>
-        <span class="c1">//TEST WHICH TIMER TRIGGERED LOG</span>
-        <span class="c1">// Serial.println("Log!"); //DEBUG!</span>
-        <span class="c1">// RTC.setAlarm(LogInterval);  //Set/reset alarm //DEBUG!</span>
-        <span class="n">AddDataPoint</span><span class="p">(</span><span class="n">Update</span><span class="p">);</span> <span class="c1">//Write values to SD</span>
-        <span class="k">if</span><span class="p">(</span><span class="n">LogCount</span> <span class="o">&gt;=</span> <span class="n">LogCountPush</span> <span class="o">&amp;&amp;</span> <span class="n">PowerState</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>  <span class="c1">//If enough logs have been recorded and main battery power is available - backhaul //REPLACE WITH TIMER TEST!</span>
-            <span class="n">IO</span><span class="p">.</span><span class="n">digitalWrite</span><span class="p">(</span><span class="n">FeatherEN</span><span class="p">,</span> <span class="n">HIGH</span><span class="p">,</span> <span class="n">MCP23018</span><span class="o">::</span><span class="n">Port</span><span class="o">::</span><span class="n">B</span><span class="p">);</span> <span class="c1">//Turn on Feather power </span>
-            <span class="c1">// for(int i = 0; i &lt; 10; i++) {  //DEBUG!</span>
-            <span class="c1">//  Serial.println("START BACKHAUL"); //DEBUG!</span>
-            <span class="c1">//  delay(100);</span>
-            <span class="c1">// }</span>
-            <span class="c1">//delay(20);</span>
-            <span class="c1">//Serial.end();</span>
-            <span class="c1">//delay(20);</span>
-            <span class="c1">//Serial.begin(38400); // Use different rate too?</span>
-            <span class="c1">//delay(20);</span>
-            <span class="c1">// Delay to make transmission work</span>
-            <span class="kt">unsigned</span> <span class="kt">long</span> <span class="n">Timeout</span> <span class="o">=</span> <span class="n">millis</span><span class="p">();</span>
-            <span class="k">while</span><span class="p">((</span><span class="n">millis</span><span class="p">()</span> <span class="o">-</span> <span class="n">Timeout</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">1000</span><span class="p">);</span> <span class="c1">// Give transmission some time. (This must be substantial!)</span>
-            <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">"START BACKHAUL"</span><span class="p">);</span> <span class="c1">//DEBUG!</span>
-            <span class="c1">//Serial.println("MID BACKHAUL"); //DEBUG!</span>
-            <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">LogCountPush</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span> <span class="c1">//Print out SD values</span>
-                <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">ReadStr</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">LastSDIndex</span><span class="p">));</span>
-            <span class="p">}</span>
-            <span class="c1">//*/</span>
-            <span class="n">LastSDIndex</span> <span class="o">=</span> <span class="n">SDIndex</span><span class="p">;</span> <span class="c1">//copy new value over</span>
-            <span class="n">LogCount</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-            <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">"END BACKHAUL"</span><span class="p">);</span> <span class="c1">//DEBUG!</span>
-            <span class="n">Timeout</span> <span class="o">=</span> <span class="n">millis</span><span class="p">();</span>
-            <span class="k">while</span><span class="p">(</span><span class="n">digitalRead</span><span class="p">(</span><span class="n">FeatherGPIO</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="n">millis</span><span class="p">()</span> <span class="o">-</span> <span class="n">Timeout</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">180000</span><span class="p">);</span> <span class="c1">//Wait for completerion or for timeout (180 seconds -- takes 2G/3G longer)</span>
-            <span class="c1">// while((millis() - Timeout) &lt; 59000); //DEBUG!</span>
-            <span class="c1">// Give as much time as possible to complete the communications. Takes a while and can time out easily.</span>
-            <span class="n">pinMode</span><span class="p">(</span><span class="n">FeatherGPIO</span><span class="p">,</span> <span class="n">INPUT</span><span class="p">);</span>
-        <span class="p">}</span>
-        <span class="n">LogEvent</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span> <span class="c1">//Clear log flag</span>
-        <span class="c1">// Serial.println("BANG!"); //DEBUG!</span>
-        <span class="n">RTC</span><span class="p">.</span><span class="n">setAlarm</span><span class="p">(</span><span class="n">LogInterval</span><span class="p">);</span>  <span class="c1">//Set/reset alarm</span>
-        <span class="c1">// Serial.println("ResetTimer"); //DEBUG!</span>
-        <span class="n">ResetWD</span><span class="p">();</span> <span class="c1">//Clear alarm</span>
-    <span class="p">}</span>
-
-    <span class="k">if</span><span class="p">(</span><span class="n">ManualLog</span><span class="p">)</span> <span class="p">{</span>  <span class="c1">//Write data to SD card without interrupting existing timing cycle</span>
-        <span class="c1">// Serial.println("Click!"); //DEBUG!</span>
-        <span class="n">AddDataPoint</span><span class="p">(</span><span class="n">Update</span><span class="p">);</span> <span class="c1">//write values to SD</span>
-        <span class="n">ManualLog</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span> <span class="c1">//Clear log flag</span>
-        <span class="n">ResetWD</span><span class="p">();</span> <span class="c1">//Clear alarm</span>
-    <span class="p">}</span>
-
-    <span class="k">if</span><span class="p">(</span><span class="n">ExtIntTripped</span><span class="p">)</span> <span class="p">{</span>  <span class="c1">// Defaults to just counter for now</span>
-        <span class="c1">// Serial.println("TIP!"); //DEBUG!</span>
-    <span class="n">ExtInt_count</span> <span class="o">++</span><span class="p">;</span>
-        <span class="n">ExtIntTripped</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span> <span class="c1">// Clear interrupt flag flag</span>
-        <span class="n">ResetWD</span><span class="p">();</span> <span class="c1">//Clear alarm</span>
-        <span class="n">delay</span><span class="p">(</span><span class="mi">150</span><span class="p">);</span> <span class="c1">//Hard-code for now; tipping bucket "debounce"</span>
-    <span class="n">attachInterrupt</span><span class="p">(</span><span class="n">digitalPinToInterrupt</span><span class="p">(</span><span class="n">ExtIntPin</span><span class="p">),</span> <span class="n">Okapi</span><span class="o">::</span><span class="n">isr2</span><span class="p">,</span> <span class="n">FALLING</span><span class="p">);</span>
-    <span class="p">}</span>
-
-    <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">digitalRead</span><span class="p">(</span><span class="n">RTCInt</span><span class="p">))</span> <span class="p">{</span>  <span class="c1">//Catch alarm if not reset properly</span>
-        <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">"Reset Alarm"</span><span class="p">);</span> <span class="c1">//DEBUG!</span>
-        <span class="n">RTC</span><span class="p">.</span><span class="n">setAlarm</span><span class="p">(</span><span class="n">LogInterval</span><span class="p">);</span> <span class="c1">//Turn alarm back on</span>
-    <span class="p">}</span>
-
-    <span class="n">AwakeCount</span><span class="o">++</span><span class="p">;</span>
-
-    <span class="k">if</span><span class="p">(</span><span class="n">AwakeCount</span> <span class="o">&gt;</span> <span class="mi">5</span><span class="p">)</span> <span class="p">{</span>
-    <span class="c1">//    AwakeCount = 0;</span>
-        <span class="c1">// Serial.println(millis()); //DEBUG!</span>
-        <span class="n">sleepNow</span><span class="p">();</span>
-    <span class="p">}</span>
-    <span class="n">delay</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
-<span class="p">}</span>
-
-<span class="kt">void</span> <span class="n">Okapi</span><span class="o">::</span><span class="n">ResetWD</span><span class="p">()</span>  <span class="c1">//Send a pulse to "feed" the watchdog timer</span>
-<span class="p">{</span>
-    <span class="n">digitalWrite</span><span class="p">(</span><span class="n">WDHold</span><span class="p">,</span> <span class="n">HIGH</span><span class="p">);</span> <span class="c1">//Set DONE pin high</span>
-    <span class="n">delayMicroseconds</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span> <span class="c1">//Wait a short pulse</span>
-    <span class="n">digitalWrite</span><span class="p">(</span><span class="n">WDHold</span><span class="p">,</span> <span class="n">LOW</span><span class="p">);</span>
-<span class="p">}</span>
-
-<span class="kt">void</span> <span class="n">Okapi</span><span class="o">::</span><span class="n">AddDataPoint</span><span class="p">(</span><span class="n">String</span> <span class="p">(</span><span class="o">*</span><span class="n">Update</span><span class="p">)(</span><span class="kt">void</span><span class="p">))</span> <span class="c1">//Reads new data and writes data to SD</span>
-<span class="p">{</span>
-    <span class="n">String</span> <span class="n">Data</span> <span class="o">=</span> <span class="s">""</span><span class="p">;</span>
-    <span class="c1">// I2CState(INTERNAL);  //DEBUG!</span>
-    <span class="c1">// // PowerAux(ON); </span>
-    <span class="c1">// EnviroSense.begin(0x77); //Re-initialize BME280</span>
-    <span class="c1">// // Serial.println("Called Update"); //DEBUG!</span>
-    <span class="n">I2CState</span><span class="p">(</span><span class="n">EXTERNAL</span><span class="p">);</span>
-    <span class="n">Data</span> <span class="o">=</span> <span class="p">(</span><span class="o">*</span><span class="n">Update</span><span class="p">)();</span> <span class="c1">//Run external update function</span>
-    <span class="c1">// Serial.println("Request OB Vals"); //DEBUG!</span>
-    <span class="n">I2CState</span><span class="p">(</span><span class="n">INTERNAL</span><span class="p">);</span>  <span class="c1">//DEBUG!</span>
-    <span class="n">EnviroSense</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="mh">0x77</span><span class="p">);</span> <span class="c1">//DEBUG!</span>
-    <span class="n">Data</span> <span class="o">=</span> <span class="n">GetOnBoardVals</span><span class="p">()</span> <span class="o">+</span> <span class="n">Data</span><span class="p">;</span> <span class="c1">//Append on board readings</span>
-    <span class="c1">// Serial.println("Got OB Vals");  //DEBUG!</span>
-    <span class="n">LogStr</span><span class="p">(</span><span class="n">Data</span><span class="p">);</span>
-    <span class="n">LogCount</span><span class="o">++</span><span class="p">;</span> <span class="c1">//FIX??</span>
-    <span class="c1">// Serial.println("Loged Data"); //DEBUG!</span>
-<span class="p">}</span>
-<span class="c1">//ISRs</span>
-
-<span class="kt">void</span> <span class="n">Okapi</span><span class="o">::</span><span class="n">ButtonLog</span><span class="p">()</span>
-<span class="p">{</span>
-    <span class="c1">//ISR to respond to pressing log button and waking device from sleep and starting log</span>
-    <span class="n">ManualLog</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span> <span class="c1">//Set flag to manually record an additional data point</span>
-<span class="p">}</span>
-
-<span class="kt">void</span> <span class="n">Okapi</span><span class="o">::</span><span class="n">Log</span><span class="p">()</span>
-<span class="p">{</span>
-    <span class="c1">//Write global Data to SD</span>
-    <span class="n">LogEvent</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span> <span class="c1">//Set flag for a log event</span>
-    <span class="n">AwakeCount</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="kt">void</span> <span class="n">Okapi</span><span class="o">::</span><span class="n">extIntCounter</span><span class="p">()</span>
-<span class="p">{</span>
-  <span class="c1">// ISR for an external event waking the logger</span>
-  <span class="n">detachInterrupt</span><span class="p">(</span><span class="n">digitalPinToInterrupt</span><span class="p">(</span><span class="n">ExtIntPin</span><span class="p">));</span>
-  <span class="n">ExtIntTripped</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span> <span class="c1">// Set flag to just increment the counter and return to sleep</span>
-<span class="p">}</span>
-
-<span class="c1">// ExtInt functions</span>
-<span class="kt">void</span> <span class="n">Okapi</span><span class="o">::</span><span class="n">setExtInt</span><span class="p">(</span><span class="kt">uint8_t</span> <span class="n">n</span><span class="p">,</span> <span class="n">String</span> <span class="n">header_entry</span><span class="p">)</span>
-<span class="p">{</span>
-  <span class="n">ExtIntPin</span> <span class="o">=</span> <span class="n">n</span><span class="p">;</span>
-  <span class="n">ext_int_header_entry</span> <span class="o">=</span> <span class="n">header_entry</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="kt">uint16_t</span> <span class="n">Okapi</span><span class="o">::</span><span class="n">getExtIntCount</span><span class="p">(</span><span class="kt">bool</span> <span class="n">reset0</span><span class="p">)</span>
-<span class="p">{</span>
-  <span class="kt">uint16_t</span> <span class="n">out</span> <span class="o">=</span> <span class="n">ExtInt_count</span><span class="p">;</span>
-  <span class="k">if</span> <span class="p">(</span><span class="n">reset0</span><span class="p">)</span>
-  <span class="p">{</span>
-    <span class="n">resetExtIntCount</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
-  <span class="p">}</span>
-  <span class="k">return</span> <span class="n">out</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="kt">void</span> <span class="n">Okapi</span><span class="o">::</span><span class="n">resetExtIntCount</span><span class="p">(</span><span class="kt">uint16_t</span> <span class="n">start</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="n">ExtInt_count</span> <span class="o">=</span> <span class="n">start</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="kt">uint8_t</span> <span class="n">Okapi</span><span class="o">::</span><span class="n">PowerAuto</span><span class="p">()</span>
+<span class="kt">uint8_t</span> <span class="n">Okapi</span><span class="o">::</span><span class="n">powerAuto</span><span class="p">()</span>
 <span class="p">{</span>
     <span class="kt">uint8_t</span> <span class="n">DDR_Prev</span> <span class="o">=</span> <span class="n">DDRC</span><span class="p">;</span> <span class="c1">//Read port state to be able to return</span>
     <span class="n">DDRC</span> <span class="o">=</span> <span class="n">DDR_Prev</span> <span class="o">|</span> <span class="mh">0x0C</span><span class="p">;</span> <span class="c1">//Set C1 and C0 as output</span>
@@ -1200,7 +601,7 @@
     <span class="k">return</span> <span class="mi">2</span><span class="p">;</span> <span class="c1">//Error, power not good??</span>
 <span class="p">}</span>
 
-<span class="kt">void</span> <span class="n">Okapi</span><span class="o">::</span><span class="n">PowerAux</span><span class="p">(</span><span class="kt">uint8_t</span> <span class="n">State</span><span class="p">)</span>  <span class="c1">//UPDATE! 0 or 3 = OFF, 1 = V_Prime, 2 = V_Beta</span>
+<span class="kt">void</span> <span class="n">Okapi</span><span class="o">::</span><span class="n">powerAux</span><span class="p">(</span><span class="kt">uint8_t</span> <span class="n">State</span><span class="p">)</span>  <span class="c1">//UPDATE! 0 or 3 = OFF, 1 = V_Prime, 2 = V_Beta</span>
 <span class="p">{</span>
     <span class="n">State</span> <span class="o">=</span> <span class="n">State</span> <span class="o">&amp;</span> <span class="mb">0b11</span><span class="p">;</span> <span class="c1">//Restrict to lowest 2 bits</span>
     <span class="kt">uint8_t</span> <span class="n">DDR_Prev</span> <span class="o">=</span> <span class="n">DDRC</span><span class="p">;</span> <span class="c1">//Read port state to be able to return</span>
@@ -1210,7 +611,7 @@
     <span class="c1">// Serial.println(PORTC); //DEBUG!</span>
 <span class="p">}</span>
 
-<span class="kt">void</span> <span class="n">Okapi</span><span class="o">::</span><span class="n">I2CState</span><span class="p">(</span><span class="kt">bool</span> <span class="n">State</span><span class="p">)</span>
+<span class="kt">void</span> <span class="n">Okapi</span><span class="o">::</span><span class="n">i2cState</span><span class="p">(</span><span class="kt">bool</span> <span class="n">State</span><span class="p">)</span>
 <span class="p">{</span>
     <span class="n">digitalWrite</span><span class="p">(</span><span class="n">I2C_SW</span><span class="p">,</span> <span class="n">State</span><span class="p">);</span>
     <span class="c1">// uint8_t PortVal = PORTC; //Read status  //FIX??</span>
@@ -1218,40 +619,48 @@
     <span class="c1">// PortVal = PortVal | (State &lt;&lt; 5); //Set C5 with appropriate value</span>
     <span class="c1">// PORTC = PortVal; //Set port</span>
 <span class="p">}</span>
-<span class="c1">// void Okapi::PowerOB(bool State)</span>
-<span class="c1">// {</span>
-<span class="c1">//  pinMode(BatSwitch, OUTPUT);</span>
-<span class="c1">//  digitalWrite(BatSwitch, State); //Set bat switch for onboard 3v3/main power</span>
-<span class="c1">// }</span>
 
-<span class="kt">void</span> <span class="n">Okapi</span><span class="o">::</span><span class="n">DateTimeSD</span><span class="p">(</span><span class="kt">uint16_t</span><span class="o">*</span> <span class="n">date</span><span class="p">,</span> <span class="kt">uint16_t</span><span class="o">*</span> <span class="n">time</span><span class="p">)</span>
+<span class="kt">uint8_t</span> <span class="n">Okapi</span><span class="o">::</span><span class="n">chipFaults</span><span class="p">()</span>
 <span class="p">{</span>
-    <span class="c1">// DateTime now = RTC.now();</span>
-    <span class="c1">// sprintf(timestamp, "%02d:%02d:%02d %2d/%2d/%2d \n", now.hour(),now.minute(),now.second(),now.month(),now.day(),now.year()-2000);</span>
-    <span class="c1">// Serial.println("yy");</span>
-    <span class="c1">// Serial.println(timestamp);</span>
-    <span class="c1">// return date using FAT_DATE macro to format fields</span>
-    <span class="c1">// Serial.println(selfPointer-&gt;RTC.GetValue(0)); //DEBUG!</span>
-    <span class="o">*</span><span class="n">date</span> <span class="o">=</span> <span class="n">FAT_DATE</span><span class="p">(</span><span class="n">selfPointer</span><span class="o">-&gt;</span><span class="n">RTC</span><span class="p">.</span><span class="n">getValue</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="mi">2000</span><span class="p">,</span> <span class="n">selfPointer</span><span class="o">-&gt;</span><span class="n">RTC</span><span class="p">.</span><span class="n">getValue</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="n">selfPointer</span><span class="o">-&gt;</span><span class="n">RTC</span><span class="p">.</span><span class="n">getValue</span><span class="p">(</span><span class="mi">2</span><span class="p">));</span>
-
-    <span class="c1">// return time using FAT_TIME macro to format fields</span>
-    <span class="o">*</span><span class="n">time</span> <span class="o">=</span> <span class="n">FAT_TIME</span><span class="p">(</span><span class="n">selfPointer</span><span class="o">-&gt;</span><span class="n">RTC</span><span class="p">.</span><span class="n">getValue</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span> <span class="n">selfPointer</span><span class="o">-&gt;</span><span class="n">RTC</span><span class="p">.</span><span class="n">getValue</span><span class="p">(</span><span class="mi">4</span><span class="p">),</span> <span class="n">selfPointer</span><span class="o">-&gt;</span><span class="n">RTC</span><span class="p">.</span><span class="n">getValue</span><span class="p">(</span><span class="mi">5</span><span class="p">));</span>
+    <span class="kt">uint8_t</span> <span class="n">f</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">SDCardMissing</span> <span class="o">||</span> <span class="n">SDTestFailed</span><span class="p">)</span> <span class="n">f</span> <span class="o">|=</span> <span class="mh">0x01</span><span class="p">;</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">ClockError</span><span class="p">)</span> <span class="n">f</span> <span class="o">|=</span> <span class="mh">0x02</span><span class="p">;</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">BMEError</span><span class="p">)</span> <span class="n">f</span> <span class="o">|=</span> <span class="mh">0x04</span><span class="p">;</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">SensorError</span><span class="p">)</span> <span class="n">f</span> <span class="o">|=</span> <span class="mh">0x08</span><span class="p">;</span>
+    <span class="k">return</span> <span class="n">f</span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="kt">void</span> <span class="n">Okapi</span><span class="o">::</span><span class="n">DateTimeSD_Glob</span><span class="p">(</span><span class="kt">uint16_t</span><span class="o">*</span> <span class="n">date</span><span class="p">,</span> <span class="kt">uint16_t</span><span class="o">*</span> <span class="n">time</span><span class="p">)</span> <span class="p">{</span><span class="n">selfPointer</span><span class="o">-&gt;</span><span class="n">DateTimeSD</span><span class="p">(</span><span class="n">date</span><span class="p">,</span> <span class="n">time</span><span class="p">);}</span>  <span class="c1">//Fix dumb name!</span>
+<span class="c1">// Okapi's reading of itself, per the NW-Device-Specification Okapi appendix</span>
+<span class="c1">// (hypothetical as of 2026-09-23). Block 1, power, waits on the power model</span>
+<span class="c1">// (which of VBeta and VPrime is the LiPo, the solar scaling) and stays zero.</span>
+<span class="kt">void</span> <span class="n">Okapi</span><span class="o">::</span><span class="n">fillPages</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">Pages</span><span class="p">.</span><span class="n">beginReading</span><span class="p">();</span>
+    <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">BMEError</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">Pages</span><span class="p">.</span><span class="n">put16</span><span class="p">(</span><span class="mh">0x50</span><span class="p">,</span> <span class="p">(</span><span class="kt">uint16_t</span><span class="p">)(</span><span class="kt">int16_t</span><span class="p">)(</span><span class="n">bme280</span><span class="p">.</span><span class="n">getTemperature</span><span class="p">()</span> <span class="o">*</span> <span class="mf">100.0</span><span class="p">));</span>
+        <span class="n">Pages</span><span class="p">.</span><span class="n">put16</span><span class="p">(</span><span class="mh">0x52</span><span class="p">,</span> <span class="p">(</span><span class="kt">uint16_t</span><span class="p">)(</span><span class="n">bme280</span><span class="p">.</span><span class="n">getHumidity</span><span class="p">()</span> <span class="o">*</span> <span class="mf">100.0</span><span class="p">));</span>
+        <span class="n">Pages</span><span class="p">.</span><span class="n">put32</span><span class="p">(</span><span class="mh">0x54</span><span class="p">,</span> <span class="p">(</span><span class="kt">uint32_t</span><span class="p">)(</span><span class="n">bme280</span><span class="p">.</span><span class="n">getPressure</span><span class="p">()</span> <span class="o">*</span> <span class="mf">100.0</span><span class="p">));</span>
+    <span class="p">}</span>
+    <span class="n">Pages</span><span class="p">.</span><span class="n">put32</span><span class="p">(</span><span class="mh">0x58</span><span class="p">,</span> <span class="n">clockUnix</span><span class="p">());</span> <span class="c1">//Clock: Unix seconds</span>
+    <span class="n">Pages</span><span class="p">.</span><span class="n">put16</span><span class="p">(</span><span class="mh">0x5C</span><span class="p">,</span> <span class="p">(</span><span class="kt">uint16_t</span><span class="p">)(</span><span class="kt">int16_t</span><span class="p">)(</span><span class="n">RTC</span><span class="p">.</span><span class="n">getTemp</span><span class="p">()</span> <span class="o">*</span> <span class="mf">100.0</span><span class="p">));</span>
+    <span class="n">Pages</span><span class="p">.</span><span class="n">put16</span><span class="p">(</span><span class="mh">0x60</span><span class="p">,</span> <span class="n">getExtIntCount</span><span class="p">(</span><span class="nb">false</span><span class="p">));</span>
+    <span class="n">Pages</span><span class="p">.</span><span class="n">put16</span><span class="p">(</span><span class="mh">0x62</span><span class="p">,</span> <span class="n">FileNum</span><span class="p">);</span>
+    <span class="n">Pages</span><span class="p">.</span><span class="n">put32</span><span class="p">(</span><span class="mh">0x64</span><span class="p">,</span> <span class="n">LogInterval</span><span class="p">);</span>
+    <span class="n">Pages</span><span class="p">.</span><span class="n">endReading</span><span class="p">(</span><span class="n">chipFaults</span><span class="p">());</span>
+<span class="p">}</span>
 
-<span class="kt">void</span> <span class="n">Okapi</span><span class="o">::</span><span class="n">isr0</span><span class="p">()</span> <span class="p">{</span> <span class="n">selfPointer</span><span class="o">-&gt;</span><span class="n">ButtonLog</span><span class="p">();</span> <span class="p">}</span>
+<span class="k">static</span> <span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="k">const</span> <span class="n">okapiChips</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span><span class="s">"SDCard"</span><span class="p">,</span> <span class="s">"Clock"</span><span class="p">,</span> <span class="s">"BME280"</span><span class="p">,</span> <span class="s">"SensorBus"</span><span class="p">,</span> <span class="s">"Charger"</span><span class="p">,</span> <span class="s">"Backup"</span><span class="p">};</span>
+<span class="k">static</span> <span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="k">const</span> <span class="n">okapiWords</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span><span class="s">"LoggingStarted"</span><span class="p">,</span> <span class="s">"NewLogFile"</span><span class="p">,</span> <span class="s">"RowNotWritten"</span><span class="p">};</span>   <span class="c1">//unit kinds 16-18</span>
+<span class="k">static</span> <span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="k">const</span> <span class="n">okapiChipWords</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span><span class="s">"ClockSet"</span><span class="p">};</span>   <span class="c1">//kind 16 on Clock (0x30)</span>
 
-<span class="c1">// ISR(PCINT0_vect)</span>
-<span class="c1">// {</span>
-<span class="c1">//  ManualLog = true;</span>
-<span class="c1">// }</span>
+<span class="kt">size_t</span> <span class="n">Okapi</span><span class="o">::</span><span class="n">printStatus</span><span class="p">(</span><span class="n">Print</span><span class="o">&amp;</span> <span class="n">out</span><span class="p">,</span> <span class="kt">bool</span> <span class="n">boot</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">const</span> <span class="n">NW_Report</span><span class="o">&amp;</span> <span class="n">r</span> <span class="o">=</span> <span class="n">boot</span> <span class="o">?</span> <span class="n">BootReport</span> <span class="o">:</span> <span class="n">Pages</span><span class="p">.</span><span class="n">report</span><span class="p">();</span>
+    <span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="k">const</span><span class="o">*</span> <span class="n">words</span> <span class="o">=</span> <span class="n">okapiWords</span><span class="p">;</span> <span class="kt">uint8_t</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">r</span><span class="p">.</span><span class="n">chip</span><span class="p">()</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span> <span class="n">words</span> <span class="o">=</span> <span class="n">okapiChipWords</span><span class="p">;</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="p">}</span>
+    <span class="k">return</span> <span class="n">Pages</span><span class="p">.</span><span class="n">printSnapshot</span><span class="p">(</span><span class="n">out</span><span class="p">,</span> <span class="n">okapiChips</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="n">LibVersion</span><span class="p">.</span><span class="n">c_str</span><span class="p">(),</span> <span class="o">&amp;</span><span class="n">r</span><span class="p">,</span> <span class="n">words</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">OKAPI_LIBRARY_COMMIT</span><span class="p">,</span> <span class="s">""</span><span class="p">,</span> <span class="n">SKETCH_COMMIT</span><span class="p">);</span> <span class="c1">//A logger: its library is its firmware; the sketch stands where a library would</span>
+<span class="p">}</span>
 
-<span class="c1">// ISR(PCINT0_vect) {</span>
-<span class="kt">void</span> <span class="n">Okapi</span><span class="o">::</span><span class="n">isr1</span><span class="p">()</span> <span class="p">{</span> <span class="n">selfPointer</span><span class="o">-&gt;</span><span class="n">Log</span><span class="p">();</span> <span class="p">}</span>
-<span class="kt">void</span> <span class="n">Okapi</span><span class="o">::</span><span class="n">isr2</span><span class="p">()</span> <span class="p">{</span> <span class="n">selfPointer</span><span class="o">-&gt;</span><span class="n">extIntCounter</span><span class="p">();</span> <span class="p">}</span>
-
-<span class="c1">//Low Power functions</span>
 <span class="kt">void</span> <span class="n">Okapi</span><span class="o">::</span><span class="n">sleepNow</span><span class="p">()</span>         <span class="c1">// here we put the arduino to sleep</span>
 <span class="p">{</span>
     <span class="cm">/* Now is the time to set the sleep mode. In the Atmega8 datasheet
@@ -1342,10 +751,10 @@
     <span class="c1">// digitalWrite(Ext3v3Ctrl, HIGH); //MODEL &lt;= v1</span>
     <span class="c1">// digitalWrite(Ext3v3Ctrl, LOW);  //turn off external 3v3 rail</span>
     <span class="c1">// digitalWrite(BatSwitch, LOW); //Turn off battery connection to sense divider</span>
-    <span class="c1">// PowerAux(OFF); //turn off external 3v3 rail</span>
+    <span class="c1">// powerAux(OFF); //turn off external 3v3 rail</span>
     <span class="c1">// PowerOB(OFF); //Turn off battery connection to sense divider</span>
     <span class="c1">// digitalWrite(31, HIGH); //DEBUG!</span>
-    <span class="n">PowerAux</span><span class="p">(</span><span class="n">OFF</span><span class="p">);</span> <span class="c1">//Turn off power</span>
+    <span class="n">powerAux</span><span class="p">(</span><span class="n">OFF</span><span class="p">);</span> <span class="c1">//Turn off power</span>
     <span class="c1">// digitalWrite(BatRailCtrl, HIGH);</span>
     <span class="n">delay</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
     <span class="n">digitalWrite</span><span class="p">(</span><span class="n">SD_CS</span><span class="p">,</span> <span class="n">LOW</span><span class="p">);</span>
@@ -1375,9 +784,9 @@
     <span class="c1">// digitalWrite(SD_CS, HIGH);</span>
     <span class="c1">// digitalWrite(Ext3v3Ctrl, HIGH);  //turn off external 3v3 rail</span>
     <span class="c1">// digitalWrite(BatSwitch, HIGH); //Turn off battery connection to sense divider</span>
-    <span class="n">PowerState</span> <span class="o">=</span> <span class="n">PowerAuto</span><span class="p">();</span> <span class="c1">//Fix??</span>
+    <span class="n">PowerState</span> <span class="o">=</span> <span class="n">powerAuto</span><span class="p">();</span> <span class="c1">//Fix??</span>
     <span class="c1">// PowerOB(ON); //Turn on battery connection to sense divider</span>
-    <span class="c1">// PowerAux(ON); //turn on external 3v3 rail</span>
+    <span class="c1">// powerAux(ON); //turn on external 3v3 rail</span>
     <span class="n">delay</span><span class="p">(</span><span class="mi">6</span><span class="p">);</span>                                            <span class="c1">// let the card settle</span>
     <span class="c1">// some cards will fail on power-up unless SS is pulled up  ( &amp;  D0/MISO as well? )</span>
     <span class="c1">// DDRC = DDRC | ((1&lt;&lt;DDC0) | (1&lt;&lt;DDC1));</span>
@@ -1398,7 +807,7 @@
 
 <hr />
 
-<p>Updated on 2026-09-23 at 04:49:59 +0000</p>
+<p>Updated on 2026-09-23 at 22:44:32 +0000</p>
 
         
       </section>
